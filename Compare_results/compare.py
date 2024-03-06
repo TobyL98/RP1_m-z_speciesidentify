@@ -1,8 +1,7 @@
 #####################
-## Compare_one.py
+## Compare.py
 ####################
 
-# SAME as compare.py but only for one theoretical peptide
 # function gets the theoretical peptides generated from the sequences
 # and filtered by the LCMSMS data
 # and compares how many match an actual PMF within a certain tolerance
@@ -14,7 +13,6 @@
 
 import pandas as pd
 import glob
-import time
 
 ################
 # FUNCTIONS
@@ -62,11 +60,10 @@ def compare(theor_peaks, act_peaks):
 ################
 # Main code
 ################
-start_time = time.time()
 
 # read in txt file of PMF values from data
 dtype= {"MZ": 'float32', "intensity": 'float32'}
-act_peaks_df = pd.read_table("rat_sample.txt", sep = "\t", header = None, names = ["MZ", "intensity"], dtype= dtype)
+act_peaks_df = pd.read_table("PMF_samples/Felis_catus_sample.txt", sep = "\t", header = None, names = ["MZ", "intensity"], dtype= dtype)
 
 # get all csv files
 csv_files = glob.glob("C:/Users/tobyl/OneDrive - The University of Manchester/Bioinformatics Masters/Research project 1/Git_repositories/RP1_m-z_speciesidentify/PTM_rules/Integration_code/integrate_results/*.csv", )
@@ -91,6 +88,4 @@ final_results_df = final_results_df.sort_values(by =["Match"], ascending = False
 print(final_results_df.head())
 #final_results_df.to_csv("matches.csv")
 
-end_time = time.time()
-print(end_time - start_time)
 

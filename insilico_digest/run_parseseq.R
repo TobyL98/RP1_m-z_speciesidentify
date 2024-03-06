@@ -4,8 +4,9 @@
 
 # take dataframe produced from fasta file in read_fasta
 # produces peptides generated from that for each species
-# using parse_seq function
-# this can then be merged with LCMSMS data or sequence rules can be used
+# using parse_seq_M function
+# this can then be merged with LCMSMS data
+# Code adapted from bacollite, please go there for further information or help
 
 library("bacollite")
 library("dplyr")
@@ -17,7 +18,7 @@ source("RcppExports.R")
 
 
 ###Read in csv file
-seq_df <- read.csv("C:/Users/tobyl/OneDrive - The University of Manchester/Bioinformatics Masters/Research project 1/Git_repositories/RP1_m-z_speciesidentify/Sequences/sequences_taxon2.csv", sep = ",")
+seq_df <- read.csv("C:/Users/tobyl/OneDrive - The University of Manchester/Bioinformatics Masters/Research project 1/Git_repositories/RP1_m-z_speciesidentify/Sequences/sequences_taxon.csv", sep = ",")
 
 
 #############
@@ -35,25 +36,21 @@ mass_loop <- function(df){
                    c("CLASS", "SUBCLASS", "INFRACLASS", 
                      "ORDER", "FAMILY", "GENUS", "SPECIES")] #take organism
     
-    if (row == 1){
-      #calculates peptide fragments and masses
-      pepmass_df <- parse.seq(sequence, max.missed.cleaves = 1)
-      #adds organism name as identifier
-      pepmass_df <- cbind(pepmass_df, organism)
-    }
-    else {
-      #calculates peptide fragments and masses
-      pepmass_df2 <- parse.seq(sequence, max.missed.cleaves = 1)
-      #adds organism name as identifier
-      pepmass_df2 <- cbind(pepmass_df2, organism)
-      
-      #merges this organism df with rest of df
-      pepmass_df <- rbind(pepmass_df, pepmass_df2)
-    }
+    csv_name <- df[row, "SPECIES"]
+    csv_name <- gsub(" ", "_", csv_name)
+    csv_name <- paste("C:/Users/tobyl/OneDrive - The University of Manchester/Bioinformatics Masters/Research project 1/Git_repositories/RP1_m-z_speciesidentify/insilico_digest/in_silico_res/"
+                      , csv_name, ".csv", sep = "")
+    print(csv_name)
+    #calculates peptide fragments and masses
+    pepmass_df <- parse.seq(sequence, max.missed.cleaves = 1)
+    #adds organism name as identifier
+    pepmass_df <- cbind(pepmass_df, organism)
+    write.csv(pepmass_df, file = csv_name)
+    
   }
-  return(pepmass_df)
+
 }
 
-pep_df <- mass_loop(seq_df)
+mass_loop(seq_df)
 
 
