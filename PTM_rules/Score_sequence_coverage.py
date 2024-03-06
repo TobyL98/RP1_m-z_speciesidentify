@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import re
 
-df = pd.read_csv("LCMSMS_cat.csv", sep = ',')
+df = pd.read_csv("results.csv", sep = ',')
 
 #####Taking out the protein sequence
 prot_sequence = df.loc[1, "prot_seq"]

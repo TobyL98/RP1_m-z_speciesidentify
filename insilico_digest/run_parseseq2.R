@@ -1,0 +1,55 @@
+#######################
+## run_parseseq.R
+#######################
+
+# take dataframe produced from fasta file in read_fasta
+# produces peptides generated from that for each species
+# using parse_seq function
+# this can then be merged with LCMSMS data or sequence rules can be used
+
+library("bacollite")
+library("dplyr")
+
+##adding the source for the functions used
+source("parseseq_M.R")
+source("mass_iso_M.R")
+source("RcppExports.R")
+
+
+###Read in csv file
+seq_df <- read.csv("C:/Users/tobyl/OneDrive - The University of Manchester/Bioinformatics Masters/Research project 1/Git_repositories/RP1_m-z_speciesidentify/Sequences/sequences_taxon.csv", sep = ",")
+
+
+#############
+##Function
+#############
+
+#loops through all the rows in dataframe
+#uses parse.seq to calculate peptide fragments and masses for each fragment
+#results is dataframe with masses of peptide fragments
+#for every sequence in the original dataframe
+mass_loop <- function(df){
+  for (row in 1:nrow(df)){
+    sequence <- df[row, "sequence"] #takes sequence
+    organism <- df[row, 
+                   c("CLASS", "SUBCLASS", "INFRACLASS", 
+                     "ORDER", "FAMILY", "GENUS", "SPECIES")] #take organism
+    
+    csv_name <- df[row, "SPECIES"]
+    csv_name <- gsub(" ", "_", csv_name)
+    csv_name <- paste("C:/Users/tobyl/OneDrive - The University of Manchester/Bioinformatics Masters/Research project 1/Git_repositories/RP1_m-z_speciesidentify/insilico_digest/in_silico_res/"
+                      , csv_name, ".csv", sep = "")
+    print(csv_name)
+    #calculates peptide fragments and masses
+    pepmass_df <- parse.seq(sequence, max.missed.cleaves = 1)
+    #adds organism name as identifier
+    pepmass_df <- cbind(pepmass_df, organism)
+    write.csv(pepmass_df, file = csv_name)
+    
+  }
+
+}
+
+mass_loop(seq_df)
+
+

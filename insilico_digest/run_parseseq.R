@@ -11,19 +11,14 @@ library("bacollite")
 library("dplyr")
 
 ##adding the source for the functions used
-source("parseseq.R")
-source("mass_iso.R")
+source("parseseq_M.R")
+source("mass_iso_M.R")
 source("RcppExports.R")
 
 
 ###Read in csv file
-seq_df <- read.csv("seq.csv", sep = ",")
+seq_df <- read.csv("C:/Users/tobyl/OneDrive - The University of Manchester/Bioinformatics Masters/Research project 1/Git_repositories/RP1_m-z_speciesidentify/Sequences/sequences_taxon2.csv", sep = ",")
 
-#rename column to organism
-seq_df <- seq_df %>%
-  rename(
-    Organism = X
-  )
 
 #############
 ##Function
@@ -36,7 +31,9 @@ seq_df <- seq_df %>%
 mass_loop <- function(df){
   for (row in 1:nrow(df)){
     sequence <- df[row, "sequence"] #takes sequence
-    organism <- df[row, "Organism"] #take organism
+    organism <- df[row, 
+                   c("CLASS", "SUBCLASS", "INFRACLASS", 
+                     "ORDER", "FAMILY", "GENUS", "SPECIES")] #take organism
     
     if (row == 1){
       #calculates peptide fragments and masses

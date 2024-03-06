@@ -3,8 +3,8 @@ library(dplyr)
 sampledf3 <- read.table("rat_sample.txt", sep = '\t', col.names = c("m.z", "intensity"))
 sampledf3 <- sampledf3 %>%
   mutate(across(c('m.z'), round, 1))
-sampledf3$m.z_plus1 <- sampledf3$m.z + 0.1
-sampledf3$m.zminus1 <- sampledf3$m.z - 0.1
+sampledf3$m.z_plus1 <- sampledf3$m.z + 0.5
+sampledf3$m.zminus1 <- sampledf3$m.z - 0.5
 
 rat_table_df <- read.csv("results.csv", sep = ",")
 rat_table_df <- rat_table_df %>%

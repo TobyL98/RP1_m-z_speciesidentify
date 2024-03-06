@@ -109,7 +109,8 @@ for index, row in Pos_sorted_df.iterrows():
         pep_seq_df = pep_seq_df.reset_index(drop = True)
         pep_seq_df["pep_id"] = seq_count # add a unique identifier
 
-        #use apply on function to count number of hydroxylations (P and K)
+        #use apply on function to count number of hydroxylations (M, P and K)
+        #and demidations (N and Q)
         #from LC-MS/MS data
         pep_seq_df["hyd_count"] = pep_seq_df["pep_var_mod"].apply(mod_count, res = r"[MPK]")
         pep_seq_df["deam_count"] = pep_seq_df["pep_var_mod"].apply(mod_count, res = r"NQ")
@@ -125,8 +126,8 @@ for index, row in Pos_sorted_df.iterrows():
         #pep_seq_df = pep_seq_df.sort_values(by = ["pep_score"], ascending = False)
         #pep_seq_df = pep_seq_df.head(2)
 
-        # add 2 to calculate PMF value, adding 2 as seems to correlate with pre mr values
-        pep_seq_df["PMF_predict"] = pep_seq_df["pep_exp_mr"] + 2
+        # add 1 to calculate PMF value
+        pep_seq_df["PMF_predict"] = pep_seq_df["pep_exp_mr"] + 1
         # adds the df to a dictionary
         pep_seq_df_list.append(pep_seq_df)
 

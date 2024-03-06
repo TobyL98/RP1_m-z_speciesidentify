@@ -49,11 +49,11 @@ def readFastaFile(fileName):
                     if (taxon_names[2] == "Laurasiatheria" or
                         taxon_names[2] == "Euarchontoglires"):
                         if taxon_names[3] == "Glires":
-                            name += "|ORDER" + taxon_names[4]
+                            name += "|ORDER=" + taxon_names[4]
                         else:
-                            name += "|ORDER" + taxon_names[3]
+                            name += "|ORDER=" + taxon_names[3]
                     else:
-                        name += "|ORDER" + taxon_names[2]
+                        name += "|ORDER=" + taxon_names[2]
                 # Most examples:
                 # Mammalia-Theria-Eutheria-Carnivora
                 # ORDER = Carnivora
@@ -72,12 +72,13 @@ def readFastaFile(fileName):
                 name += "|GENUS=" + genus
                 name += "|SPECIES=" + taxon_names[-1]
 
-                
-
+                # will only create new dictionary item if
+                # name is not already in names list
                 if name in names:
                     name = name
                 names.append(name)
                 sequences[name] = ''
+        # adds the sequences lines as the dictionary value
         elif class_name == "Mammalia":
             sequences[name] += line.rstrip('\n')  # concat to growing dict value
         else:
@@ -86,21 +87,13 @@ def readFastaFile(fileName):
     return (sequences)
 
 # formats the A1 sequences
-file = 'COL1A1_seqs.fasta'
+file = 'COL1A1_seqs_clean.fasta'
 output_COL1A1_dict = readFastaFile(file)
-#print(output_seq)
 
-# filters the A1 sequences by sequence length
-# cleans the dataset
-output_COL1A1_final_dict = {}
-for key, value in output_COL1A1_dict.items():
-    if len(value) >= 1055 and len(value) <= 1058:
-        output_COL1A1_final_dict[key] = value
+print(len(output_COL1A1_dict))
 
-print(len(output_COL1A1_final_dict))
-
-#COL1A2 is already clean
-file2 = 'COL1A2_seqs.fasta'
+#formats COL1A2 sequence
+file2 = 'COL1A2_seqs_clean.fasta'
 output_COL1A2_dict = readFastaFile(file2)
 
 print(len(output_COL1A2_dict))
@@ -109,17 +102,17 @@ print(len(output_COL1A2_dict))
 # now one sequence with R (Arginine) in between
 # combine if they have same key (i.e., same species)
 A1A2_combined_dict = {}
-for key in output_COL1A1_final_dict:
+for key in output_COL1A1_dict:
     if key in output_COL1A2_dict:
-        A1A2_combined_dict[key] = output_COL1A1_final_dict[key] + "R" + output_COL1A2_dict[key]
+        A1A2_combined_dict[key] = output_COL1A1_dict[key] + "R" + output_COL1A2_dict[key]
 
-print(len(A1A2_combined_dict))
+print("Combined= {0}".format(len(A1A2_combined_dict)))
 
 # Converting back to fasta format
-fh = open("CO1A1A2_combined_seqs.fasta", "w")
+fh = open("COL1A1A2_combined_seqs.fasta", "w")
 for key in A1A2_combined_dict:
     # first line is key
-    print("<{0}".format(key), file = fh)
+    print(">{0}".format(key), file = fh)
     # add lines for sequence
     print(A1A2_combined_dict[key], file = fh)
 

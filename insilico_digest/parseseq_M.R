@@ -4,10 +4,6 @@
 
 library("bacollite")
 
-##adding the source for the functions used
-source("parseseq.R")
-source("mass_iso_M.R")
-source("RcppExports.R")
 #' Parse an amino acid sequence into a set of peptides, incorporating hydroxylation and deamidation modifications, and calculating mass
 #'
 #' @param seqeunce a character string holding the sequence, e.g. "GPPGAPGPPGPP"
@@ -107,7 +103,8 @@ parse.seq <- function(sequence,cuts="K|R",skip="X", massmin = 800, massmax = 350
                   ,nglut=dd
                   #,mass1 = masses$mass[1] + (dd*0.984015)+(hh*16)
                   ,mass1 = masses$mass[1]
-                  ,seqpos = start
+                  ,seq_start = start
+                  ,seq_end = pos
                   ,missed.cleaves = num.mc -1 # we have to subtract 1 because we've incremented num.mc already
                 )
                 

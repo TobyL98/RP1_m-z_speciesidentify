@@ -5,7 +5,7 @@
 # Code uses the LC-MSMS data from multiple species
 # collagen A1 and A2
 # groups the data by peptides that have the same start and end positions
-# presumable the same or very similar pepetides due to lack variation
+# presumably the same or very similar pepetides due to lack variation
 # in collagen
 # uses these groups to work out common oxidation and deamidations in the peptide
 # these can then be applied to theoretically (in silico) generated peptides
@@ -16,16 +16,16 @@
 ###  Functions  ###
 ###################
 
-#This function uses the Pep-var_mod column
-#to work out the number of PTMS in targeted residue (P, K, N/Q)
-#that there is in each peptide fragment sequenced by LC-MS/MS
+# This function uses the Pep-var_mod column
+# to work out the number of PTMS in targeted residue (P, K, N/Q)
+# that there is in each peptide fragment sequenced by LC-MS/MS
 def mod_count(mods, res):
     mods = str(mods)
     
     mod_count = 0
     mods_list = []
     if re.search(r";", mods):
-        #splits if it has ; 
+        # splits if it has ; 
         # then seperates target residue modifications from other mods
         # example input: Oxidation (K); 2 Oxidation (P) 
         all = mods.split(";") 
@@ -52,6 +52,10 @@ def mod_count(mods, res):
 
     return(mod_count)
 
+##########################
+## Start of code
+##########################
+
 
 ## Loading modules
 import pandas as pd
@@ -68,11 +72,18 @@ csv_files = glob.glob('C:/Users/tobyl/OneDrive - The University of Manchester/Bi
 # creates dataframe with columns required
 # adds df to list
 df_list = []
-dtypes = {"pep_score": "float32", "pep_start": "int32", "pep_end": "int32", "pep_exp_mor": "float32"}
+dtypes = {"pep_score": "float32", "pep_exp_mr": "float32"}
 for csv in csv_files:
     new_df = pd.read_csv(csv, sep = ",", dtype= dtypes)
     new_df = new_df[["pep_seq", "pep_score", "pep_start", "pep_end", "pep_exp_mr", "pep_miss", "pep_var_mod", "prot_acc"]]
+
+    # drop all empty rows
+    new_df.dropna(how="all", inplace=True)
+    #change start and end columns to int
+    new_df = new_df.astype({"pep_start": int, "pep_end": int})
+
     df_list.append(new_df)
+
 
 #combines all dataframes in the list into single df   
 df = pd.concat(df_list)
@@ -80,7 +91,7 @@ df = pd.concat(df_list)
 Pos_sorted_df = df.sort_values(by = ["pep_start", "pep_end"])
 
 # create a startend list
-# means don't repeat sequencesz in dataframe
+# means don't repeat sequences in dataframe
 pep_startend_list = []
 
 pep_seq_df_list = []
@@ -119,7 +130,8 @@ for index, row in Pos_sorted_df.iterrows():
         pep_seq_df = pep_seq_df.reset_index(drop = True)
         pep_seq_df["pep_id"] = seq_count # add a unique identifier
 
-        #use apply on function to count number of hydroxylations (P and K)
+        #use apply on function to count number of hydroxylations (M, P and K)
+        #and demidations (N and Q)
         #from LC-MS/MS data
         pep_seq_df["hyd_count"] = pep_seq_df["pep_var_mod"].apply(mod_count, res = r"[MPK]")
         pep_seq_df["deam_count"] = pep_seq_df["pep_var_mod"].apply(mod_count, res = r"NQ")
@@ -132,8 +144,8 @@ for index, row in Pos_sorted_df.iterrows():
             {"prot_acc": ', '.join, "pep_score": "max", "pep_exp_mr": "mean", "pep_start": "min", "pep_end": "min"})
         
         #Picking out top two values
-        pep_seq_df = pep_seq_df.sort_values(by = ["pep_score"], ascending = False)
-        pep_seq_df = pep_seq_df.head(2)
+        #pep_seq_df = pep_seq_df.sort_values(by = ["pep_score"], ascending = False)
+        #pep_seq_df = pep_seq_df.head(2)
 
         # add 1 to calculate PMF value
         pep_seq_df["PMF_predict"] = pep_seq_df["pep_exp_mr"] + 1
@@ -156,4 +168,4 @@ correct_order = ["pep_id", "pep_seq", "pep_start", "pep_end", "pep_exp_mr", "hyd
 all_peps_df = all_peps_df.reindex(columns = correct_order)
 all_peps_df = all_peps_df.reset_index()
 
-all_peps_df.to_csv("sequence_masses_two.csv", sep = ',')
+all_peps_df.to_csv("sequence_masses.csv", sep = ',')
