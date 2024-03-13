@@ -5,7 +5,7 @@
 # function gets the theoretical peptides generated from the sequences
 # and filtered by the LCMSMS data
 # and compares how many match an actual PMF within a certain tolerance
-# tolerance is is usually 0.2
+# tolerance is usually 0.2
 # returns the resuls with the number of matches for each species
 # ordered by highest number of matches
 # highest number of matches should be the species most closely related
@@ -13,6 +13,7 @@
 
 import pandas as pd
 import glob
+import argparse
 
 ################
 # FUNCTIONS
@@ -60,13 +61,30 @@ def compare(theor_peaks, act_peaks):
 ################
 # Main code
 ################
+# set up argparse
+parser = argparse.ArgumentParser()
+# add arguments
+# adds the folder where the input theoretical peak spectrums are
+parser.add_argument("-it", "--inputTheor",
+                    help = "the folder that contains the theoretical peptides csv files to compare against PMF",
+                    default= "C:/Users/tobyl/OneDrive - The University of Manchester/Bioinformatics Masters/Research project 1/Git_repositories/RP1_m-z_speciesidentify/theoretical_peptides_pipeline/PTM_rules/Integration_code/integrate_results")
+# adds where the output file should be saved
+parser.add_argument("-o", "--output",
+                    help= "The file name for the output results file of number of matches",
+                    default = "Results/matches.csv")
+# adds where the input peptide mass fingerprint
+parser.add_argument("-ip", "--inputPMF",
+                    help= "The input Peptide mass fingerprint (PMF) from an unknown organism.")
+args = parser.parse_args()
 
 # read in txt file of PMF values from data
+input_PMF = args.inputPMF
 dtype= {"MZ": 'float32', "intensity": 'float32'}
-act_peaks_df = pd.read_table("PMF_samples/Felis_catus_sample.txt", sep = "\t", header = None, names = ["MZ", "intensity"], dtype= dtype)
+act_peaks_df = pd.read_table(input_PMF, sep = "\t", header = None, names = ["MZ", "intensity"], dtype= dtype)
 
 # get all csv files
-csv_files = glob.glob("C:/Users/tobyl/OneDrive - The University of Manchester/Bioinformatics Masters/Research project 1/Git_repositories/RP1_m-z_speciesidentify/PTM_rules/Integration_code/integrate_results/*.csv", )
+file_path = "{0}/*.csv".format(args.inputTheor)
+csv_files = glob.glob(file_path)
 
 # read in all csvs of theoretical peptide peaks
 dtype = {"mass1": 'float32', "CLASS": 'category', "SUBCLASS": 'category', "ORDER": 'category',
@@ -86,6 +104,7 @@ for csv in csv_files:
 final_results_df = pd.concat(results_list)
 final_results_df = final_results_df.sort_values(by =["Match"], ascending = False)
 print(final_results_df.head())
-#final_results_df.to_csv("matches.csv")
+output_path = args.output
+final_results_df.to_csv(output_path)
 
 

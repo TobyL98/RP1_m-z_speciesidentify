@@ -55,7 +55,7 @@ def compare(theor_peaks, act_peaks):
     # combines with the taxon information to identify which species it is
     taxon_df = theor_peaks.loc[[0] ,["CLASS", "SUBCLASS", "INFRACLASS", "ORDER", "FAMILY", "GENUS", "SPECIES"]]
     final_df = pd.concat([taxon_df , result_df], axis = 1)
-    print(final_df)
+    print(final_df.head())
      
 
 ################
@@ -70,7 +70,7 @@ theor_peaks_df = pd.read_csv("C:/Users/tobyl/OneDrive - The University of Manche
 
 # read in txt file of PMF values from data
 dtype= {"MZ": float}
-act_peaks_df = pd.read_table("rat_sample.txt", sep = "\t", header = None, names = ["MZ", "intensity"], dtype= dtype)
+act_peaks_df = pd.read_table("PMF_samples", sep = "\t", header = None, names = ["MZ", "intensity"], dtype= dtype)
 
 # run the function
 compare(theor_peaks_df, act_peaks_df)

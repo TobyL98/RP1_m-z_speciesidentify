@@ -1,0 +1,21 @@
+,CLASS,SUBCLASS,INFRACLASS,ORDER,FAMILY,GENUS,SPECIES,Match,ID_score
+0,Mammalia,Theria,Eutheria,Carnivora,Canidae,Vulpes,Vulpes vulpes,99,0.9810528271198272
+0,Mammalia,Theria,Eutheria,Carnivora,Canidae,Canis,Canis lupus,97,0.9672254123687744
+0,Mammalia,Theria,Eutheria,Carnivora,Mustelidae,Mustela,Mustela putorius,94,0.9533801751136779
+0,Mammalia,Theria,Eutheria,Carnivora,Ursidae,Ailuropoda,Ailuropoda melanoleuca,93,0.9452978739738465
+0,Mammalia,Theria,Eutheria,Carnivora,Mustelidae,Lutra,Lutra lutra,93,0.9439796576499939
+0,Mammalia,Theria,Eutheria,Carnivora,Felidae,Felis,Felis catus,92,0.9400233390331268
+0,Mammalia,Theria,Eutheria,Carnivora,Ursidae,Ursus,Ursus maritimus,100,0.9361613661050796
+0,Mammalia,Theria,Eutheria,Carnivora,Felidae,Panthera,Panthera tigris,91,0.9357338900566101
+0,Mammalia,Theria,Eutheria,Carnivora,Mustelidae,Lontra,Lontra canadensis,91,0.9310561175346375
+0,Mammalia,Theria,Eutheria,Carnivora,Mustelidae,Meles,Meles meles,88,0.9111391041278839
+0,Mammalia,Theria,Eutheria,Carnivora,Felidae,Leopardus,Leopardus geoffroyi,88,0.9099309775829315
+0,Mammalia,Theria,Eutheria,Carnivora,Hyaenidae,Hyaena,Hyaena hyaena,87,0.9090000119209289
+0,Mammalia,Theria,Eutheria,Carnivora,Mustelidae,Enhydra,Enhydra lutris,88,0.9083420071601868
+0,Mammalia,Theria,Eutheria,Carnivora,Otariidae,Callorhinus,Callorhinus ursinus,87,0.899537416934967
+0,Mammalia,Theria,Eutheria,Perissodactyla,Equidae,Equus,Equus caballus,91,0.8786208386421204
+0,Mammalia,Theria,Eutheria,Perissodactyla,Equidae,Equus,Equus asinus,90,0.8732742565870285
+0,Mammalia,Theria,Eutheria,Rodentia,Heteromyidae,Dipodomys,Dipodomys ordii,89,0.8530077080726624
+0,Mammalia,Theria,Eutheria,Rodentia,Heteromyidae,Dipodomys,Dipodomys spectabilis,87,0.8392116453647613
+0,Mammalia,Theria,Eutheria,Artiodactyla,Bovidae,Bos,Bos taurus,85,0.8337021332979202
+0,Mammalia,Theria,Eutheria,Rodentia,Sciuridae,Marmota,Marmota marmota,85,0.8233575385808944
