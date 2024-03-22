@@ -1,0 +1,21 @@
+,GENUS,SPECIES,Match,ID_score
+0,Manis,Manis javanica,117,0.9922383546829223
+0,Sciurus,Sciurus carolinensis,116,0.984303605199879
+0,Ailuropoda,Ailuropoda melanoleuca,115,0.98134271431173
+0,Galeopterus,Galeopterus variegatus,114,0.9778170396120119
+0,Hyaena,Hyaena hyaena,113,0.9748160049956068
+0,Callithrix,Callithrix jacchus,114,0.974732082012372
+0,Carlito,Carlito syrichta,114,0.9747263003618288
+0,Choloepus,Choloepus didactylus,113,0.9731072292368635
+0,Urocitellus,Urocitellus parryii,114,0.9713443030149508
+0,Ursus,Ursus maritimus,112,0.970085482006399
+0,Nyctereutes,Nyctereutes procyonoides,114,0.9686282683641482
+0,Desmodus,Desmodus rotundus,113,0.9670019850771651
+0,Rhinopithecus,Rhinopithecus roxellana,112,0.964164922838537
+0,Ursus,Ursus arctos,112,0.963979969625799
+0,Ursus,Ursus americanus,112,0.963979969625799
+0,Panthera,Panthera leo,112,0.9624490839293879
+0,Panthera,Panthera onca,112,0.9624490839293879
+0,Panthera,Panthera uncia,112,0.9624490839293879
+0,Suricata,Suricata suricatta,112,0.9622377556613367
+0,Castor,Castor canadensis,112,0.959543774729101

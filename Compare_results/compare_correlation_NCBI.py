@@ -67,13 +67,15 @@ def compare(theor_peaks, act_peaks):
 # then takes out the correlation at 0 lag
 # and the mean of the correlation at lags
 # and returns the differnece between the two
-def cross_corr(act_peaks, theor_peaks):
-    corrs = signal.correlate(theor_peaks, act_peaks)
-    lags = signal.correlation_lags(len(theor_peaks), len(act_peaks))
-    corr0 = corrs[np.where(lags == 0)]
-    corr_mean = np.mean(corrs)
-    corr_diff = corr0 - corr_mean
-    return(corr_diff)
+def cross_corr(theor_peaks, act_peaks):
+    # won't run if act_peaks dataframe is empty
+    if len(act_peaks) != 0:
+        corrs = signal.correlate(theor_peaks, act_peaks)
+        lags = signal.correlation_lags(len(theor_peaks), len(act_peaks))
+        corr0 = corrs[np.where(lags == 0)]
+        corr_mean = np.mean(corrs)
+        corr_diff = corr0 - corr_mean
+        return(corr_diff)
 
 
 # function does the comparison between one set of theoretical peptides
@@ -101,7 +103,9 @@ def compare_corr(theor_peaks, act_peaks):
         filter_theor_peaks = filter_theor_peaks.sort_values()
 
         corr_diff = cross_corr(filter_theor_peaks, filter_act_peaks)
-        corr_diff_list.append(corr_diff)
+        # will only append if corr_diff returns value
+        if corr_diff is not None:
+            corr_diff_list.append(corr_diff)
 
     # finds the mean for corr_diff
     corr_diff_array = np.concatenate(corr_diff_list)
@@ -153,7 +157,7 @@ for csv in csv_files:
 # put all results in one dataframe
 match_results_df = pd.concat(results_list)
 match_results_df = match_results_df.sort_values(by =["Match"], ascending = False)
-#print(final_results_df.head())
+match_results_df.to_csv("matches_where.csv")
 
 
 ###### STARTING CROSS CORRELATION
@@ -183,6 +187,10 @@ for csv in csv_files:
         corr_mean = compare_corr(theor_peaks_df, act_peaks_df)
         csv_names = csv_name.split("_")
         species_name = csv_names[0] + " " + csv_names[1]
+        # if it has three words in name
+        # and third word doesn't contain .csv
+        if csv_names[2].endswith(".csv") == False:
+            species_name += " " + csv_names[2]
         cross_corr_dict[species_name] = corr_mean
 
 # converts that dictionary into a dataframe
@@ -199,8 +207,9 @@ final_df["Corr_Score"] = final_df["Corr_Score"] / final_df["Corr_Score"].max()
 # calculates a final ID_score which is the final ranking
 # includes 0.3 weight for the Corr_Score and 0.7 for the match_score
 final_df["ID_score"] = (final_df["Corr_Score"] * 0.3) + (final_df["match_score"] * 0.7)
+final_df["ID_score"] = final_df["ID_score"].round(decimals = 2)
 final_df = final_df.drop(["Corr_Score", "match_score"], axis = 1)
-final_df = final_df.sort_values(by= ["ID_score"], ascending= False)
+final_df = final_df.sort_values(by= ["ID_score", "Match"], ascending= False)
 
 # outputs the final_df to the specified file path by user
 output_path = args.output

@@ -10,7 +10,7 @@
 import pandas as pd
 
 def FastaToCSV():
-    fileName = 'Sequences/COL1A1A2_combined_seqs.fasta'
+    fileName = 'Sequences/COL1A1A2_combined_seqs_NCBI.fasta'
     
     fileObj = open(fileName, 'r')
     known_taxons = []       #  ... and a list to contain their names

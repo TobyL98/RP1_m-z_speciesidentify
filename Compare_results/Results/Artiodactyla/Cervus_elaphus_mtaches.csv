@@ -1,0 +1,20 @@
+,GENUS,SPECIES,Match,ID_score
+0,Dama,Dama dama,157,1.0
+0,Cervus,Cervus elaphus,157,0.99
+0,Cervus,Cervus canadensis,157,0.99
+0,Odocoileus,Odocoileus virginianus texanus,155,0.98
+0,Budorcas,Budorcas taxicolor,151,0.97
+0,Oryx,Oryx dammah,150,0.96
+0,Ovis,Ovis aries,150,0.96
+0,Capra,Capra hircus,149,0.96
+0,Moschus,Moschus berezovskii,149,0.96
+0,Bison,Bison bison bison,146,0.95
+0,Bos,Bos javanicus,146,0.95
+0,Bos,Bos taurus,146,0.95
+0,Bos,Bos indicus,145,0.95
+0,Bos,Bos mutus,145,0.94
+0,Bubalus,Bubalus bubalis,145,0.94
+0,Bubalus,Bubalus kerabau,145,0.94
+0,Kogia,Kogia breviceps,138,0.91
+0,Propithecus,Propithecus coquereli,138,0.91
+0,Phacochoerus,Phacochoerus africanus,136,0.9

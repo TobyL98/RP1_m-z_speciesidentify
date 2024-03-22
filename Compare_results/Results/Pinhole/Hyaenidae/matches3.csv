@@ -1,0 +1,21 @@
+,GENUS,SPECIES,Match,ID_score
+0,Hyaena,Hyaena hyaena,158,0.9973217964172363
+0,Felis,Felis catus,158,0.9945834994316101
+0,Prionailurus,Prionailurus bengalensis,158,0.9911723554134368
+0,Prionailurus,Prionailurus viverrinus,158,0.9911723554134368
+0,Panthera,Panthera pardus,156,0.9911392524272581
+0,Acinonyx,Acinonyx jubatus,158,0.9910730838775634
+0,Lynx,Lynx canadensis,158,0.9910730838775634
+0,Lynx,Lynx rufus,158,0.9910730838775634
+0,Suricata,Suricata suricatta,157,0.9876689769044706
+0,Neofelis,Neofelis nebulosa,157,0.9866078652158567
+0,Leopardus,Leopardus geoffroyi,157,0.986132130743582
+0,Panthera,Panthera tigris,155,0.9828360608861416
+0,Panthera,Panthera uncia,156,0.9822215631038328
+0,Panthera,Panthera leo,156,0.9822215631038328
+0,Panthera,Panthera onca,156,0.9822215631038328
+0,Ailuropoda,Ailuropoda melanoleuca,147,0.9456134964393663
+0,Manis,Manis javanica,147,0.9452438284324693
+0,Ursus,Ursus americanus,146,0.9411968853654741
+0,Ursus,Ursus arctos,146,0.9411968853654741
+0,Vulpes,Vulpes vulpes,147,0.937891297476201

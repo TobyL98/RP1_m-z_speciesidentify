@@ -1,0 +1,16 @@
+,GENUS,SPECIES,Match,ID_score
+0,Bos,Bos indicus,93,0.9959794998168945
+0,Bos,Bos taurus,93,0.9959794998168945
+0,Bos,Bos javanicus,93,0.9959794998168945
+0,Bos,Bos mutus,92,0.988391940568083
+0,Bubalus,Bubalus kerabau,89,0.9698924850392086
+0,Bubalus,Bubalus bubalis,89,0.9697174261975032
+0,Moschus,Moschus berezovskii,88,0.9589503465801157
+0,Cervus,Cervus elaphus,84,0.9284082720356602
+0,Ursus,Ursus arctos,86,0.8894544009559897
+0,Ursus,Ursus americanus,86,0.8894544009559897
+0,Nyctereutes,Nyctereutes procyonoides,87,0.8882776038300606
+0,Ursus,Ursus maritimus,85,0.8879404358005011
+0,Vulpes,Vulpes lagopus,87,0.8864958123814675
+0,Vulpes,Vulpes vulpes,87,0.8859332339417549
+0,Ailuropoda,Ailuropoda melanoleuca,85,0.8813053212499106

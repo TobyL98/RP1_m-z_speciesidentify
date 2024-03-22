@@ -67,7 +67,7 @@ import re
 
 # load in data
 # load in all csv files in PTM_rules folder
-csv_files = glob.glob('C:/Users/tobyl/OneDrive - The University of Manchester/Bioinformatics Masters/Research project 1/Git_repositories/RP1_m-z_speciesidentify/PTM_rules/LCMSMS/*.csv')
+csv_files = glob.glob('C:/Users/tobyl/OneDrive - The University of Manchester/Bioinformatics Masters/Research project 1/Git_repositories/RP1_m-z_speciesidentify/theoretical_peptides_pipeline/PTM_rules/LCMSMS/*.csv')
 
 # loops through all CSV files
 # creates dataframe with columns required
@@ -105,10 +105,10 @@ for index, row in Pos_sorted_df.iterrows():
     pep_start = row["pep_start"]
     # creates a start list based on peptide start
     # allows two behind and two after to account for frameshifts
-    start_list = list(range(pep_start - 2, pep_start + 2, 1))
+    start_list = list(range(pep_start - 4, pep_start + 4, 1))
     pep_end = row["pep_end"]
     # creates an end list based on peptide start
-    end_list = list(range(pep_end -2, pep_end + 2, 1))
+    end_list = list(range(pep_end - 4, pep_end + 4, 1))
     # gets the sequences length
     seq_length = pep_end - pep_start
     # puts into a tuple which accounts for all three factors

@@ -1,0 +1,21 @@
+,GENUS,SPECIES,Match,ID_score
+0,Canis,Canis lupus familiaris,116,0.989451390504837
+0,Nyctereutes,Nyctereutes procyonoides,116,0.9867803275585174
+0,Canis,Canis lupus dingo,116,0.9866310775279998
+0,Vulpes,Vulpes lagopus,116,0.9846733629703521
+0,Vulpes,Vulpes vulpes,116,0.9844115197658538
+0,Ursus,Ursus maritimus,109,0.9577586326105841
+0,Ailuropoda,Ailuropoda melanoleuca,110,0.9575275347150605
+0,Ursus,Ursus arctos,109,0.951957670162464
+0,Ursus,Ursus americanus,109,0.951957670162464
+0,Hyaena,Hyaena hyaena,107,0.942579973566121
+0,Panthera,Panthera uncia,107,0.9356532581921281
+0,Panthera,Panthera onca,107,0.9356532581921281
+0,Panthera,Panthera leo,107,0.9356532581921281
+0,Panthera,Panthera tigris,105,0.9312792225130673
+0,Lutra,Lutra lutra,105,0.9206230445154782
+0,Mustela,Mustela erminea,104,0.9195444495513521
+0,Suricata,Suricata suricatta,104,0.9186372370555482
+0,Prionailurus,Prionailurus viverrinus,104,0.9175402731731019
+0,Lynx,Lynx canadensis,104,0.9173630089595399
+0,Lynx,Lynx rufus,104,0.9173630089595399

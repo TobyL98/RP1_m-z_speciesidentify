@@ -1,0 +1,21 @@
+,GENUS,SPECIES,Match,ID_score
+0,Loxodonta,Loxodonta africana,144,0.9951724257140323
+0,Elephas,Elephas maximus indicus,145,0.9904245555400848
+0,Panthera,Panthera onca,114,0.8392884759245247
+0,Panthera,Panthera leo,114,0.8392884759245247
+0,Panthera,Panthera uncia,114,0.8392884759245247
+0,Panthera,Panthera tigris,112,0.8386710961933793
+0,Odobenus,Odobenus rosmarus divergens,113,0.8335413688626783
+0,Mustela,Mustela lutreola,111,0.8289537535453664
+0,Mustela,Mustela nigripes,111,0.8289537535453664
+0,Mustela,Mustela erminea,111,0.8289537535453664
+0,Neogale,Neogale vison,111,0.8289537535453664
+0,Mustela,Mustela putorius furo,111,0.8289537535453664
+0,Zalophus,Zalophus californianus,110,0.8273409438544306
+0,Lutra,Lutra lutra,112,0.8269471605892839
+0,Eumetopias,Eumetopias jubatus,111,0.8240605996394978
+0,Callorhinus,Callorhinus ursinus,111,0.8239782558227406
+0,Hyaena,Hyaena hyaena,110,0.8237882090025934
+0,Nyctereutes,Nyctereutes procyonoides,110,0.8161853981429132
+0,Canis,Canis lupus dingo,110,0.8160772157126459
+0,Vulpes,Vulpes vulpes,110,0.8144953978472742

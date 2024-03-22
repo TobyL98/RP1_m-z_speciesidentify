@@ -46,10 +46,10 @@ def integrate(output_path):
 
         # creating columns for a range around pep_start and pep_end
         # can then filter between these ranges
-        LCMSMS_df["pep_start_max"] = LCMSMS_df["pep_start"] + 2
-        LCMSMS_df["pep_start_min"] = LCMSMS_df["pep_start"] - 2
-        LCMSMS_df["pep_end_max"] = LCMSMS_df["pep_end"] + 2
-        LCMSMS_df["pep_end_min"] = LCMSMS_df["pep_end"] - 2
+        LCMSMS_df["pep_start_max"] = LCMSMS_df["pep_start"] + 4
+        LCMSMS_df["pep_start_min"] = LCMSMS_df["pep_start"] - 4
+        LCMSMS_df["pep_end_max"] = LCMSMS_df["pep_end"] + 4
+        LCMSMS_df["pep_end_min"] = LCMSMS_df["pep_end"] - 4
 
         # creating pep_diff to includ in merge
         LCMSMS_df["pep_diff"] = LCMSMS_df["pep_end"] - LCMSMS_df["pep_start"]
@@ -62,7 +62,7 @@ def integrate(output_path):
         predict_LC_df = pd.merge(predict_df, LCMSMS_df, 
                                  on = ["hyd_count", "deam_count", "pep_diff"], how = 'inner')
 
-        # filtering the values so that we only have rows where the pep_starts and pep_ends are within +- 2
+        # filtering the values so that we only have rows where the pep_starts and pep_ends are within +- 4
         predict_LC_df = predict_LC_df[(predict_LC_df["pep_start"] >= predict_LC_df["pep_start_min"]) &
                                       (predict_LC_df["pep_start"] <= predict_LC_df["pep_start_max"]) &
                                       (predict_LC_df["pep_end"] >= predict_LC_df["pep_end_min"]) &

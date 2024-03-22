@@ -1,0 +1,21 @@
+,GENUS,SPECIES,Match,ID_score
+0,Equus,Equus caballus,43,0.9258600493272146
+0,Castor,Castor canadensis,48,0.9228322774171829
+0,Equus,Equus asinus,42,0.9125000119209289
+0,Dipodomys,Dipodomys ordii,47,0.9019374976555505
+0,Delphinapterus,Delphinapterus leucas,44,0.8926741937796274
+0,Monodon,Monodon monoceros,44,0.8922659615675608
+0,Kogia,Kogia breviceps,44,0.890089930097262
+0,Dipodomys,Dipodomys spectabilis,46,0.8857597549756367
+0,Pongo,Pongo pygmaeus,44,0.8766233930985132
+0,Physeter,Physeter catodon,43,0.8741824795802434
+0,Gorilla,Gorilla gorilla gorilla,44,0.8727109293142954
+0,Desmodus,Desmodus rotundus,44,0.8700746605793634
+0,Pongo,Pongo abelii,43,0.8615673055251439
+0,Nomascus,Nomascus leucogenys,43,0.8593668063481649
+0,Homo,Homo sapiens,43,0.8580712993939718
+0,Tupaia,Tupaia chinensis,43,0.8522405048211416
+0,Urocitellus,Urocitellus parryii,43,0.8441902418931325
+0,Colobus,Colobus angolensis palliatus,42,0.842136013507843
+0,Nannospalax,Nannospalax galili,42,0.8399915128946304
+0,Marmota,Marmota monax,42,0.8355514585971832

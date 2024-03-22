@@ -1,0 +1,21 @@
+,GENUS,SPECIES,Match,ID_score
+0,Dama,Dama dama,113,1.000000011920929
+0,Cervus,Cervus elaphus,113,0.9995431125164032
+0,Cervus,Cervus canadensis,113,0.9995431125164032
+0,Moschus,Moschus berezovskii,111,0.9871876768306292
+0,Odocoileus,Odocoileus virginianus texanus,109,0.9736588343054846
+0,Ursus,Ursus arctos,110,0.9412320989423093
+0,Ursus,Ursus americanus,110,0.9412320989423093
+0,Ursus,Ursus maritimus,109,0.9400289698512152
+0,Neogale,Neogale vison,109,0.9325793429286078
+0,Mustela,Mustela putorius furo,109,0.9325793429286078
+0,Mustela,Mustela nigripes,109,0.9325793429286078
+0,Mustela,Mustela lutreola,109,0.9325793429286078
+0,Mustela,Mustela erminea,109,0.9325793429286078
+0,Meles,Meles meles,109,0.9324569447905615
+0,Felis,Felis catus,108,0.9307886014469957
+0,Canis,Canis lupus dingo,109,0.9281132265002325
+0,Panthera,Panthera onca,108,0.9276215086468553
+0,Neofelis,Neofelis nebulosa,108,0.9274535129555559
+0,Lutra,Lutra lutra,108,0.9234724293240404
+0,Nyctereutes,Nyctereutes procyonoides,108,0.9220069001206255

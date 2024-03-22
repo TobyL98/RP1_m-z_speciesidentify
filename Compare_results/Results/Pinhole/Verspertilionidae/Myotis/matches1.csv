@@ -1,0 +1,21 @@
+,GENUS,SPECIES,Match,ID_score
+0,Pipistrellus,Pipistrellus kuhlii,110,0.9875235676765441
+0,Nannospalax,Nannospalax galili,106,0.971108096404509
+0,Myotis,Myotis daubentonii,107,0.96740835276517
+0,Myotis,Myotis myotis,106,0.9613988573984665
+0,Myotis,Myotis lucifugus,106,0.9603294308619065
+0,Eptesicus,Eptesicus fuscus,105,0.9538435155695135
+0,Sorex,Sorex araneus,102,0.9431112638386813
+0,Hipposideros,Hipposideros armiger,101,0.9382285644791343
+0,Rhinolophus,Rhinolophus sinicus,100,0.9363636482845653
+0,Rhinolophus,Rhinolophus ferrumequinum,100,0.9346868802200664
+0,Dipodomys,Dipodomys ordii,101,0.9335543682358481
+0,Talpa,Talpa occidentalis,100,0.9323008764873851
+0,Sorex,Sorex fumeus,100,0.9291316081177105
+0,Suncus,Suncus etruscus,100,0.9290527213703502
+0,Miniopterus,Miniopterus natalensis,100,0.9248466302048076
+0,Dipodomys,Dipodomys spectabilis,99,0.919137989282608
+0,Manis,Manis pentadactyla,98,0.9186731861938129
+0,Sus,Sus scrofa,98,0.9174760865081439
+0,Sus,Sus scrofa domesticus,98,0.9171355651725421
+0,Jaculus,Jaculus jaculus,98,0.9130839692462573

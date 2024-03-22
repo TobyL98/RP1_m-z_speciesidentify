@@ -1,0 +1,21 @@
+,GENUS,SPECIES,Match,ID_score
+0,Ailuropoda,Ailuropoda melanoleuca,134,0.9931098937988281
+0,Ursus,Ursus americanus,133,0.9886063949385685
+0,Ursus,Ursus arctos,133,0.9886063949385685
+0,Ursus,Ursus maritimus,131,0.9843283701298842
+0,Nyctereutes,Nyctereutes procyonoides,130,0.9648630325473956
+0,Lutra,Lutra lutra,129,0.9629367193179343
+0,Mustela,Mustela nigripes,128,0.9595842159506099
+0,Mustela,Mustela erminea,128,0.9595842159506099
+0,Mustela,Mustela lutreola,128,0.9595842159506099
+0,Mustela,Mustela putorius furo,128,0.9595842159506099
+0,Neogale,Neogale vison,128,0.9595842159506099
+0,Lontra,Lontra canadensis,128,0.9594521916624325
+0,Canis,Canis lupus dingo,129,0.9594364067511771
+0,Vulpes,Vulpes lagopus,129,0.9580551287131522
+0,Canis,Canis lupus familiaris,127,0.9529633514916718
+0,Vulpes,Vulpes vulpes,128,0.9526292181726711
+0,Panthera,Panthera onca,126,0.9496123680427893
+0,Panthera,Panthera leo,126,0.9496123680427893
+0,Panthera,Panthera uncia,126,0.9496123680427893
+0,Leopardus,Leopardus geoffroyi,126,0.9488995858982427

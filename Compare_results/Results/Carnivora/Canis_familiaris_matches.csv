@@ -1,0 +1,21 @@
+,GENUS,SPECIES,Match,ID_score
+0,Felis,Felis catus,141,0.9938233613967895
+0,Prionailurus,Prionailurus bengalensis,141,0.9924046218395233
+0,Prionailurus,Prionailurus viverrinus,141,0.9924046218395233
+0,Acinonyx,Acinonyx jubatus,141,0.9923403978347778
+0,Lynx,Lynx rufus,141,0.9923403978347778
+0,Lynx,Lynx canadensis,141,0.9923403978347778
+0,Neofelis,Neofelis nebulosa,141,0.9922260165214538
+0,Canis,Canis lupus dingo,141,0.9861574590206146
+0,Nyctereutes,Nyctereutes procyonoides,141,0.9860549390316009
+0,Panthera,Panthera uncia,139,0.9824710734769807
+0,Panthera,Panthera leo,139,0.9824710734769807
+0,Panthera,Panthera onca,139,0.9824710734769807
+0,Vulpes,Vulpes lagopus,139,0.9758039065286622
+0,Panthera,Panthera tigris,137,0.9757807628482791
+0,Vulpes,Vulpes vulpes,139,0.975687200634192
+0,Panthera,Panthera pardus,136,0.9751773168854679
+0,Suricata,Suricata suricatta,137,0.9727096633285495
+0,Canis,Canis lupus familiaris,137,0.9720160440772982
+0,Mustela,Mustela putorius furo,136,0.9663199772648777
+0,Mustela,Mustela nigripes,136,0.9663199772648777

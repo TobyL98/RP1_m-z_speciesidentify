@@ -1,0 +1,21 @@
+,GENUS,SPECIES,Match,ID_score
+0,Equus,Equus caballus,141,1.000000011920929
+0,Equus,Equus asinus,141,0.9999099493026733
+0,Equus,Equus quagga,141,0.9992414534091949
+0,Urocitellus,Urocitellus parryii,135,0.9257558787122686
+0,Marmota,Marmota marmota marmota,135,0.9252073371664007
+0,Marmota,Marmota monax,135,0.9252073371664007
+0,Marmota,Marmota flaviventris,135,0.9252073371664007
+0,Diceros,Diceros bicornis minor,131,0.9184079627618722
+0,Sciurus,Sciurus carolinensis,133,0.9169284435451454
+0,Papio,Papio anubis,130,0.9004066958495065
+0,Theropithecus,Theropithecus gelada,130,0.9002201333113595
+0,Mandrillus,Mandrillus leucophaeus,129,0.8955759990722575
+0,Cercocebus,Cercocebus atys,129,0.8955759990722575
+0,Nannospalax,Nannospalax galili,128,0.8950690530293376
+0,Tupaia,Tupaia chinensis,129,0.8909988391906657
+0,Chlorocebus,Chlorocebus sabaeus,128,0.8904164038651378
+0,Macaca,Macaca fascicularis,128,0.8901683889382274
+0,Dipodomys,Dipodomys ordii,127,0.8881918605760479
+0,Ictidomys,Ictidomys tridecemlineatus,127,0.8849746998742962
+0,Panthera,Panthera onca,127,0.8845610734418774

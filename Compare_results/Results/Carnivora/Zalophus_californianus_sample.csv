@@ -1,0 +1,19 @@
+,GENUS,SPECIES,Match,ID_score
+0,Lutra,Lutra lutra,69,0.9854971587657928
+0,Halichoerus,Halichoerus grypus,66,0.9657538401043934
+0,Eumetopias,Eumetopias jubatus,67,0.9652435135150301
+0,Callorhinus,Callorhinus ursinus,67,0.9650962602401125
+0,Phoca,Phoca vitulina,67,0.9639798652434695
+0,Mustela,Mustela lutreola,66,0.9634250568306965
+0,Mustela,Mustela nigripes,66,0.9634250568306965
+0,Neogale,Neogale vison,66,0.9634250568306965
+0,Mustela,Mustela erminea,66,0.9634250568306965
+0,Meles,Meles meles,66,0.9629236625588459
+0,Lontra,Lontra canadensis,66,0.9568509625351947
+0,Ailuropoda,Ailuropoda melanoleuca,65,0.9532912753630375
+0,Ursus,Ursus maritimus,64,0.9492753742397695
+0,Ursus,Ursus americanus,64,0.9434418080509572
+0,Ursus,Ursus arctos,64,0.9434418080509572
+0,Suricata,Suricata suricatta,64,0.9405029712379842
+0,Prionailurus,Prionailurus bengalensis,63,0.927505275995835
+0,Prionailurus,Prionailurus viverrinus,63,0.927505275995835

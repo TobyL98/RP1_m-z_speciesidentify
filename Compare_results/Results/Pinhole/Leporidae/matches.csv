@@ -1,0 +1,21 @@
+,GENUS,SPECIES,Match,ID_score
+0,Equus,Equus caballus,119,0.9604282326168484
+0,Equus,Equus asinus,118,0.9555555674764845
+0,Equus,Equus quagga,118,0.9544633421632979
+0,Galeopterus,Galeopterus variegatus,125,0.9456212487485673
+0,Sciurus,Sciurus carolinensis,126,0.9438554614782333
+0,Cynocephalus,Cynocephalus volans,124,0.9398975484901003
+0,Urocitellus,Urocitellus parryii,124,0.9316569232278399
+0,Rhinolophus,Rhinolophus sinicus,119,0.9136380798286862
+0,Diceros,Diceros bicornis minor,117,0.9102134943008423
+0,Felis,Felis catus,117,0.9033368766307831
+0,Marmota,Marmota marmota marmota,119,0.9022059089607662
+0,Marmota,Marmota monax,119,0.9022059089607662
+0,Marmota,Marmota flaviventris,119,0.9022059089607662
+0,Panthera,Panthera uncia,117,0.901558929681778
+0,Panthera,Panthera onca,117,0.901558929681778
+0,Panthera,Panthera leo,117,0.901558929681778
+0,Prionailurus,Prionailurus bengalensis,117,0.9015039145946503
+0,Prionailurus,Prionailurus viverrinus,117,0.9015039145946503
+0,Acinonyx,Acinonyx jubatus,117,0.9013876259326935
+0,Castor,Castor canadensis,117,0.8931324273347855

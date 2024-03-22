@@ -1,0 +1,21 @@
+,GENUS,SPECIES,Match,ID_score
+0,Equus,Equus caballus,117,1.000000011920929
+0,Equus,Equus asinus,117,0.9998625338077545
+0,Equus,Equus quagga,117,0.999230933189392
+0,Phacochoerus,Phacochoerus africanus,102,0.8673255807314163
+0,Urocitellus,Urocitellus parryii,103,0.8665176401280948
+0,Diceros,Diceros bicornis minor,100,0.8634222804481148
+0,Ailuropoda,Ailuropoda melanoleuca,102,0.8615477150831466
+0,Ochotona,Ochotona curzoniae,101,0.8612836065455379
+0,Ursus,Ursus maritimus,101,0.8593437137766781
+0,Homo,Homo sapiens,101,0.8569107713862362
+0,Papio,Papio anubis,101,0.8557611766024532
+0,Ursus,Ursus americanus,101,0.8555454375906887
+0,Ursus,Ursus arctos,101,0.8555454375906887
+0,Marmota,Marmota flaviventris,101,0.854570901648611
+0,Marmota,Marmota monax,101,0.854570901648611
+0,Marmota,Marmota marmota marmota,101,0.854570901648611
+0,Galeopterus,Galeopterus variegatus,100,0.8520470618182777
+0,Saimiri,Saimiri boliviensis boliviensis,100,0.8514867483550667
+0,Nyctereutes,Nyctereutes procyonoides,101,0.8496647986336651
+0,Panthera,Panthera uncia,100,0.8472524641925453

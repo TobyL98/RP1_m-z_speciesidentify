@@ -1,0 +1,20 @@
+,GENUS,SPECIES,Match,ID_score
+0,Apodemus,Apodemus sylvaticus,108,0.9794064581394195
+0,Mastomys,Mastomys coucha,107,0.9683745792618503
+0,Grammomys,Grammomys surdaster,105,0.9601650867197248
+0,Arvicanthis,Arvicanthis niloticus,104,0.9539450312102282
+0,Mus,Mus caroli,101,0.9265374062237917
+0,Mus,Mus musculus,96,0.8956076277626884
+0,Rattus,Rattus rattus,95,0.890937978470767
+0,Rattus,Rattus norvegicus,94,0.8883601839895601
+0,Microtus,Microtus fortis,87,0.8638889008098178
+0,Psammomys,Psammomys obesus,90,0.8625668187936147
+0,Microtus,Microtus ochrogaster,87,0.8614854329162174
+0,Phodopus,Phodopus roborovskii,87,0.858387213283115
+0,Arvicola,Arvicola amphibius,86,0.8570187970444008
+0,Mesocricetus,Mesocricetus auratus,87,0.8566739373736911
+0,Chionomys,Chionomys nivalis,86,0.8564105912491127
+0,Cricetulus,Cricetulus griseus,86,0.8511991187378212
+0,Myodes,Myodes glareolus,85,0.8508988773381269
+0,Meriones,Meriones unguiculatus,87,0.8455478959613376
+0,Peromyscus,Peromyscus leucopus,83,0.8350223499315755

@@ -1,0 +1,21 @@
+,GENUS,SPECIES,Match,ID_score
+0,Sus,Sus scrofa,142,0.9870106697082519
+0,Sus,Sus scrofa domesticus,142,0.9861332893371582
+0,Phacochoerus,Phacochoerus africanus,137,0.9610245388998112
+0,Physeter,Physeter catodon,115,0.8644108700920159
+0,Panthera,Panthera uncia,117,0.8593088419504569
+0,Panthera,Panthera onca,117,0.8593088419504569
+0,Panthera,Panthera leo,117,0.8593088419504569
+0,Panthera,Panthera tigris,116,0.8591151217339744
+0,Leopardus,Leopardus geoffroyi,117,0.8590365977354453
+0,Felis,Felis catus,116,0.8574722687123527
+0,Hyaena,Hyaena hyaena,116,0.857178954255413
+0,Hippopotamus,Hippopotamus amphibius kiboko,113,0.8570422654420558
+0,Prionailurus,Prionailurus bengalensis,116,0.8544458726762046
+0,Prionailurus,Prionailurus viverrinus,116,0.8544458726762046
+0,Panthera,Panthera pardus,114,0.8543807145575403
+0,Lynx,Lynx canadensis,116,0.8543655554173698
+0,Acinonyx,Acinonyx jubatus,116,0.8543655554173698
+0,Lynx,Lynx rufus,116,0.8543655554173698
+0,Neofelis,Neofelis nebulosa,115,0.8493370044399315
+0,Pipistrellus,Pipistrellus kuhlii,114,0.8459584888438104

@@ -1,0 +1,21 @@
+,GENUS,SPECIES,Match,ID_score
+0,Loxodonta,Loxodonta africana,120,1.000000011920929
+0,Elephas,Elephas maximus indicus,119,0.985341674486796
+0,Cynocephalus,Cynocephalus volans,101,0.8794648603598276
+0,Galeopterus,Galeopterus variegatus,97,0.856262180407842
+0,Hippopotamus,Hippopotamus amphibius kiboko,94,0.8451360627015432
+0,Nyctereutes,Nyctereutes procyonoides,96,0.8418365097045898
+0,Canis,Canis lupus dingo,96,0.8416766798496246
+0,Vulpes,Vulpes lagopus,96,0.8401054716110229
+0,Vulpes,Vulpes vulpes,96,0.8398636853694915
+0,Canis,Canis lupus familiaris,95,0.8378808120886484
+0,Panthera,Panthera uncia,94,0.8361516757806142
+0,Panthera,Panthera onca,94,0.8361516757806142
+0,Panthera,Panthera leo,94,0.8361516757806142
+0,Sorex,Sorex fumeus,93,0.8309567677974701
+0,Prionailurus,Prionailurus viverrinus,93,0.8301558899879455
+0,Prionailurus,Prionailurus bengalensis,93,0.8301558899879455
+0,Neofelis,Neofelis nebulosa,93,0.8298376309871673
+0,Leopardus,Leopardus geoffroyi,93,0.829719375371933
+0,Acinonyx,Acinonyx jubatus,92,0.8241549185911814
+0,Desmodus,Desmodus rotundus,92,0.8228700510660807

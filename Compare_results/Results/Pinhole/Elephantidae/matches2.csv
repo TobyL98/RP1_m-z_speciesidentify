@@ -1,0 +1,21 @@
+,GENUS,SPECIES,Match,ID_score
+0,Elephas,Elephas maximus indicus,108,0.9915679812431335
+0,Loxodonta,Loxodonta africana,106,0.987037048957966
+0,Hylobates,Hylobates moloch,83,0.8339730697649496
+0,Symphalangus,Symphalangus syndactylus,83,0.8339550691622274
+0,Galeopterus,Galeopterus variegatus,83,0.8306934731977956
+0,Cynocephalus,Cynocephalus volans,83,0.8306828337687032
+0,Lemur,Lemur catta,82,0.8264291652926692
+0,Propithecus,Propithecus coquereli,79,0.8096850496751291
+0,Pongo,Pongo pygmaeus,79,0.806697545669697
+0,Pan,Pan paniscus,79,0.805107323549412
+0,Pan,Pan troglodytes,79,0.8050990385037882
+0,Nomascus,Nomascus leucogenys,79,0.8048925084096414
+0,Ailuropoda,Ailuropoda melanoleuca,79,0.8036610764485819
+0,Rousettus,Rousettus aegyptiacus,79,0.8022863847238046
+0,Pongo,Pongo abelii,78,0.8014314028951857
+0,Halichoerus,Halichoerus grypus,78,0.8002799603674147
+0,Homo,Homo sapiens,78,0.7985468361112806
+0,Gorilla,Gorilla gorilla gorilla,78,0.7981389019224379
+0,Lontra,Lontra canadensis,78,0.7945258769724104
+0,Phoca,Phoca vitulina,78,0.7911607775423262

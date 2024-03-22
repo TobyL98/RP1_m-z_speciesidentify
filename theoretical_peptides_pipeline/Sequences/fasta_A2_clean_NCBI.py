@@ -69,7 +69,7 @@ def cleanA2(fileName):
     
 
     ## Converting back to fasta format
-    fh = open("Sequences/COL1A2_seqs_clean.fasta", "w")
+    fh = open("Sequences/COL1A2_seqs_clean_NCBI.fasta", "w")
     for key in clean_sequences:
         # first line is key
         print(">{0}".format(key), file = fh)

@@ -1,0 +1,21 @@
+,GENUS,SPECIES,Match,ID_score
+0,Panthera,Panthera leo,147,0.98
+0,Panthera,Panthera onca,147,0.98
+0,Panthera,Panthera uncia,147,0.98
+0,Leopardus,Leopardus geoffroyi,145,0.97
+0,Acinonyx,Acinonyx jubatus,144,0.97
+0,Prionailurus,Prionailurus bengalensis,144,0.97
+0,Felis,Felis catus,144,0.97
+0,Hyaena,Hyaena hyaena,144,0.97
+0,Lynx,Lynx canadensis,144,0.97
+0,Lynx,Lynx rufus,144,0.97
+0,Neofelis,Neofelis nebulosa,144,0.97
+0,Panthera,Panthera tigris,144,0.97
+0,Prionailurus,Prionailurus viverrinus,144,0.97
+0,Panthera,Panthera pardus,143,0.97
+0,Equus,Equus quagga,141,0.96
+0,Equus,Equus caballus,141,0.96
+0,Equus,Equus asinus,139,0.96
+0,Dipodomys,Dipodomys ordii,139,0.95
+0,Diceros,Diceros bicornis minor,136,0.95
+0,Suricata,Suricata suricatta,138,0.94

@@ -1,0 +1,21 @@
+,GENUS,SPECIES,Match,ID_score
+0,Mirounga,Mirounga angustirostris,173,0.9904719114303588
+0,Mirounga,Mirounga leonina,172,0.9857244796146546
+0,Zalophus,Zalophus californianus,161,0.9459444541807119
+0,Meles,Meles meles,161,0.9427372176523153
+0,Eumetopias,Eumetopias jubatus,161,0.9422805864686911
+0,Callorhinus,Callorhinus ursinus,160,0.9380872096284965
+0,Odobenus,Odobenus rosmarus divergens,160,0.9378885175451377
+0,Phoca,Phoca vitulina,160,0.9377569104894736
+0,Lutra,Lutra lutra,159,0.9331506820772425
+0,Ailuropoda,Ailuropoda melanoleuca,158,0.9322999337160518
+0,Halichoerus,Halichoerus grypus,156,0.9312138847532988
+0,Neogale,Neogale vison,158,0.9299163141691615
+0,Mustela,Mustela lutreola,158,0.9299163141691615
+0,Mustela,Mustela putorius furo,158,0.9299163141691615
+0,Mustela,Mustela nigripes,158,0.9299163141691615
+0,Mustela,Mustela erminea,158,0.9299163141691615
+0,Suricata,Suricata suricatta,155,0.919244873385898
+0,Panthera,Panthera leo,154,0.9133413498801303
+0,Panthera,Panthera onca,154,0.9133413498801303
+0,Neofelis,Neofelis nebulosa,154,0.913308120290668
