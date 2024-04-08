@@ -1,0 +1,21 @@
+GENUS,SPECIES,Match,ID_score
+Vulpes,Vulpes vulpes,99,0.981052827
+Canis,Canis lupus,97,0.967225412
+Mustela,Mustela putorius,94,0.953380175
+Ailuropoda,Ailuropoda melanoleuca,93,0.945297874
+Lutra,Lutra lutra,93,0.943979658
+Felis,Felis catus,92,0.940023339
+Ursus,Ursus maritimus,100,0.936161366
+Panthera,Panthera tigris,91,0.93573389
+Lontra,Lontra canadensis,91,0.931056118
+Meles,Meles meles,88,0.911139104
+Leopardus,Leopardus geoffroyi,88,0.909930978
+Hyaena,Hyaena hyaena,87,0.909000012
+Enhydra,Enhydra lutris,88,0.908342007
+Callorhinus,Callorhinus ursinus,87,0.899537417
+Equus,Equus caballus,91,0.878620839
+Equus,Equus asinus,90,0.873274257
+Dipodomys,Dipodomys ordii,89,0.853007708
+Dipodomys,Dipodomys spectabilis,87,0.839211645
+Bos,Bos taurus,85,0.833702133
+Marmota,Marmota marmota,85,0.823357539

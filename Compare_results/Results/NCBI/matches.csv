@@ -1,19 +1,202 @@
-,GENUS,SPECIES,Match,ID_score
-0,Mirounga,Mirounga angustirostris,136,0.985340815782547
-0,Mirounga,Mirounga leonina,136,0.9843136489391326
-0,Zalophus,Zalophus californianus,126,0.9411584450918086
-0,Eumetopias,Eumetopias jubatus,126,0.9349448694902308
-0,Phoca,Phoca vitulina,126,0.9344439520555384
-0,Halichoerus,Halichoerus grypus,123,0.9313917202108046
-0,Callorhinus,Callorhinus ursinus,125,0.9294120792080374
-0,Meles,Meles meles,124,0.9250596099040087
-0,Lutra,Lutra lutra,124,0.9239529602667864
-0,Ailuropoda,Ailuropoda melanoleuca,123,0.9221796733491561
-0,Neomonachus,Neomonachus schauinslandi,120,0.9176470707444583
-0,Ursus,Ursus maritimus,120,0.9142954121617709
-0,Mustela,Mustela lutreola,121,0.9091892501887152
-0,Mustela,Mustela nigripes,121,0.9091892501887152
-0,Neogale,Neogale vison,121,0.9091892501887152
-0,Mustela,Mustela erminea,121,0.9091892501887152
-0,Ursus,Ursus americanus,120,0.9072520504979525
-0,Ursus,Ursus arctos,120,0.9072520504979525
+,GENUS,SPECIES,Match,Corr_Score,match_score
+0,Delphinus,Delphinus delphis,114,1.0,0.8085106382978723
+0,Orcinus,Orcinus orca,115,0.9997147,0.8156028368794326
+0,Globicephala,Globicephala melas,116,0.9973778,0.8226950354609929
+0,Lagenorhynchus,Lagenorhynchus albirostris,114,0.9971728,0.8085106382978723
+0,Lagenorhynchus,Lagenorhynchus obliquidens,114,0.9971728,0.8085106382978723
+0,Phocoena,Phocoena sinus,118,0.99149334,0.8368794326241135
+0,Neophocaena,Neophocaena asiaeorientalis,120,0.9913133,0.851063829787234
+0,Balaenoptera,Balaenoptera acutorostrata,116,0.98890513,0.8226950354609929
+0,Delphinapterus,Delphinapterus leucas,121,0.9883663,0.8581560283687943
+0,Mesoplodon,Mesoplodon densirostris,114,0.98807585,0.8085106382978723
+0,Monodon,Monodon monoceros,121,0.9871264,0.8581560283687943
+0,Hippopotamus,Hippopotamus amphibius kiboko,123,0.9865856,0.8723404255319149
+0,Tursiops,Tursiops truncatus,114,0.9861347,0.8085106382978723
+0,Orycteropus,Orycteropus afer afer,109,0.9854949,0.7730496453900709
+0,Eubalaena,Eubalaena glacialis,112,0.9845146,0.7943262411347518
+0,Diceros,Diceros bicornis minor,118,0.9834577,0.8368794326241135
+0,Equus,Equus asinus,124,0.98272544,0.8794326241134752
+0,Trichechus,Trichechus manatus latirostris,116,0.9777546,0.8226950354609929
+0,Physeter,Physeter catodon,120,0.97755456,0.851063829787234
+0,Camelus,Camelus ferus,115,0.9772066,0.8156028368794326
+0,Camelus,Camelus bactrianus,115,0.9772066,0.8156028368794326
+0,Camelus,Camelus dromedarius,111,0.97567046,0.7872340425531915
+0,Balaenoptera,Balaenoptera ricei,112,0.9741468,0.7943262411347518
+0,Hipposideros,Hipposideros armiger,116,0.97213703,0.8226950354609929
+0,Equus,Equus caballus,126,0.9715098,0.8936170212765957
+0,Kogia,Kogia breviceps,123,0.97076946,0.8723404255319149
+0,Equus,Equus quagga,126,0.969946,0.8936170212765957
+0,Balaenoptera,Balaenoptera musculus,110,0.969706,0.7801418439716312
+0,Nycticebus,Nycticebus coucang,115,0.9695208,0.8156028368794326
+0,Aotus,Aotus nancymaae,117,0.96900606,0.8297872340425532
+0,Zalophus,Zalophus californianus,124,0.96895623,0.8794326241134752
+0,Vicugna,Vicugna pacos,114,0.9681441,0.8085106382978723
+0,Neomonachus,Neomonachus schauinslandi,124,0.96705306,0.8794326241134752
+0,Peromyscus,Peromyscus californicus insignis,112,0.96674377,0.7943262411347518
+0,Rhinolophus,Rhinolophus sinicus,116,0.966249,0.8226950354609929
+0,Panthera,Panthera pardus,136,0.96548027,0.9645390070921985
+0,Rhinolophus,Rhinolophus ferrumequinum,115,0.9646106,0.8156028368794326
+0,Halichoerus,Halichoerus grypus,128,0.9641351,0.9078014184397163
+0,Pongo,Pongo pygmaeus,124,0.964009,0.8794326241134752
+0,Symphalangus,Symphalangus syndactylus,121,0.96399546,0.8581560283687943
+0,Hylobates,Hylobates moloch,120,0.9639095,0.851063829787234
+0,Pongo,Pongo abelii,122,0.9631866,0.8652482269503546
+0,Pan,Pan troglodytes,125,0.9609354,0.8865248226950354
+0,Talpa,Talpa occidentalis,123,0.9606042,0.8723404255319149
+0,Pan,Pan paniscus,125,0.96029985,0.8865248226950354
+0,Erinaceus,Erinaceus europaeus,122,0.9602349,0.8652482269503546
+0,Bos,Bos indicus,120,0.9598341,0.851063829787234
+0,Peromyscus,Peromyscus maniculatus bairdii,111,0.9588459,0.7872340425531915
+0,Ursus,Ursus maritimus,133,0.9583076,0.9432624113475178
+0,Loxodonta,Loxodonta africana,112,0.9582403,0.7943262411347518
+0,Manis,Manis pentadactyla,124,0.95820856,0.8794326241134752
+0,Pteropus,Pteropus giganteus,123,0.9571797,0.8723404255319149
+0,Microtus,Microtus oregoni,105,0.9568857,0.7446808510638298
+0,Cebus,Cebus imitator,128,0.95648694,0.9078014184397163
+0,Microtus,Microtus fortis,106,0.9564737,0.75177304964539
+0,Peromyscus,Peromyscus leucopus,109,0.9563632,0.7730496453900709
+0,Nomascus,Nomascus leucogenys,121,0.95625556,0.8581560283687943
+0,Sorex,Sorex araneus,121,0.95576507,0.8581560283687943
+0,Homo,Homo sapiens,128,0.95566833,0.9078014184397163
+0,Myodes,Myodes glareolus,105,0.9554292,0.7446808510638298
+0,Gorilla,Gorilla gorilla gorilla,121,0.95534587,0.8581560283687943
+0,Arvicola,Arvicola amphibius,105,0.9553026,0.7446808510638298
+0,Bubalus,Bubalus kerabau,111,0.9551337,0.7872340425531915
+0,Rousettus,Rousettus aegyptiacus,125,0.9550893,0.8865248226950354
+0,Dama,Dama dama,122,0.9547556,0.8652482269503546
+0,Bubalus,Bubalus bubalis,112,0.95467585,0.7943262411347518
+0,Sapajus,Sapajus apella,124,0.95450485,0.8794326241134752
+0,Budorcas,Budorcas taxicolor,115,0.9544075,0.8156028368794326
+0,Chionomys,Chionomys nivalis,104,0.9543113,0.7375886524822695
+0,Lemur,Lemur catta,115,0.9541852,0.8156028368794326
+0,Otolemur,Otolemur garnettii,115,0.95365953,0.8156028368794326
+0,Dasypus,Dasypus novemcinctus,115,0.9530885,0.8156028368794326
+0,Manis,Manis javanica,123,0.95289874,0.8723404255319149
+0,Hyaena,Hyaena hyaena,126,0.952772,0.8936170212765957
+0,Panthera,Panthera tigris,137,0.95201516,0.9716312056737588
+0,Colobus,Colobus angolensis palliatus,131,0.95137566,0.9290780141843972
+0,Oryx,Oryx dammah,117,0.95121855,0.8297872340425532
+0,Microtus,Microtus ochrogaster,108,0.9512034,0.7659574468085106
+0,Cervus,Cervus elaphus,121,0.95074046,0.8581560283687943
+0,Cervus,Cervus canadensis,121,0.95074046,0.8581560283687943
+0,Capra,Capra hircus,115,0.95071155,0.8156028368794326
+0,Propithecus,Propithecus coquereli,122,0.9506257,0.8652482269503546
+0,Bos,Bos javanicus,120,0.95036274,0.851063829787234
+0,Bos,Bos taurus,120,0.95036274,0.851063829787234
+0,Bison,Bison bison bison,120,0.95036274,0.851063829787234
+0,Sorex,Sorex fumeus,122,0.9502026,0.8652482269503546
+0,Bos,Bos mutus,119,0.95017636,0.8439716312056738
+0,Onychomys,Onychomys torridus,112,0.94996977,0.7943262411347518
+0,Callithrix,Callithrix jacchus,125,0.9491824,0.8865248226950354
+0,Choloepus,Choloepus didactylus,123,0.94875854,0.8723404255319149
+0,Pipistrellus,Pipistrellus kuhlii,123,0.9483719,0.8723404255319149
+0,Ovis,Ovis aries,115,0.947919,0.8156028368794326
+0,Moschus,Moschus berezovskii,121,0.94755864,0.8581560283687943
+0,Perognathus,Perognathus longimembris pacificus,118,0.94732744,0.8368794326241135
+0,Macaca,Macaca thibetana thibetana,131,0.9470147,0.9290780141843972
+0,Saimiri,Saimiri boliviensis boliviensis,125,0.94679976,0.8865248226950354
+0,Trachypithecus,Trachypithecus francoisi,128,0.94679636,0.9078014184397163
+0,Felis,Felis catus,141,0.94599605,1.0
+0,Phodopus,Phodopus roborovskii,112,0.94568944,0.7943262411347518
+0,Ochotona,Ochotona curzoniae,112,0.94514626,0.7943262411347518
+0,Piliocolobus,Piliocolobus tephrosceles,133,0.94486094,0.9432624113475178
+0,Cynocephalus,Cynocephalus volans,124,0.94464856,0.8794326241134752
+0,Acomys,Acomys russatus,108,0.9444694,0.7659574468085106
+0,Sus,Sus scrofa,121,0.944402,0.8581560283687943
+0,Suncus,Suncus etruscus,117,0.9443294,0.8297872340425532
+0,Phyllostomus,Phyllostomus discolor,123,0.9441522,0.8723404255319149
+0,Elephas,Elephas maximus indicus,111,0.94408256,0.7872340425531915
+0,Galeopterus,Galeopterus variegatus,125,0.9440208,0.8865248226950354
+0,Lepus,Lepus europaeus,120,0.9439368,0.851063829787234
+0,Molossus,Molossus molossus,114,0.94370395,0.8085106382978723
+0,Leopardus,Leopardus geoffroyi,136,0.94331807,0.9645390070921985
+0,Mesocricetus,Mesocricetus auratus,112,0.94303966,0.7943262411347518
+0,Cricetulus,Cricetulus griseus,111,0.94282675,0.7872340425531915
+0,Phacochoerus,Phacochoerus africanus,122,0.9425055,0.8652482269503546
+0,Rhinopithecus,Rhinopithecus roxellana,130,0.94236135,0.9219858156028369
+0,Sus,Sus scrofa domesticus,121,0.94228727,0.8581560283687943
+0,Rhinopithecus,Rhinopithecus bieti,129,0.9422224,0.9148936170212766
+0,Macaca,Macaca nemestrina,129,0.9418674,0.9148936170212766
+0,Cercocebus,Cercocebus atys,129,0.9418047,0.9148936170212766
+0,Mandrillus,Mandrillus leucophaeus,129,0.9418047,0.9148936170212766
+0,Oryctolagus,Oryctolagus cuniculus,123,0.94174534,0.8723404255319149
+0,Macaca,Macaca fascicularis,130,0.9416455,0.9219858156028369
+0,Prionailurus,Prionailurus viverrinus,141,0.94145465,1.0
+0,Prionailurus,Prionailurus bengalensis,141,0.94145465,1.0
+0,Panthera,Panthera uncia,139,0.94144493,0.9858156028368794
+0,Panthera,Panthera leo,139,0.94144493,0.9858156028368794
+0,Panthera,Panthera onca,139,0.94144493,0.9858156028368794
+0,Suricata,Suricata suricatta,137,0.9413216,0.9716312056737588
+0,Theropithecus,Theropithecus gelada,131,0.94127595,0.9290780141843972
+0,Lynx,Lynx canadensis,141,0.9412428,1.0
+0,Lynx,Lynx rufus,141,0.9412428,1.0
+0,Acinonyx,Acinonyx jubatus,141,0.9412428,1.0
+0,Phyllostomus,Phyllostomus hastatus,127,0.9412352,0.900709219858156
+0,Lontra,Lontra canadensis,130,0.9411876,0.9219858156028369
+0,Condylura,Condylura cristata,116,0.9410719,0.8226950354609929
+0,Papio,Papio anubis,131,0.94106185,0.9290780141843972
+0,Canis,Canis lupus familiaris,137,0.9409899,0.9716312056737588
+0,Chlorocebus,Chlorocebus sabaeus,132,0.94089454,0.9361702127659575
+0,Macaca,Macaca mulatta,129,0.9408762,0.9148936170212766
+0,Neofelis,Neofelis nebulosa,141,0.9408532,1.0
+0,Arvicanthis,Arvicanthis niloticus,118,0.9406376,0.8368794326241135
+0,Ursus,Ursus arctos,134,0.9404013,0.950354609929078
+0,Ursus,Ursus americanus,134,0.9404013,0.950354609929078
+0,Dipodomys,Dipodomys spectabilis,119,0.9400478,0.8439716312056738
+0,Pteronotus,Pteronotus parnellii mesoamericanus,107,0.9393555,0.7588652482269503
+0,Myotis,Myotis myotis,116,0.93897736,0.8226950354609929
+0,Jaculus,Jaculus jaculus,117,0.93871117,0.8297872340425532
+0,Mustela,Mustela nigripes,136,0.93856823,0.9645390070921985
+0,Mustela,Mustela putorius furo,136,0.93856823,0.9645390070921985
+0,Mustela,Mustela erminea,136,0.93856823,0.9645390070921985
+0,Neogale,Neogale vison,136,0.93856823,0.9645390070921985
+0,Mustela,Mustela lutreola,136,0.93856823,0.9645390070921985
+0,Dipodomys,Dipodomys ordii,125,0.9383822,0.8865248226950354
+0,Microcebus,Microcebus murinus,120,0.93798286,0.851063829787234
+0,Myotis,Myotis daubentonii,116,0.93797183,0.8226950354609929
+0,Heterocephalus,Heterocephalus glaber,120,0.9378175,0.851063829787234
+0,Carlito,Carlito syrichta,114,0.9376587,0.8085106382978723
+0,Odocoileus,Odocoileus virginianus texanus,120,0.9375488,0.851063829787234
+0,Meles,Meles meles,133,0.9374688,0.9432624113475178
+0,Desmodus,Desmodus rotundus,125,0.93710065,0.8865248226950354
+0,Nannospalax,Nannospalax galili,122,0.9370047,0.8652482269503546
+0,Eptesicus,Eptesicus fuscus,118,0.93640006,0.8368794326241135
+0,Tupaia,Tupaia chinensis,118,0.9363693,0.8368794326241135
+0,Fukomys,Fukomys damarensis,119,0.9356818,0.8439716312056738
+0,Cavia,Cavia porcellus,111,0.9351781,0.7872340425531915
+0,Ailuropoda,Ailuropoda melanoleuca,133,0.9351498,0.9432624113475178
+0,Artibeus,Artibeus jamaicensis,115,0.934941,0.8156028368794326
+0,Miniopterus,Miniopterus natalensis,119,0.93487924,0.8439716312056738
+0,Eumetopias,Eumetopias jubatus,127,0.93486196,0.900709219858156
+0,Lutra,Lutra lutra,136,0.9344515,0.9645390070921985
+0,Callorhinus,Callorhinus ursinus,127,0.9340201,0.900709219858156
+0,Castor,Castor canadensis,124,0.9337976,0.8794326241134752
+0,Sturnira,Sturnira hondurensis,121,0.93327034,0.8581560283687943
+0,Echinops,Echinops telfairi,98,0.9331296,0.6950354609929078
+0,Octodon,Octodon degus,118,0.9318527,0.8368794326241135
+0,Myotis,Myotis lucifugus,114,0.93123317,0.8085106382978723
+0,Chinchilla,Chinchilla lanigera,114,0.9304948,0.8085106382978723
+0,Phoca,Phoca vitulina,129,0.9300763,0.9148936170212766
+0,Meriones,Meriones unguiculatus,112,0.92984617,0.7943262411347518
+0,Marmota,Marmota monax,125,0.92967,0.8865248226950354
+0,Marmota,Marmota flaviventris,125,0.92967,0.8865248226950354
+0,Marmota,Marmota marmota marmota,125,0.92967,0.8865248226950354
+0,Mirounga,Mirounga angustirostris,129,0.92917866,0.9148936170212766
+0,Mus,Mus caroli,106,0.92882025,0.75177304964539
+0,Grammomys,Grammomys surdaster,116,0.928076,0.8226950354609929
+0,Sciurus,Sciurus carolinensis,124,0.927625,0.8794326241134752
+0,Urocitellus,Urocitellus parryii,124,0.9274683,0.8794326241134752
+0,Mirounga,Mirounga leonina,129,0.9272479,0.9148936170212766
+0,Odobenus,Odobenus rosmarus divergens,128,0.92696065,0.9078014184397163
+0,Apodemus,Apodemus sylvaticus,107,0.9261133,0.7588652482269503
+0,Ochotona,Ochotona princeps,112,0.92607915,0.7943262411347518
+0,Psammomys,Psammomys obesus,116,0.9259644,0.8226950354609929
+0,Mastomys,Mastomys coucha,109,0.9231746,0.7730496453900709
+0,Canis,Canis lupus dingo,141,0.9230541,1.0
+0,Nyctereutes,Nyctereutes procyonoides,141,0.9226953,1.0
+0,Vulpes,Vulpes lagopus,139,0.92158806,0.9858156028368794
+0,Vulpes,Vulpes vulpes,139,0.92119086,0.9858156028368794
+0,Rattus,Rattus norvegicus,116,0.9206309,0.8226950354609929
+0,Ictidomys,Ictidomys tridecemlineatus,124,0.9204659,0.8794326241134752
+0,Rattus,Rattus rattus,118,0.9172839,0.8368794326241135
+0,Mus,Mus musculus,105,0.91504174,0.7446808510638298

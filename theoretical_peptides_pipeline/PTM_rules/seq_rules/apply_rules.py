@@ -66,7 +66,7 @@ def pred_k(seq):
 
 #load in data
 #load in all csv files in PTM_rules folder
-csv_files = glob.glob('C:/Users/tobyl/OneDrive - The University of Manchester/Bioinformatics Masters/Research project 1/Git_repositories/RP1_m-z_speciesidentify/PTM_rules/LCMSMS/*.csv')
+csv_files = glob.glob('C:/Users/tobyl/OneDrive - The University of Manchester/Bioinformatics Masters/Research project 1/Git_repositories/RP1_m-z_speciesidentify/theoretical_peptides_pipeline/PTM_rules/LCMSMS/*.csv')
 
 #loops through all CSV files
 #creates dataframe with columns required
@@ -79,7 +79,7 @@ for csv in csv_files:
 
 #combines all dataframes in the list into single df   
 df = pd.concat(df_list)
-df = df.loc[df["pep_score"] >= 35]
+df = df.loc[df["pep_score"] >= 30]
 #use apply on function to count number of hydroxylations (P and K)
 #from LC-MS/MS data
 df["Phyd_count"] = df["pep_var_mod"].apply(mod_count, res = "P")
@@ -97,8 +97,9 @@ for index, row in df.iterrows():
     if row["Khyd_count"] == row["Pred_Khyd_count"]:
         countK += 1
 percentageP = (countP / df.shape[0]) * 100
-print("The rules {0} of times".format(percentageP))
-print(countK)
+percentageK = (countK/ df.shape[0]) * 100
+print("The rule works {0} of times for Proline".format(percentageP))
+print("The rule works {0} of times for Lysine".format(percentageK))
 
 print(df.tail())
 df.to_csv("rules_test.csv")

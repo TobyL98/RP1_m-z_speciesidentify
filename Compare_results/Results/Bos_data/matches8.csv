@@ -1,0 +1,20 @@
+,GENUS,SPECIES,Match,ID_score
+0,Bos,Bos indicus,26,0.94
+0,Bos,Bos taurus,26,0.92
+0,Bison,Bison bison bison,26,0.92
+0,Bos,Bos javanicus,26,0.92
+0,Bubalus,Bubalus kerabau,24,0.9
+0,Bubalus,Bubalus bubalis,24,0.9
+0,Bos,Bos mutus,25,0.89
+0,Loxodonta,Loxodonta africana,21,0.87
+0,Dama,Dama dama,22,0.84
+0,Perognathus,Perognathus longimembris pacificus,21,0.84
+0,Cervus,Cervus elaphus,21,0.81
+0,Cervus,Cervus canadensis,21,0.81
+0,Budorcas,Budorcas taxicolor,21,0.81
+0,Moschus,Moschus berezovskii,21,0.8
+0,Ovis,Ovis aries,21,0.79
+0,Tupaia,Tupaia chinensis,21,0.78
+0,Nyctereutes,Nyctereutes procyonoides,20,0.75
+0,Octodon,Octodon degus,20,0.69
+0,Castor,Castor canadensis,20,0.69

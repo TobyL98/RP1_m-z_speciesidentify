@@ -1,0 +1,20 @@
+,GENUS,SPECIES,Match,ID_score
+0,Bos,Bos indicus,77,0.98
+0,Bos,Bos taurus,77,0.97
+0,Bos,Bos javanicus,77,0.97
+0,Bison,Bison bison bison,77,0.97
+0,Bos,Bos mutus,76,0.96
+0,Bubalus,Bubalus kerabau,73,0.94
+0,Bubalus,Bubalus bubalis,73,0.94
+0,Hippopotamus,Hippopotamus amphibius kiboko,68,0.92
+0,Ursus,Ursus maritimus,68,0.91
+0,Ursus,Ursus arctos,68,0.9
+0,Ailuropoda,Ailuropoda melanoleuca,68,0.9
+0,Ursus,Ursus americanus,68,0.9
+0,Moschus,Moschus berezovskii,68,0.89
+0,Budorcas,Budorcas taxicolor,67,0.89
+0,Dama,Dama dama,67,0.89
+0,Capra,Capra hircus,67,0.88
+0,Cervus,Cervus canadensis,67,0.88
+0,Cervus,Cervus elaphus,67,0.88
+0,Ovis,Ovis aries,67,0.88

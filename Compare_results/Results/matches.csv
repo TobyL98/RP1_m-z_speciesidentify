@@ -1,21 +1,11 @@
-,CLASS,SUBCLASS,INFRACLASS,ORDER,FAMILY,GENUS,SPECIES,Match,ID_score
-0,Mammalia,Theria,Eutheria,Carnivora,Felidae,Felis,Felis catus,96,0.9963155210018158
-0,Mammalia,Theria,Eutheria,Carnivora,Felidae,Panthera,Panthera tigris,92,0.9696783264478047
-0,Mammalia,Theria,Eutheria,Carnivora,Felidae,Leopardus,Leopardus geoffroyi,91,0.957564495007197
-0,Mammalia,Theria,Eutheria,Carnivora,Mustelidae,Mustela,Mustela putorius,87,0.9323169827461242
-0,Mammalia,Theria,Eutheria,Carnivora,Ursidae,Ailuropoda,Ailuropoda melanoleuca,87,0.9312724709510802
-0,Mammalia,Theria,Eutheria,Carnivora,Canidae,Canis,Canis lupus,86,0.9198685010274251
-0,Mammalia,Theria,Eutheria,Carnivora,Hyaenidae,Hyaena,Hyaena hyaena,85,0.9197916785875956
-0,Mammalia,Theria,Eutheria,Carnivora,Mustelidae,Lutra,Lutra lutra,85,0.9148348073164622
-0,Mammalia,Theria,Eutheria,Carnivora,Canidae,Vulpes,Vulpes vulpes,85,0.9118477205435435
-0,Mammalia,Theria,Eutheria,Carnivora,Mustelidae,Lontra,Lontra canadensis,84,0.9097416579723357
-0,Mammalia,Theria,Eutheria,Carnivora,Mustelidae,Meles,Meles meles,83,0.9028660913308462
-0,Mammalia,Theria,Eutheria,Carnivora,Ursidae,Ursus,Ursus maritimus,91,0.8985875318447748
-0,Mammalia,Theria,Eutheria,Carnivora,Mustelidae,Enhydra,Enhydra lutris,80,0.8775499065717062
-0,Mammalia,Theria,Eutheria,Rodentia,Heteromyidae,Dipodomys,Dipodomys ordii,87,0.8597279578447341
-0,Mammalia,Theria,Eutheria,Rodentia,Heteromyidae,Dipodomys,Dipodomys spectabilis,85,0.8445021609465281
-0,Mammalia,Theria,Eutheria,Perissodactyla,Equidae,Equus,Equus caballus,83,0.8424147029717763
-0,Mammalia,Theria,Eutheria,Rodentia,Sciuridae,Neosciurus,Neosciurus carolinensis,84,0.8392484366893768
-0,Mammalia,Theria,Eutheria,Chiroptera,Pteropodidae,Rousettus,Rousettus aegyptiacus,82,0.8316405455271403
-0,Mammalia,Theria,Eutheria,Perissodactyla,Equidae,Equus,Equus asinus,81,0.829732072353363
-0,Mammalia,Theria,Eutheria,Rodentia,Sciuridae,Urocitellus,Urocitellus parryii,80,0.8094189961751302
+,CLASS,SUBCLASS,INFRACLASS,ORDER,FAMILY,GENUS,SPECIES,Match,Corr_Score,match_score
+0,Mammalia,Theria,Eutheria,Carnivora,Ursidae,Ursus,Ursus maritimus,100,0.7905409,1.0
+0,Mammalia,Theria,Eutheria,Carnivora,Canidae,Vulpes,Vulpes vulpes,99,0.96424544,0.99
+0,Mammalia,Theria,Eutheria,Carnivora,Canidae,Canis,Canis lupus,97,0.96482325,0.97
+0,Mammalia,Theria,Eutheria,Carnivora,Mustelidae,Mustela,Mustela putorius,94,0.98877347,0.94
+0,Mammalia,Theria,Eutheria,Carnivora,Ursidae,Ailuropoda,Ailuropoda melanoleuca,93,0.9851505,0.93
+0,Mammalia,Theria,Eutheria,Carnivora,Mustelidae,Lutra,Lutra lutra,93,0.9807379,0.93
+0,Mammalia,Theria,Eutheria,Carnivora,Felidae,Felis,Felis catus,92,0.9909265,0.92
+0,Mammalia,Theria,Eutheria,Carnivora,Felidae,Panthera,Panthera tigris,91,1.0,0.91
+0,Mammalia,Theria,Eutheria,Carnivora,Mustelidae,Lontra,Lontra canadensis,91,0.98434126,0.91
+0,Mammalia,Theria,Eutheria,Perissodactyla,Equidae,Equus,Equus caballus,91,0.80881625,0.91

@@ -56,9 +56,12 @@ def compare(theor_peaks, act_peaks):
 
         filter_theor_peaks = MZ_theor_peaks[MZ_theor_peaks.between(x[0], x[1], "left")]
         filter_theor_peaks = filter_theor_peaks.sort_values()
+        print(len(filter_theor_peaks))
+        print(len(filter_act_peaks))
+        print("############")
 
-        corr_diff = cross_corr(filter_theor_peaks, filter_act_peaks)
-        corr_diff_list.append(corr_diff)
+        corr = cross_corr(filter_theor_peaks, filter_act_peaks)
+        corr_diff_list.append(corr)
     corr_diff_array = np.concatenate(corr_diff_list)
     corr_diff_mean = np.mean(corr_diff_array)
     print(corr_diff_mean)

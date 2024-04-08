@@ -1,21 +1,203 @@
-,GENUS,SPECIES,Match,ID_score
-0,Ursus,Ursus maritimus,173,0.9959770234151818
-0,Ursus,Ursus arctos,174,0.9940671741962432
-0,Ursus,Ursus americanus,174,0.9940671741962432
-0,Ailuropoda,Ailuropoda melanoleuca,173,0.9900775642915703
-0,Lutra,Lutra lutra,170,0.9730994708236607
-0,Mustela,Mustela putorius furo,169,0.9724648871641048
-0,Mustela,Mustela lutreola,169,0.9724648871641048
-0,Mustela,Mustela erminea,169,0.9724648871641048
-0,Mustela,Mustela nigripes,169,0.9724648871641048
-0,Neogale,Neogale vison,169,0.9724648871641048
-0,Meles,Meles meles,168,0.9686229477668631
-0,Nyctereutes,Nyctereutes procyonoides,169,0.9673075356702694
-0,Canis,Canis lupus dingo,169,0.9672898330907711
-0,Felis,Felis catus,166,0.9631072773330512
-0,Vulpes,Vulpes lagopus,168,0.9623921464229452
-0,Vulpes,Vulpes vulpes,168,0.9623071203971731
-0,Lontra,Lontra canadensis,165,0.9556038246072571
-0,Lynx,Lynx rufus,165,0.9555640981115143
-0,Lynx,Lynx canadensis,165,0.9555640981115143
-0,Canis,Canis lupus familiaris,165,0.9542029366411011
+,GENUS,SPECIES,Match
+0,Ursus,Ursus arctos,174
+0,Ursus,Ursus americanus,174
+0,Ailuropoda,Ailuropoda melanoleuca,173
+0,Ursus,Ursus maritimus,173
+0,Lutra,Lutra lutra,170
+0,Neogale,Neogale vison,169
+0,Canis,Canis lupus dingo,169
+0,Mustela,Mustela nigripes,169
+0,Mustela,Mustela putorius furo,169
+0,Nyctereutes,Nyctereutes procyonoides,169
+0,Meles,Meles meles,169
+0,Mustela,Mustela erminea,169
+0,Mustela,Mustela lutreola,169
+0,Vulpes,Vulpes vulpes,168
+0,Vulpes,Vulpes lagopus,168
+0,Felis,Felis catus,166
+0,Canis,Canis lupus familiaris,165
+0,Lynx,Lynx rufus,165
+0,Lontra,Lontra canadensis,165
+0,Lynx,Lynx canadensis,165
+0,Acinonyx,Acinonyx jubatus,165
+0,Neofelis,Neofelis nebulosa,164
+0,Panthera,Panthera leo,164
+0,Panthera,Panthera onca,164
+0,Panthera,Panthera uncia,164
+0,Prionailurus,Prionailurus bengalensis,164
+0,Prionailurus,Prionailurus viverrinus,164
+0,Suricata,Suricata suricatta,164
+0,Leopardus,Leopardus geoffroyi,164
+0,Panthera,Panthera tigris,162
+0,Eumetopias,Eumetopias jubatus,160
+0,Hyaena,Hyaena hyaena,160
+0,Neomonachus,Neomonachus schauinslandi,159
+0,Callorhinus,Callorhinus ursinus,158
+0,Panthera,Panthera pardus,158
+0,Phoca,Phoca vitulina,157
+0,Manis,Manis javanica,156
+0,Zalophus,Zalophus californianus,156
+0,Mirounga,Mirounga angustirostris,155
+0,Halichoerus,Halichoerus grypus,155
+0,Mirounga,Mirounga leonina,154
+0,Erinaceus,Erinaceus europaeus,154
+0,Bos,Bos indicus,154
+0,Bos,Bos indicus x Bos taurus,154
+0,Bos,Bos javanicus,154
+0,Bos,Bos taurus,154
+0,Bison,Bison bison bison,154
+0,Bos,Bos mutus,153
+0,Equus,Equus quagga,153
+0,Dipodomys,Dipodomys ordii,153
+0,Bubalus,Bubalus bubalis,153
+0,Bubalus,Bubalus kerabau,153
+0,Manis,Manis pentadactyla,153
+0,Dipodomys,Dipodomys spectabilis,152
+0,Equus,Equus asinus,152
+0,Myotis,Myotis daubentonii,151
+0,Oryx,Oryx dammah,151
+0,Hippopotamus,Hippopotamus amphibius kiboko,150
+0,Neophocaena,Neophocaena asiaeorientalis,150
+0,Myotis,Myotis myotis,150
+0,Equus,Equus caballus,150
+0,Rhinolophus,Rhinolophus sinicus,150
+0,Odobenus,Odobenus rosmarus divergens,149
+0,Galeopterus,Galeopterus variegatus,149
+0,Moschus,Moschus berezovskii,149
+0,Capra,Capra hircus,149
+0,Diceros,Diceros bicornis minor,149
+0,Desmodus,Desmodus rotundus,149
+0,Cynocephalus,Cynocephalus volans,149
+0,Myotis,Myotis lucifugus,148
+0,Pipistrellus,Pipistrellus kuhlii,148
+0,Rousettus,Rousettus aegyptiacus,147
+0,Budorcas,Budorcas taxicolor,147
+0,Urocitellus,Urocitellus parryii,147
+0,Eptesicus,Eptesicus fuscus,147
+0,Vicugna,Vicugna pacos,147
+0,Ovis,Ovis aries,146
+0,Rhinolophus,Rhinolophus ferrumequinum,146
+0,Talpa,Talpa occidentalis,145
+0,Tupaia,Tupaia chinensis,145
+0,Pteropus,Pteropus giganteus,145
+0,Phacochoerus,Phacochoerus africanus,145
+0,Choloepus,Choloepus didactylus,145
+0,Molossus,Molossus molossus,144
+0,Dama,Dama dama,144
+0,Nycticebus,Nycticebus coucang,144
+0,Sciurus,Sciurus carolinensis,144
+0,Marmota,Marmota monax,144
+0,Marmota,Marmota marmota marmota,144
+0,Marmota,Marmota flaviventris,144
+0,Oryctolagus,Oryctolagus cuniculus,144
+0,Camelus,Camelus dromedarius,144
+0,Lepus,Lepus europaeus,144
+0,Phocoena,Phocoena sinus,144
+0,Sturnira,Sturnira hondurensis,143
+0,Globicephala,Globicephala melas,143
+0,Phyllostomus,Phyllostomus discolor,143
+0,Nannospalax,Nannospalax galili,143
+0,Sorex,Sorex fumeus,143
+0,Cervus,Cervus canadensis,142
+0,Lagenorhynchus,Lagenorhynchus obliquidens,142
+0,Orcinus,Orcinus orca,142
+0,Lagenorhynchus,Lagenorhynchus albirostris,142
+0,Cervus,Cervus elaphus,142
+0,Tursiops,Tursiops truncatus,142
+0,Hipposideros,Hipposideros armiger,142
+0,Ictidomys,Ictidomys tridecemlineatus,141
+0,Heterocephalus,Heterocephalus glaber,141
+0,Delphinus,Delphinus delphis,141
+0,Perognathus,Perognathus longimembris pacificus,141
+0,Miniopterus,Miniopterus natalensis,141
+0,Loxodonta,Loxodonta africana,141
+0,Sus,Sus scrofa domesticus,141
+0,Sus,Sus scrofa,141
+0,Otolemur,Otolemur garnettii,140
+0,Piliocolobus,Piliocolobus tephrosceles,140
+0,Sorex,Sorex araneus,140
+0,Rattus,Rattus norvegicus,140
+0,Monodon,Monodon monoceros,139
+0,Octodon,Octodon degus,139
+0,Condylura,Condylura cristata,139
+0,Gorilla,Gorilla gorilla gorilla,139
+0,Artibeus,Artibeus jamaicensis,139
+0,Eubalaena,Eubalaena glacialis,139
+0,Trichechus,Trichechus manatus latirostris,139
+0,Odocoileus,Odocoileus virginianus texanus,139
+0,Grammomys,Grammomys surdaster,139
+0,Rattus,Rattus rattus,139
+0,Colobus,Colobus angolensis palliatus,139
+0,Camelus,Camelus ferus,139
+0,Camelus,Camelus bactrianus,139
+0,Suncus,Suncus etruscus,139
+0,Fukomys,Fukomys damarensis,138
+0,Macaca,Macaca mulatta,138
+0,Phyllostomus,Phyllostomus hastatus,138
+0,Ochotona,Ochotona princeps,138
+0,Chinchilla,Chinchilla lanigera,138
+0,Pteronotus,Pteronotus parnellii mesoamericanus,138
+0,Rhinopithecus,Rhinopithecus roxellana,138
+0,Ochotona,Ochotona curzoniae,138
+0,Elephas,Elephas maximus indicus,137
+0,Balaenoptera,Balaenoptera musculus,137
+0,Theropithecus,Theropithecus gelada,137
+0,Chlorocebus,Chlorocebus sabaeus,137
+0,Rhinopithecus,Rhinopithecus bieti,137
+0,Jaculus,Jaculus jaculus,137
+0,Macaca,Macaca fascicularis,137
+0,Papio,Papio anubis,137
+0,Hylobates,Hylobates moloch,137
+0,Arvicanthis,Arvicanthis niloticus,136
+0,Cercocebus,Cercocebus atys,136
+0,Macaca,Macaca thibetana thibetana,136
+0,Mandrillus,Mandrillus leucophaeus,136
+0,Pan,Pan troglodytes,136
+0,Castor,Castor canadensis,136
+0,Pan,Pan paniscus,136
+0,Homo,Homo sapiens,136
+0,Orycteropus,Orycteropus afer afer,136
+0,Delphinapterus,Delphinapterus leucas,135
+0,Propithecus,Propithecus coquereli,135
+0,Symphalangus,Symphalangus syndactylus,135
+0,Balaenoptera,Balaenoptera acutorostrata,135
+0,Psammomys,Psammomys obesus,135
+0,Microcebus,Microcebus murinus,135
+0,Physeter,Physeter catodon,134
+0,Pongo,Pongo pygmaeus,134
+0,Nomascus,Nomascus leucogenys,134
+0,Carlito,Carlito syrichta,134
+0,Cavia,Cavia porcellus,134
+0,Mastomys,Mastomys coucha,133
+0,Meriones,Meriones unguiculatus,133
+0,Cebus,Cebus imitator,133
+0,Balaenoptera,Balaenoptera ricei,133
+0,Acomys,Acomys russatus,133
+0,Kogia,Kogia breviceps,133
+0,Pongo,Pongo abelii,133
+0,Macaca,Macaca nemestrina,133
+0,Lemur,Lemur catta,132
+0,Callithrix,Callithrix jacchus,132
+0,Sapajus,Sapajus apella,132
+0,Trachypithecus,Trachypithecus francoisi,131
+0,Mesoplodon,Mesoplodon densirostris,130
+0,Peromyscus,Peromyscus leucopus,127
+0,Mus,Mus musculus,127
+0,Microtus,Microtus ochrogaster,127
+0,Apodemus,Apodemus sylvaticus,127
+0,Peromyscus,Peromyscus californicus insignis,127
+0,Dasypus,Dasypus novemcinctus,127
+0,Saimiri,Saimiri boliviensis boliviensis,126
+0,Peromyscus,Peromyscus maniculatus bairdii,126
+0,Mus,Mus caroli,126
+0,Microtus,Microtus fortis,125
+0,Myodes,Myodes glareolus,124
+0,Aotus,Aotus nancymaae,124
+0,Onychomys,Onychomys torridus,123
+0,Arvicola,Arvicola amphibius,123
+0,Cricetulus,Cricetulus griseus,122
+0,Phodopus,Phodopus roborovskii,122
+0,Chionomys,Chionomys nivalis,121
+0,Microtus,Microtus oregoni,120
+0,Mesocricetus,Mesocricetus auratus,120
+0,Echinops,Echinops telfairi,110
