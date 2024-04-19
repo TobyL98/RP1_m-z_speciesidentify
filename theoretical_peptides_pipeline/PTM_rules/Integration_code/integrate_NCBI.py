@@ -85,7 +85,7 @@ def integrate(output_path):
         species_name = species_name.replace(" ", "_")
         print("{0}_filtered.csv".format(species_name))
         # output_path is input into function
-        csv_name =  "{0}/{1}_filtered.csv".format(output_path, species_name)
+        csv_name =  "{0}/{1}_filt.csv".format(output_path, species_name)
         predict_LC_df.to_csv(csv_name)
     print("######################################")
 

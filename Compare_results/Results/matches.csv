@@ -1,11 +1,21 @@
-,CLASS,SUBCLASS,INFRACLASS,ORDER,FAMILY,GENUS,SPECIES,Match,Corr_Score,match_score
-0,Mammalia,Theria,Eutheria,Carnivora,Ursidae,Ursus,Ursus maritimus,100,0.7905409,1.0
-0,Mammalia,Theria,Eutheria,Carnivora,Canidae,Vulpes,Vulpes vulpes,99,0.96424544,0.99
-0,Mammalia,Theria,Eutheria,Carnivora,Canidae,Canis,Canis lupus,97,0.96482325,0.97
-0,Mammalia,Theria,Eutheria,Carnivora,Mustelidae,Mustela,Mustela putorius,94,0.98877347,0.94
-0,Mammalia,Theria,Eutheria,Carnivora,Ursidae,Ailuropoda,Ailuropoda melanoleuca,93,0.9851505,0.93
-0,Mammalia,Theria,Eutheria,Carnivora,Mustelidae,Lutra,Lutra lutra,93,0.9807379,0.93
-0,Mammalia,Theria,Eutheria,Carnivora,Felidae,Felis,Felis catus,92,0.9909265,0.92
-0,Mammalia,Theria,Eutheria,Carnivora,Felidae,Panthera,Panthera tigris,91,1.0,0.91
-0,Mammalia,Theria,Eutheria,Carnivora,Mustelidae,Lontra,Lontra canadensis,91,0.98434126,0.91
-0,Mammalia,Theria,Eutheria,Perissodactyla,Equidae,Equus,Equus caballus,91,0.80881625,0.91
+,GENUS,SPECIES,Match,Corr_Score
+0,Vicugna,Vicugna pacos,118,1.0
+0,Panthera,Panthera pardus,118,0.99845606
+0,Equus,Equus quagga,118,0.99466336
+0,Moschus,Moschus berezovskii,119,0.98588043
+0,Panthera,Panthera tigris,120,0.98167145
+0,Hyaena,Hyaena hyaena,118,0.9772188
+0,Sus,Sus scrofa,142,0.9767763
+0,Felis,Felis catus,120,0.9755739
+0,Phacochoerus,Phacochoerus africanus,137,0.97363603
+0,Sus,Sus scrofa domesticus,142,0.9736238
+0,Prionailurus,Prionailurus bengalensis,120,0.9654118
+0,Prionailurus,Prionailurus viverrinus,120,0.9654118
+0,Panthera,Panthera uncia,121,0.96518195
+0,Panthera,Panthera onca,121,0.96518195
+0,Panthera,Panthera leo,121,0.96518195
+0,Acinonyx,Acinonyx jubatus,120,0.96513045
+0,Lynx,Lynx rufus,120,0.96513045
+0,Lynx,Lynx canadensis,120,0.96513045
+0,Neofelis,Neofelis nebulosa,119,0.9647714
+0,Leopardus,Leopardus geoffroyi,121,0.9640879
