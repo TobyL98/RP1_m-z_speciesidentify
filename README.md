@@ -14,7 +14,7 @@ To briefly explain the pipelines, the COL1α1 and COL1α2 sequences are download
 ## Getting Started - Users
 1. Clone this repository
 2. Download all the required dependencies
-3. To generate theoretical peptide spectra from species COL1 sequences look at README in theoretical_peptides_pipeline_folder
+3. To generate theoretical peptide spectra from species COL1 sequences look at README in theoretical_peptides_pipeline folder
 4. To compare the theoretical and experimental peptide spectra follow the README in Compare_results
 
 ## Getting Started - Developers
