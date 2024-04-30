@@ -21,4 +21,16 @@ To briefly explain the pipelines, the COL1α1 and COL1α2 sequences are download
 Please clone this repository and use it as you would like. The information and code for the theoretical peptide spectra generation are in the theoretical_peptides_pipeline_folder. 
 The information and code for the theoretical and experimental peptide spectra comparison is in the Compare_results folder
 
+## Dependencies
+**Python**
+- using version 3.12.1
+- Pandas v 2.1.4
+- Numpy v 1.26.3
+
+**R**
+- Using version 4.3.2
+- dplyr v 1.1.4
+- stringr v 1.5.1
+- Bacollite v 1.0.1 (https://github.com/bioarch-sjh/bacollite/blob/master/INSTALL.md) (Hickinbotham et al., 2021)
+
 
