@@ -12,8 +12,13 @@ To briefly explain the pipelines, the COL1α1 and COL1α2 sequences are download
 ![flow_diagram_3](https://github.com/TobyL98/RP1_m-z_speciesidentify/assets/158182593/fe4de66b-4cf2-497b-b4f6-657ec5526320)
 
 ## Getting Started - Users
+1. Clone this repository
+2. Download all the required dependencies
+3. To generate theoretical peptide spectra from species COL1 sequences look at README in theoretical_peptides_pipeline_folder
+4. To compare the theoretical and experimental peptide spectra follow the README in Compare_results
 
 ## Getting Started - Developers
-Please clone this repository and use it as you would like
+Please clone this repository and use it as you would like. The information and code for the theoretical peptide spectra generation are in the theoretical_peptides_pipeline_folder. 
+The information and code for the theoretical and experimental peptide spectra comparison is in the Compare_results folder
 
 
