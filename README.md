@@ -10,3 +10,10 @@ To briefly explain the pipelines, the COL1α1 and COL1α2 sequences are download
 
 
 ![flow_diagram_3](https://github.com/TobyL98/RP1_m-z_speciesidentify/assets/158182593/fe4de66b-4cf2-497b-b4f6-657ec5526320)
+
+## Getting Started - Users
+
+## Getting Started - Developers
+Please clone this repository and use it as you would like
+
+
