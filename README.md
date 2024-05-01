@@ -33,4 +33,8 @@ The information and code for the theoretical and experimental peptide spectra co
 - stringr v 1.5.1
 - Bacollite v 1.0.1 (https://github.com/bioarch-sjh/bacollite/blob/master/INSTALL.md) (Hickinbotham et al., 2021)
 
+# References
+
+Simon Hickinbotham, Sarah Fiddyment, Timothy L Stinson, Matthew J Collins (2020) How to Get Your Goat: Automated Identification of Species from MALDI-ToF Spectra Bioinformatics, March 2020
+
 
