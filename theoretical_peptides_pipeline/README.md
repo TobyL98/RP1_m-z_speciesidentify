@@ -47,5 +47,9 @@ DCVNPQTREGECCPFCPEEFVSPDQELIGVEGPKGDRGPQGPRGPAGPPGKDGIPGQPGLPGPPGPPGPP
 The species name needs to be at the end of the header in square brackets. This is the default output from NCBI protein
 
 ### Output
-The ouput is a csv file for each species with the generated peptides and their respective mass values. 
-An example of the start in excel is below. Only the columns mass1, GENUS and SPECIES are required for comparing to experimental spectra 
+The output is a csv file for each species with the generated peptides and their respective mass values. 
+An example of the start in excel is below. Only the columns mass1, GENUS and SPECIES are required for comparing to experimental spectra
+
+<img width="625" alt="theor_out_example" src="https://github.com/TobyL98/RP1_m-z_speciesidentify/assets/158182593/a758da8c-da45-464d-b657-df312d919189">
+
+### Changing LCMSMS Data
