@@ -63,8 +63,8 @@ If you're doing analysis for a different class (e.g., birds) or very divergent/r
 
 One section of the code using an R script modified from the package 'Baccolite' (Hickinbotham et al., 2020) to generate the theoretical peptides and their corresponding masses.
 To run this in python using subprocess requires the Rscript.exe which runs R. This is entered in the comman line option -r. 
-If you do not know where this file is you can find it using R studio:
-- start
-
+If you do not know where this file is you can find it:
+- On the command line enter the command "where /r "c:\Program Files" Rscript.exe". Then pick the correct Rscript.exe location (if you did not install R into Program files then search in the folder you isntalled it into)
+- In R studio enter the command: "file.path(R.home(), "bin", "Rscript.exe")"
 
 
