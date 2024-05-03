@@ -52,20 +52,23 @@ def parse_args():
     parser = argparse.ArgumentParser()
     # arguments
     parser.add_argument("-iA1", "--inputA1",
-                        help = "The input COL1A1 peptide sequences fasta file to be used. Needs to contain taxonomic informations",
+                        help = """The input COL1A1 peptide sequences fasta file to be used. Needs to contain taxonomic informations.
+                        Default is 'Sequences/COL1A1_seqs_NCBI.fasta'""",
                         default= 'Sequences/COL1A1_seqs_NCBI.fasta',
                         type = file_test) # adds the input COL1A1 file
     parser.add_argument("-iA2", "--inputA2",
-                        help = "The input COL1A2 peptide sequences fasta file to be used. Needs to contain taxonomic informations"
+                        help = """The input COL1A2 peptide sequences fasta file to be used. Needs to contain taxonomic informations.
+                        Default is 'Sequences/COL1A2_seqs_NCBI.fasta'"""
                         , default= 'Sequences/COL1A2_seqs_NCBI.fasta'
                         , type = file_test) # adds the input COL1A2 file
     # adds folder where theoretical peptide results should be outputted
     parser.add_argument("-o", "--output",
-                        help = "The output folder for where the theoretical peptide csvs will be saved."
+                        help = """The output folder for where the theoretical peptide csvs will be saved.
+                        Default is 'PTM_rules/Integration_code/results_NCBI'"""
                         , default= "PTM_rules/Integration_code/results_NCBI"
                         , type = directory_test)
     parser.add_argument("-r", "--Rscript",
-                        help = "The file path of Rscript.exe",
+                        help = "The file path of Rscript.exe. Default is 'C:/Program Files/R/R-4.3.2/bin/x64/Rscript.exe'",
                         default= "C:/Program Files/R/R-4.3.2/bin/x64/Rscript.exe",
                         type = file_test)
     args = parser.parse_args()  # parse arguments

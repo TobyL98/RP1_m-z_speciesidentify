@@ -12,6 +12,13 @@
 # to predict what likely PTMs are at that peptide
 # OUTPUTS: sequence_masses.csv that is used in integrate.py
 
+## Loading modules
+import pandas as pd
+import matplotlib.pyplot as plt
+import glob
+import re
+from pathlib import Path
+import sys
 
 ###################
 ###  Functions  ###
@@ -53,120 +60,135 @@ def mod_count(mods, res):
 
     return(mod_count)
 
-##########################
-## Start of code
-##########################
+
+# Loads in all the LCMSMS mascot csv files from the LCMSMS folder
+# and concatenates into one single dataframe
+def data_load(file_path):
+    csv_files = file_path.glob("*.csv")
+
+    # loops through all CSV files
+    # creates dataframe with columns required
+    # adds df to list
+    df_list = []
+    dtypes = {"pep_score": "float32", "pep_exp_mr": "float32"}
+    use_cols = ["pep_seq", "pep_score", "pep_start", "pep_end", "pep_exp_mr", "pep_miss", "pep_var_mod", "prot_acc"]
+    for csv in csv_files:
+        new_df = pd.read_csv(csv, sep = ",", dtype= dtypes, usecols= use_cols)
+
+        # drop all empty rows
+        new_df.dropna(how="all", inplace=True)
+        #change start and end columns to int
+        new_df = new_df.astype({"pep_start": int, "pep_end": int})
+
+        df_list.append(new_df)
 
 
-## Loading modules
-import pandas as pd
-import matplotlib.pyplot as plt
-import glob
-import re
+    #combines all dataframes in the list into single df   
+    df = pd.concat(df_list)
+
+    Pos_sorted_df = df.sort_values(by = ["pep_start", "pep_end"])
+    return(Pos_sorted_df)
 
 
-# load in data
-# load in all csv files in PTM_rules folder
-csv_files = glob.glob('C:/Users/tobyl/OneDrive - The University of Manchester/Bioinformatics Masters/Research project 1/Git_repositories/RP1_m-z_speciesidentify/theoretical_peptides_pipeline/PTM_rules/LCMSMS/*.csv')
+# reads in the dataframe with all possible PTMs
+# 
+def df_filter(df):
+    # create a startend list
+    # means don't repeat sequences in dataframe
+    pep_startend_list = []
 
-# loops through all CSV files
-# creates dataframe with columns required
-# adds df to list
-df_list = []
-dtypes = {"pep_score": "float32", "pep_exp_mr": "float32"}
-for csv in csv_files:
-    new_df = pd.read_csv(csv, sep = ",", dtype= dtypes)
-    new_df = new_df[["pep_seq", "pep_score", "pep_start", "pep_end", "pep_exp_mr", "pep_miss", "pep_var_mod", "prot_acc"]]
+    pep_seq_df_list = []
+    seq_count = 0
 
-    # drop all empty rows
-    new_df.dropna(how="all", inplace=True)
-    #change start and end columns to int
-    new_df = new_df.astype({"pep_start": int, "pep_end": int})
-
-    df_list.append(new_df)
-
-
-#combines all dataframes in the list into single df   
-df = pd.concat(df_list)
-
-Pos_sorted_df = df.sort_values(by = ["pep_start", "pep_end"])
-
-# create a startend list
-# means don't repeat sequences in dataframe
-pep_startend_list = []
-
-pep_seq_df_list = []
-seq_count = 0
-
-# This code loops through rows
-#  finds specific start and end and sequence length
-#  filters the dataframe by the specific start and end
-for index, row in Pos_sorted_df.iterrows():
-    pep_start = row["pep_start"]
-    # creates a start list based on peptide start
-    # allows two behind and two after to account for frameshifts
-    start_list = list(range(pep_start - 4, pep_start + 4, 1))
-    pep_end = row["pep_end"]
-    # creates an end list based on peptide start
-    end_list = list(range(pep_end - 4, pep_end + 4, 1))
-    # gets the sequences length
-    seq_length = pep_end - pep_start
-    # puts into a tuple which accounts for all three factors
-    startend = (pep_start, pep_end, seq_length)
+    # This code loops through rows
+    #  finds specific start and end and sequence length
+    #  filters the dataframe by the specific start and end
+    for index, row in df.iterrows():
+        pep_start = row["pep_start"]
+        # creates a start list based on peptide start
+        # allows two behind and two after to account for frameshifts
+        start_list = list(range(pep_start - 4, pep_start + 4, 1))
+        pep_end = row["pep_end"]
+        # creates an end list based on peptide start
+        end_list = list(range(pep_end - 4, pep_end + 4, 1))
+        # gets the sequences length
+        seq_length = pep_end - pep_start
+        # puts into a tuple which accounts for all three factors
+        startend = (pep_start, pep_end, seq_length)
 
 
-    # if tuple value is not already in list
-    if startend not in pep_startend_list:
-        seq_count += 1
+        # if tuple value is not already in list
+        if startend not in pep_startend_list:
+            seq_count += 1
 
-        # filters df by start_list, end list and seq_length
-        pep_seq_df = df.loc[df["pep_start"].isin(start_list) 
-                            & df["pep_end"].isin(end_list)
-                            & (df["pep_end"] - df["pep_start"] == seq_length)]
+            # filters df by start_list, end list and seq_length
+            pep_seq_df = df.loc[df["pep_start"].isin(start_list) 
+                                & df["pep_end"].isin(end_list)
+                                & (df["pep_end"] - df["pep_start"] == seq_length)]
 
-        # dropping duplicates so only keep the top pep_score
-        pep_seq_df = pep_seq_df.sort_values(by = ["pep_score"], ascending = False)
-        pep_seq_df = pep_seq_df.drop_duplicates(subset = ["pep_seq", "pep_start", "pep_end", "pep_miss","pep_var_mod", "prot_acc"])
-        pep_seq_df = pep_seq_df.sort_values(by = ["prot_acc"])
-        pep_seq_df = pep_seq_df.reset_index(drop = True)
-        pep_seq_df["pep_id"] = seq_count # add a unique identifier
+            # dropping duplicates so only keep the top pep_score
+            pep_seq_df = pep_seq_df.sort_values(by = ["pep_score"], ascending = False)
+            pep_seq_df = pep_seq_df.drop_duplicates(subset = ["pep_seq", "pep_start", "pep_end", "pep_miss","pep_var_mod", "prot_acc"])
+            pep_seq_df = pep_seq_df.sort_values(by = ["prot_acc"])
+            pep_seq_df = pep_seq_df.reset_index(drop = True)
+            pep_seq_df["pep_id"] = seq_count # add a unique identifier
 
-        #use apply on function to count number of hydroxylations (M, P and K)
-        #and demidations (N and Q)
-        #from LC-MS/MS data
-        pep_seq_df["hyd_count"] = pep_seq_df["pep_var_mod"].apply(mod_count, res = r"[MPK]")
-        pep_seq_df["deam_count"] = pep_seq_df["pep_var_mod"].apply(mod_count, res = r"NQ")
+            #use apply on function to count number of hydroxylations (M, P and K)
+            #and demidations (N and Q)
+            #from LC-MS/MS data
+            pep_seq_df["hyd_count"] = pep_seq_df["pep_var_mod"].apply(mod_count, res = r"[MPK]")
+            pep_seq_df["deam_count"] = pep_seq_df["pep_var_mod"].apply(mod_count, res = r"NQ")
 
-        # group by used to ensure there are no duplicate PTMs are included
-        # hyd_count and deam_count are important for this
-        # summarises prot_acc to include all the species that have this PTM
-        # summarises other numbers
-        pep_seq_df = pep_seq_df.groupby(['pep_seq', 'pep_miss', 'hyd_count', 'deam_count', 'pep_id'], as_index = False, dropna = False).agg(
-            {"prot_acc": ', '.join, "pep_score": "max", "pep_exp_mr": "mean", "pep_start": "min", "pep_end": "min"})
-        
-        #Picking out top two values
-        #pep_seq_df = pep_seq_df.sort_values(by = ["pep_score"], ascending = False)
-        #pep_seq_df = pep_seq_df.head(2)
+            # group by used to ensure there are no duplicate PTMs are included
+            # hyd_count and deam_count are important for this
+            # summarises prot_acc to include all the species that have this PTM
+            # summarises other numbers
+            pep_seq_df = pep_seq_df.groupby(['pep_seq', 'pep_miss', 'hyd_count', 'deam_count', 'pep_id'], as_index = False, dropna = False).agg(
+                {"prot_acc": ', '.join, "pep_score": "max", "pep_exp_mr": "mean", "pep_start": "min", "pep_end": "min"})
 
-        # add 1 to calculate PMF value
-        pep_seq_df["PMF_predict"] = pep_seq_df["pep_exp_mr"] + 1
-        # adds the df to a dictionary
-        pep_seq_df_list.append(pep_seq_df)
+            # add 1 to calculate PMF value
+            pep_seq_df["PMF_predict"] = pep_seq_df["pep_exp_mr"] + 1
+            # adds the df to a dictionary
+            pep_seq_df_list.append(pep_seq_df)
 
-        # generates the pep_startend_list
-        # adds all peptide start, end and sequence length combinations that have been done
-        # means they are not done more than once
-        num_count = 0
-        for num in start_list:
-            startend_poss = (start_list[num_count], end_list[num_count], seq_length)
-            pep_startend_list.append(startend_poss)
-            num_count += 1
+            # generates the pep_startend_list
+            # adds all peptide start, end and sequence length combinations that have been done
+            # means they are not done more than once
+            num_count = 0
+            for num in start_list:
+                startend_poss = (start_list[num_count], end_list[num_count], seq_length)
+                pep_startend_list.append(startend_poss)
+                num_count += 1
 
-# add all the different peptide dfs into one df       
-all_peps_df = pd.concat(pep_seq_df_list)
-# reorder for presentation
-correct_order = ["pep_id", "pep_seq", "pep_start", "pep_end", "pep_exp_mr", "hyd_count", "deam_count", "pep_miss", "prot_acc", "pep_score", "PMF_predict"]
-all_peps_df = all_peps_df.reindex(columns = correct_order)
-all_peps_df = all_peps_df.reset_index()
+    # add all the different peptide dfs into one df       
+    all_peps_df = pd.concat(pep_seq_df_list)
+    return(all_peps_df)
 
-all_peps_df.to_csv("sequence_masses.csv", sep = ',')
+
+def main():
+    print("""####################
+Program: Peptide_rules.py
+#####################""")
+    # find correct file path for LCMSMS data
+    p = Path().absolute()
+    csv_file_path = p.parent / r'LCMSMS'
+    if not csv_file_path.is_dir(): 
+        raise FileNotFoundError("""The directory containing the LCMSMS data does not exist {0}.
+Ensure the following directory is created and put the LCMSMS data in it""".format(csv_file_path))
+    # read LCMSMS CSV files and merge to one dataframe
+    all_df = data_load(csv_file_path)
+
+    # filter to obtain desired output
+    final_peps_df = df_filter(all_df)
+
+    # reorder for presentation
+    correct_order = ["pep_id", "pep_seq", "pep_start", "pep_end", "pep_exp_mr", "hyd_count", "deam_count", "pep_miss", "prot_acc", "pep_score", "PMF_predict"]
+    final_peps_df = final_peps_df.reindex(columns = correct_order)
+    final_peps_df = final_peps_df.reset_index()
+
+    # save as a csv file
+    final_peps_df.to_csv("sequence_masses.csv", sep = ',')
+    print("\nOutput: sequence_masses.csv")
+
+if __name__ == "__main__":
+    sys.exit(main())
