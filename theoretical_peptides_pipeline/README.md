@@ -47,7 +47,7 @@ DCVNPQTREGECCPFCPEEFVSPDQELIGVEGPKGDRGPQGPRGPAGPPGKDGIPGQPGLPGPPGPPGPP
 The species name needs to be at the end of the header in square brackets. This is the default output from NCBI protein
 
 ### Output
-The output is a csv file for each species with the generated peptides and their respective mass values. 
+The output is a csv file for each species with the generated peptides and their respective mass values. By default the output csv files are saved to PTM_rules/Integration_code/results_NCBI
 An example of the start in excel is below. Only the columns mass1, GENUS and SPECIES are required for comparing to experimental spectra
 
 <img width="625" alt="theor_out_example" src="https://github.com/TobyL98/RP1_m-z_speciesidentify/assets/158182593/a758da8c-da45-464d-b657-df312d919189">
@@ -66,5 +66,15 @@ To run this in python using subprocess requires the Rscript.exe which runs R. Th
 If you do not know where this file is you can find it:
 - On the command line enter the command "where /r "c:\Program Files" Rscript.exe". Then pick the correct Rscript.exe location (if you did not install R into Program files then search in the folder you isntalled it into)
 - In R studio enter the command: "file.path(R.home(), "bin", "Rscript.exe")"
+
+## Code that makes up the pipeline
+There are several functions that amke up this pipeline which are breifly explained. For more information look at the individual code:
+
+**1. fasta_A1_clean_NCBI.py** - cleans the fasta format COL1A1 sequences downloaded from a database. Output is a fasta file called *COL1A1_seqs_clean_NCBI.fasta* in the 'Sequences' folder
+
+**2. fasta_A2_clean_NCBI.py** - cleans the fasta format COL1A2 sequences downloaded from a database. Output is a fasta file called *COL1A1_seqs_clean_NCBI.fasta* in the 'Sequences' folder
+
+## References
+Simon Hickinbotham, Sarah Fiddyment, Timothy L Stinson, Matthew J Collins (2020) How to Get Your Goat: Automated Identification of Species from MALDI-ToF Spectra Bioinformatics, March 2020
 
 
