@@ -74,6 +74,16 @@ There are several functions that amke up this pipeline which are breifly explain
 
 **2. fasta_A2_clean_NCBI.py** - cleans the fasta format COL1A2 sequences downloaded from a database. Output is a fasta file called *COL1A1_seqs_clean_NCBI.fasta* in the 'Sequences' folder
 
+**3. fasta_seq_amendA1A2_NCBI.py** - merges the COL1A1 and COL1A2 sequences into one COL1 sequence and reformats the fasta header. Output is a fasta file called *COL1A1A2_combined_seqs_NCBI.fasta* in the 'Sequences' folder
+
+**4. fasta_to_csv_NCBI.py** - reads in the previous COL1 fasta file and outputs as csv file with a column for genus name, species name and the COL1 sequence for each species. Output is called *sequences_taxon_NCBI.csv* in the 'Sequences' folder
+
+**5. run_parse_seq_NCBI.R** - The fifth code function is in R and is based off parse_seq.R from the package "Baccolite" (Hickinbotham et al., 2020). For each species COL1 sequence, this code simulates trypsin digestion to produce the peptides aned then calculates the masses of the peptides. Within the masses it has to account for the common COL1 PTMs. These common PTMs are oxidation (+16) and deamidation (+1). It has to account for all the combinations of PTMs. For example, if there were three possible oxidations it would account for 4 masses (0 oxidations, 1 oxidation (+16), 2 oxidations (+32) and 3 oxidations (+48). The outputs are csv files for each species of the peptide sequence, PTMs and masses. The outputs are in the folder "insilico_digest/in_silico_res_NCBI"
+
+**6. integrate_NCBI.py** - This code reads in the previous csv files and the LCMSMS Mascot result files and uses the known PTMs (oxidations and deamidations) from the LCMSMS data to filter the possible PTMs to reduce the number of masses in the output. The output is a filtered csv file for each species with the peptide sequences, PTMs and masses. This final output is outputted to the folder specified in -o in the command line. 
+
+
+
 ## References
 Simon Hickinbotham, Sarah Fiddyment, Timothy L Stinson, Matthew J Collins (2020) How to Get Your Goat: Automated Identification of Species from MALDI-ToF Spectra Bioinformatics, March 2020
 
