@@ -14,6 +14,7 @@
 import pandas as pd
 import re
 from collections import Counter
+import sys
 
 def cleanA2(fileName):
     fileObj = open(fileName, 'r')
@@ -81,6 +82,9 @@ def cleanA2(fileName):
     print("Number of clean COL1A2 sequences = {0}".format(clean_num))
     print("Output is COL1A2_seqs_clean_NCBI.fasta")
     print("######################################")
+
+if __name__ == "__main__":
+    sys.exit(cleanA2("COL1A2_seqs_NCBI.fasta"))
     
 
 

@@ -13,6 +13,7 @@
 
 import pandas as pd
 import re
+import sys
 
 def cleanA1(fileName):
     fileObj = open(fileName, 'r')
@@ -69,6 +70,9 @@ def cleanA1(fileName):
     print("Number of clean COL1A1 sequences = {0}".format(clean_num))
     print("Output is COL1A1_seqs_clean_NCBI.fasta")
     print("######################################")
+
+if __name__ == "__main__":
+    sys.exit(cleanA1("COL1A1_seqs_NCBI.fasta"))
     
 
 

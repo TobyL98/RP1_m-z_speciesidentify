@@ -8,6 +8,7 @@
 
 
 import pandas as pd
+import sys
 
 def FastaToCSV():
     fileName = 'Sequences/COL1A1A2_combined_seqs_NCBI.fasta'
@@ -55,5 +56,9 @@ def FastaToCSV():
     print("Fasta file converted to CSV")
     print("Output is sequences_taxon_NCBI.csv")
     print("######################################")
+
+if __name__ == "__main__":
+    sys.exit(FastaToCSV())
+
 
 

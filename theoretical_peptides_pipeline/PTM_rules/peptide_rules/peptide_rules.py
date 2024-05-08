@@ -91,7 +91,10 @@ def data_load(file_path):
 
 
 # reads in the dataframe with all possible PTMs
-# 
+# groups the data by peptides that have the same start and end positions
+# presumably the same or very similar pepetides due to lack variation
+# in collagen
+# uses these groups to work out common oxidation and deamidations in the peptide
 def df_filter(df):
     # create a startend list
     # means don't repeat sequences in dataframe
@@ -178,7 +181,7 @@ Ensure the following directory is created and put the LCMSMS data in it""".forma
     # read LCMSMS CSV files and merge to one dataframe
     all_df = data_load(csv_file_path)
 
-    # filter to obtain desired output
+    # filter to obtain desired output of likely PTMs
     final_peps_df = df_filter(all_df)
 
     # reorder for presentation

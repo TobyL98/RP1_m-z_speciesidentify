@@ -16,6 +16,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import glob
+import sys
 
 ##########################
 ## FUNCTIONS
@@ -88,4 +89,7 @@ def integrate(output_path):
         csv_name =  "{0}/{1}_filt.csv".format(output_path, species_name)
         predict_LC_df.to_csv(csv_name)
     print("######################################")
+
+if __name__ == "__main__":
+    sys.exit(integrate("in_silico_res_NCBI"))
 

@@ -12,6 +12,7 @@
 
 import pandas as pd
 import re
+import sys
 
 # function reads the fasta file and outputs as dictionary
 # also standardises species information
@@ -80,6 +81,9 @@ def COLA1A2combine():
     print("Number of complete COL1A1 and COL1A2 Sequences = {0}".format(len(A1A2_combined_dict)))
     print("Output is COL1A1A2_combined_seqs_NCBI.fasta")
     print("######################################")
+
+if __name__ == "__main__":
+    sys.exit(COLA1A2combine())
 
 
 
