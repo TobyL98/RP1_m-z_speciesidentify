@@ -56,7 +56,7 @@ An example of the start in excel is below. Only the columns mass1, GENUS and SPE
 A key part of this code is to filter all the possible Post-translational modifications (PTMs) with results from LCMSMS analysis to only include the possible PTMs in the LCMSMS data.
 The LCMSMS data is the results from a Mascot query of the LCMSMS data. The current LCMSMS results used are in PTM_rules/LCMSMS. They include the mammalian species: a bat species from genus Myotis, Rattus norvegicus, Felis catus, a species from Bos genus, Canis lupus familiaris, a species from Elephantidae family and Mus musculus.
 
-If you're doing analysis for a different class (e.g., birds) or very divergent/rare mammalian species then you can change the LCMSMS data by removing the mascot result csv files and replacing them with new csv files. You will potentially need several different species to obtain all the possible PTMS. Once, the LCMSMS files have been replaces run the code *peptide_rules.py* to integrate them into the pipeline
+If you're doing analysis for a different class (e.g., birds) or very divergent/rare mammalian species then you can change the LCMSMS data by removing the mascot result csv files and replacing them with new csv files. You will potentially need several different species to obtain all the possible PTMa. Once the LCMSMS files have been replaced, run the code *peptide_rules.py* to integrate them into the pipeline
 
 ## Common errors
 **1. Rscript.exe file cannot be found**
