@@ -25,3 +25,16 @@ options:
   -m5 TOP5, --top5 TOP5
                         If 1 is inputted will provide an excel file of m/z peak matches for the top 5 match counts as an xlsx (excel) file. Default is 0
 ```
+
+### Example usage
+*Default. Still need to include the input theoretical PMF*
+```
+python compare_NCBI.py -ip PMF_samples/Rodentia/Rattus_rattus_sample.txt
+```
+
+*All input and output options included*
+```
+python compare_NCBI.py -ip PMF_samples/Rodentia/Rattus_rattus_sample.txt -it "C:\Users\tobyl\OneDrive - The University of Manchester\Bioinformatics Masters\Research project 1\Git_repositories\RP1_m-z_speciesidentify\theoretical_peptides_pipeline\PTM_rules\Integration_code\results_NCBI" -o Results/rattus_rattus_matches.csv -t 0.2 -m5 1  
+```
+
+### Inputs
