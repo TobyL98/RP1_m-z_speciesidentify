@@ -5,3 +5,23 @@ There is a match if the m/z value from the experimental spectra is within a cert
 related to the experimental spectra.
 
 ## Usage
+```
+usage: compare_NCBI.py [-h] [-it INPUTTHEOR] [-o OUTPUT] [-ip INPUTPMF] [-t THRESHOLD] [-m5 TOP5]
+
+This code compares the experimental PMF peaks from a sample and the theoretical peaks generated from the all the species COL1 theoretical peptides generated in   
+the theoretical peptides pipeline. It will score a match if the theoretical peptide m/z valus is within a specified threshold (+- 0.2 is default). The output to  
+the command line will be the top 10 match scores (number of matches) species. All species match scores wil be outputted to a CSV file.
+
+options:
+  -h, --help            show this help message and exit
+  -it INPUTTHEOR, --inputTheor INPUTTHEOR
+                        the folder that contains the theoretical peptides csv files to compare against PMF
+  -o OUTPUT, --output OUTPUT
+                        The file name for the output results file of number of matches
+  -ip INPUTPMF, --inputPMF INPUTPMF
+                        The input Peptide mass fingerprint (PMF) from an unknown organism.
+  -t THRESHOLD, --threshold THRESHOLD
+                        The threshold for matches between the experimental and theoretical spectrum. Default is 0.2 Da
+  -m5 TOP5, --top5 TOP5
+                        If 1 is inputted will provide an excel file of m/z peak matches for the top 5 match counts as an xlsx (excel) file. Default is 0
+```
