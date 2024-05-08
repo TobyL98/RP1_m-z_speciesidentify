@@ -64,7 +64,7 @@ and should be the closest related species in the database of theorerical peptide
 When -m5 1 is selected this will output a file called top5matches.xlsx into the results folder. This conatins a seperate sheet for each of the top 5 species match counts.
 On each sheet is information on the m/z values that match between theoretical and experimental peptide m/z values. The start of an example is below:
 
-<img width="539" alt="output_top5" src="https://github.com/TobyL98/RP1_m-z_speciesidentify/assets/158182593/1be72608-66b2-4586-b481-81108897e1e2">
+<img width="773" alt="output_top5" src="https://github.com/TobyL98/RP1_m-z_speciesidentify/assets/158182593/6da61f49-a5af-4846-ac73-4a49fb88bad2">
 
 
 
