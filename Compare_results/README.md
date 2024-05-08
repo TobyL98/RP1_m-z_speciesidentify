@@ -45,10 +45,28 @@ This has previously been generated using mMass. An example is below:
 <img width="300" alt="input_exp_PMF" src="https://github.com/TobyL98/RP1_m-z_speciesidentify/assets/158182593/d6e6c52c-a2a1-4ed3-a678-5f68686de328">
 
 **-it Inputs of theoretical m/z values from theoretical peptides pipeline**
+
 This should just be the csv files that were generated from theoretical peptides pipeline (*theoretical_peps_NCBI.py*).
 By default these will be in the folder: theoretical_peptides_pipeline/PTM_rules/results_NCBI/Integration_code/results_NCBI. An example is below:
 
 <img width="625" alt="theor_out_example" src="https://github.com/TobyL98/RP1_m-z_speciesidentify/assets/158182593/92eda969-1e3b-43bd-b1ec-c2a1a95700cd">
+
+### Outputs
+**-o Output of the matches count**
+
+By using the -o command line option an output will be given that has ranked all the species by the number of matches from highest to lowest. The top species will have the most matches
+and should be the closest related species in the database of theorerical peptide spectra. An example of the csv file is below:
+
+<img width="224" alt="matches_output" src="https://github.com/TobyL98/RP1_m-z_speciesidentify/assets/158182593/9a8de391-dc75-43b8-b835-6e2d718fe5c4">
+
+**-m5 m/z peak matches for the top 5 species**
+
+When -m5 1 is selected this will output a file called top5matches.xlsx into the results folder. This conatins a seperate sheet for each of the top 5 species match counts.
+On each sheet is information on the m/z values that match between theoretical and experimental peptide m/z values. The start of an example is below:
+
+<img width="539" alt="output_top5" src="https://github.com/TobyL98/RP1_m-z_speciesidentify/assets/158182593/1be72608-66b2-4586-b481-81108897e1e2">
+
+
 
 
 
