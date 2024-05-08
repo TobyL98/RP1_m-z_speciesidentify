@@ -10,5 +10,11 @@ python peptide_rules.py
 ```
 ### Inputs
 The inputs are a set of mascot CSV output files from LCMSMS data for species similar to the species trying to be identified (if searching for mammals there are already 7 mammalian csv files).
-The columns required are: pep_seq, pep_score, pep_start, pep_end, pep_exp_mr, pep_miss, pep_var_mod and prot_acc. Column headers are needed. For an example:
+The columns required are: pep_seq, pep_score, pep_start, pep_end, pep_exp_mr, pep_miss, pep_var_mod and prot_acc. Column headers are needed. For an example view:
+https://github.com/TobyL98/RP1_m-z_speciesidentify/blob/main/theoretical_peptides_pipeline/PTM_rules/LCMSMS/LCMSMS_dog.csv
+
+*All input files must be in the LCMSMS folder: theoretical_peptides_pipeline/PTM_rules/LCMSMS*
+
+### Output
+The output is sequence_masses.csv which is subsequently used to filter all the possible PTMs in *theoretical_peps_NCBI.py*
 
