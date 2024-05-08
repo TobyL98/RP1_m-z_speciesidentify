@@ -37,4 +37,11 @@ python compare_NCBI.py -ip PMF_samples/Rodentia/Rattus_rattus_sample.txt
 python compare_NCBI.py -ip PMF_samples/Rodentia/Rattus_rattus_sample.txt -it "C:\Users\tobyl\OneDrive - The University of Manchester\Bioinformatics Masters\Research project 1\Git_repositories\RP1_m-z_speciesidentify\theoretical_peptides_pipeline\PTM_rules\Integration_code\results_NCBI" -o Results/rattus_rattus_matches.csv -t 0.2 -m5 1  
 ```
 
-### Inputs
+### Input formats
+**-ip Input experimental ZooMS Peptide Mass Fingerprint**
+
+The input PMF should be a txt file that has been generated from a ZooMS experimental peptide mass fingerprinting data. It should have two columns: column 1 = MZ values, column 2 = Relative intensities.
+This has previously been generated using mMass. An example is below:
+
+
+
