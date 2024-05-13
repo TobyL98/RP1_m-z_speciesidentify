@@ -1,0 +1,20 @@
+# python to ignore
+__pycache__
+
+# R to ignore
+# History files
+.Rhistory
+.Rapp.history
+
+# Session Data files
+.RData
+.RDataTmp
+
+# Folders with temporary files
+results_NCBI/
+Compare_results/Results/
+in_silico_res_NCBI/
+
+# Files to ignore
+.sequences_taxon_NCBI.csv
+.sequence_masses.csv

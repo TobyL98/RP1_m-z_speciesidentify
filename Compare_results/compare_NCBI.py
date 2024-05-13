@@ -116,8 +116,9 @@ def read_theor_csv(input_theor_path):
     csv_files = input_theor_path.glob("*.csv")
 
     # read in all csvs of theoretical peptide peaks
-    dtype = {"mass1": 'float32', "GENUS": 'category', "SPECIES": 'category'}
-    usecols = ["mass1", "GENUS", "SPECIES"]
+    dtype = {"mass1": 'float32', "GENUS": 'category', "SPECIES": 'category',
+             "pep_seq": 'category'}
+    usecols = ["mass1", "GENUS", "SPECIES", "pep_seq", "pep_start", "pep_end", "hyd_count", "deam_count", "missed.cleaves"]
     theor_peaks_df_list = []
     for csv in csv_files:
         theor_peaks_df = pd.read_csv(csv, sep = ",", dtype = dtype, 
