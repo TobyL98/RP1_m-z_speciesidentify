@@ -1,5 +1,8 @@
 name: species_identify
+channels:
+  - conda-forge
 dependencies:
   - python=3.12.1
   - pandas=2.1.4
   - numpy=1.26.3
+  - bioconda::pyteomics
