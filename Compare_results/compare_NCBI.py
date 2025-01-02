@@ -1,8 +1,6 @@
-#####################
-## Compare_correlation_NCBI.py
-####################
-
 """
+Compare_correlation_NCBI.py
+
  Gets the theoretical peptides generated from the sequences
  and filtered by the LCMSMS data
  and compares how many match an actual PMF within a certain tolerance
@@ -13,11 +11,12 @@
  to species in the database
 """
  
-import pandas as pd
-import argparse
-import numpy as np
 import sys
 from pathlib import Path
+import argparse
+
+import pandas as pd
+
 
 ################
 # FUNCTIONS
@@ -118,7 +117,7 @@ def read_theor_csv(input_theor_path):
     # read in all csvs of theoretical peptide peaks
     dtype = {"mass1": 'float32', "GENUS": 'category', "SPECIES": 'category',
              "pep_seq": 'category'}
-    usecols = ["mass1", "GENUS", "SPECIES", "pep_seq", "pep_start", "pep_end", "hyd_count", "deam_count", "missed.cleaves"]
+    usecols = ["mass1", "GENUS", "SPECIES", "pep_seq", "pep_start", "pep_end", "hyd_count", "deam_count", "missed_cleaves"]
     theor_peaks_df_list = []
     for csv in csv_files:
         theor_peaks_df = pd.read_csv(csv, sep = ",", dtype = dtype, 
