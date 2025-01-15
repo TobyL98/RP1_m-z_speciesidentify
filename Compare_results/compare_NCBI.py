@@ -10,7 +10,7 @@ Compare_correlation_NCBI.py
  highest number of matches should be the species most closely related
  to species in the database
 """
- 
+
 import sys
 from pathlib import Path
 import argparse
@@ -20,14 +20,19 @@ import pandas as pd
 
 ################
 # FUNCTIONS
-################  
+################
+
 
 # gets the correct default input theoretical peaks path
 # using path to find parent directory
 def default_input_theor():
     p = Path().absolute()
-    input_path = p.parent / r"theoretical_peptides_pipeline/PTM_rules/Integration_code/results_NCBI"
-    return(input_path)
+    input_path = (
+        p.parent
+        / r"theoretical_peptides_pipeline/PTM_rules/Integration_code/results_NCBI"
+    )
+    return input_path
+
 
 # tests if the input file exists
 def file_test(arg):
@@ -36,14 +41,16 @@ def file_test(arg):
         return p
     else:
         raise FileNotFoundError(arg)
-    
+
+
 # test if the input directory exists
 def directory_test(arg):
     p = Path(arg)
     if p.is_dir():
         return p
     else:
-        raise Exception("The input directory does not exist {0}". format(p))
+        raise Exception("The input directory does not exist {0}".format(p))
+
 
 # test if directory of new output file exists
 def output_test(arg):
@@ -52,16 +59,18 @@ def output_test(arg):
     if par.is_dir():
         return p
     else:
-        raise Exception("The directory of the new output file does not exist {0}".format(p))
-    
+        raise Exception(
+            "The directory of the new output file does not exist {0}".format(p)
+        )
+
+
 # test if --top5 input is 0 or 1 only
 def test_01(arg):
     arg = int(arg)
-    if arg == 0  or arg == 1:
-        return(arg)
+    if arg == 0 or arg == 1:
+        return arg
     else:
         raise Exception("The input -m5 --top5 should be the integer 0 or 1 only")
-    
 
 
 def parse_args():
@@ -72,40 +81,58 @@ def parse_args():
     match scores wil be outputted to a CSV file. """
 
     # set up argparse
-    parser = argparse.ArgumentParser(description= description)
+    parser = argparse.ArgumentParser(description=description)
     # add arguments
     # adds the folder where the input theoretical peak spectrums are
-    parser.add_argument("-it", "--inputTheor",
-                        help = "the folder that contains the theoretical peptides csv files to compare against PMF",
-                        default= default_input_theor(),
-                        type = directory_test)
+    parser.add_argument(
+        "-it",
+        "--inputTheor",
+        help="the folder that contains the theoretical peptides csv files to compare against PMF",
+        default=default_input_theor(),
+        type=directory_test,
+    )
     # adds where the output file should be saved
-    parser.add_argument("-o", "--output",
-                        help= "The file name for the output results file of number of matches",
-                        default = "Results/matches.csv",
-                        type = output_test)
+    parser.add_argument(
+        "-o",
+        "--output",
+        help="The file name for the output results file of number of matches",
+        default="Results/matches.csv",
+        type=output_test,
+    )
     # adds where the input peptide mass fingerprint
-    parser.add_argument("-ip", "--inputPMF",
-                        help= "The input Peptide mass fingerprint (PMF) from an unknown organism.",
-                        type = file_test)
-    parser.add_argument("-t", "--threshold",
-                        help= "The threshold for matches between the experimental and theoretical spectrum. Default is 0.2 Da",
-                        default= 0.2, 
-                        type= float)
-    parser.add_argument("-m5", "--top5",
-                        help= """If 1 is inputted will provide an excel file of m/z peak matches for the top 5 match counts as an xlsx (excel) file.
+    parser.add_argument(
+        "-ip",
+        "--inputPMF",
+        help="The input Peptide mass fingerprint (PMF) from an unknown organism.",
+        type=file_test,
+    )
+    parser.add_argument(
+        "-t",
+        "--threshold",
+        help="The threshold for matches between the experimental and theoretical spectrum. Default is 0.2 Da",
+        default=0.2,
+        type=float,
+    )
+    parser.add_argument(
+        "-m5",
+        "--top5",
+        help="""If 1 is inputted will provide an excel file of m/z peak matches for the top 5 match counts as an xlsx (excel) file.
                         Default is 0""",
-                        default= 0, type= test_01)
+        default=0,
+        type=test_01,
+    )
     args = parser.parse_args()
-    return(args)
+    return args
+
 
 # reads in the experimental PMF text file with m/z values
 def read_exp_PMF(input_PMF):
-
     # read in txt file of PMF values from data
-    dtype= {"MZ": 'float32', "intensity": 'float32'}
-    act_peaks_df = pd.read_table(input_PMF, sep = "\t", header = None, names = ["MZ", "intensity"], dtype= dtype)
-    return(act_peaks_df)
+    dtype = {"MZ": "float32", "intensity": "float32"}
+    act_peaks_df = pd.read_table(
+        input_PMF, sep="\t", header=None, names=["MZ", "intensity"], dtype=dtype
+    )
+    return act_peaks_df
 
 
 # reads in all the csv files theoretical peptide m/z values
@@ -115,24 +142,37 @@ def read_theor_csv(input_theor_path):
     csv_files = input_theor_path.glob("*.csv")
 
     # read in all csvs of theoretical peptide peaks
-    dtype = {"mass1": 'float32', "GENUS": 'category', "SPECIES": 'category',
-             "pep_seq": 'category'}
-    usecols = ["mass1", "GENUS", "SPECIES", "pep_seq", "pep_start", "pep_end", "hyd_count", "deam_count", "missed_cleaves"]
+    dtype = {
+        "mass1": "float32",
+        "GENUS": "category",
+        "SPECIES": "category",
+        "pep_seq": "category",
+    }
+    usecols = [
+        "mass1",
+        "GENUS",
+        "SPECIES",
+        "pep_seq",
+        "pep_start",
+        "pep_end",
+        "hyd_count",
+        "deam_count",
+        "missed_cleaves",
+    ]
     theor_peaks_df_list = []
     for csv in csv_files:
-        theor_peaks_df = pd.read_csv(csv, sep = ",", dtype = dtype, 
-                                     usecols = usecols)
+        theor_peaks_df = pd.read_csv(csv, sep=",", dtype=dtype, usecols=usecols)
         theor_peaks_df_list.append(theor_peaks_df)
-    return(theor_peaks_df_list)
+    return theor_peaks_df_list
+
 
 # function does the comparison between one set of theoretical peptides
 # and the PMF within a certain allowance
 # theor_peaks are the theoretical peaks
 # act_peaks are the actual peaks from PMF
 def compare(theor_peaks, act_peaks, threshold):
-    
-    #creates columns that are the same in each
-    #can then be merged
+    # creates columns that are the same in each
+    # can then be merged
     act_peaks["join"] = 1
     theor_peaks["join"] = 1
 
@@ -140,28 +180,30 @@ def compare(theor_peaks, act_peaks, threshold):
     # with theoretical peaks
     act_peaks["MZ_plus"] = act_peaks["MZ"] + threshold
     act_peaks["MZ_minus"] = act_peaks["MZ"] - threshold
-    
+
     # merges the datasets so we have all the data
     # then filters where there is a MATCH within the tolerance
     # number of rows left will be number of matches
-    merged_df = act_peaks.merge(theor_peaks, how = "outer", on = ["join"])
-    merged_df = merged_df.loc[(merged_df["mass1"] >= merged_df["MZ_minus"]) &
-                              (merged_df["mass1"] <= merged_df["MZ_plus"])]
-    
+    merged_df = act_peaks.merge(theor_peaks, how="outer", on=["join"])
+    merged_df = merged_df.loc[
+        (merged_df["mass1"] >= merged_df["MZ_minus"])
+        & (merged_df["mass1"] <= merged_df["MZ_plus"])
+    ]
+
     # remove duplicates if MZ value has matched more than once
-    matches_df = merged_df.drop_duplicates(subset = ["MZ"])
+    matches_df = merged_df.drop_duplicates(subset=["MZ"])
 
     # assigns number of matches to count
     match_count = matches_df.shape[0]
-                
+
     # turns match results to a df
-    result_df = pd.DataFrame([match_count], columns = ["Match"])
+    result_df = pd.DataFrame([match_count], columns=["Match"])
 
     # combines with the taxon information to identify which species it is
-    taxon_df = theor_peaks.loc[[0] ,["GENUS", "SPECIES"]]
-    final_df = pd.concat([taxon_df , result_df], axis = 1)
-    return(final_df, matches_df, match_count)
-        
+    taxon_df = theor_peaks.loc[[0], ["GENUS", "SPECIES"]]
+    final_df = pd.concat([taxon_df, result_df], axis=1)
+    return (final_df, matches_df, match_count)
+
 
 # reads in the theoretical peaks and actual peaks
 # and runs compare function
@@ -181,8 +223,8 @@ def peaks_comparison(theor_peaks_list, act_peaks_df, thresh, output):
 
     # put all results in one dataframe
     match_results_df = pd.concat(results_list)
-    match_results_df = match_results_df.sort_values(by =["Match"], ascending = False)
-    match_results_df = match_results_df.reset_index(drop = True)
+    match_results_df = match_results_df.sort_values(by=["Match"], ascending=False)
+    match_results_df = match_results_df.reset_index(drop=True)
 
     # outputs the top matches results
     # and saves to csv
@@ -190,38 +232,44 @@ def peaks_comparison(theor_peaks_list, act_peaks_df, thresh, output):
     print("RESULTS:")
     print(final_output_df.to_markdown())
     match_results_df.to_csv(output)
-    return(matches_dict)
+    return matches_dict
+
 
 # saves top 5 matches_df as xlxs
 # to same output location as matches
 # if option inputted in command
 def top_5(match_dict, option_match, output):
     if option_match == 1:
-
-        top_5_match = sorted(match_dict.keys(), reverse= True)[:5]
+        top_5_match = sorted(match_dict.keys(), reverse=True)[:5]
         output_parent = output.parent
         top5_path = output_parent / r"top5_matches.xlsx"
-        writer = pd.ExcelWriter(top5_path, engine= "xlsxwriter")
+        writer = pd.ExcelWriter(top5_path, engine="xlsxwriter")
 
         count = 0
         for match in top_5_match:
             count += 1
             df = match_dict[match]
-            df = df.drop(columns = ["join", "MZ_plus", "MZ_minus"])
-            df = df.rename(columns = {"MZ": "Exp MZ", "intensity":"Exp intensity",
-                                      "mass1": "Theor MZ"})
-            df = df.reset_index(drop = True)
-            df.to_excel(writer, sheet_name = "match{0}".format(count))
+            df = df.drop(columns=["join", "MZ_plus", "MZ_minus"])
+            df = df.rename(
+                columns={
+                    "MZ": "Exp MZ",
+                    "intensity": "Exp intensity",
+                    "mass1": "Theor MZ",
+                }
+            )
+            df = df.reset_index(drop=True)
+            df.to_excel(writer, sheet_name="match{0}".format(count))
 
         writer.close()
         print("\n")
-        print("5 species with highest matches m\\z values for all matches have been outputted. File called:")
+        print(
+            "5 species with highest matches m\\z values for all matches have been outputted. File called:"
+        )
         print("'top5_matches.xlsx'")
 
 
 # Main method and logic
 def main(argv):
-    
     print("""####################
 Program: Compare_NCBI.py
 #####################""")
@@ -240,19 +288,15 @@ Program: Compare_NCBI.py
     threshold = args.threshold
     print("\nThreshold for match is +- {0}".format(threshold))
     # compares experimental and theoretical PMFs withins a threshold
-    matches_dictionary = peaks_comparison(theoretical_peaks_df_list, actual_peaks_df, threshold, output_path)
+    matches_dictionary = peaks_comparison(
+        theoretical_peaks_df_list, actual_peaks_df, threshold, output_path
+    )
 
     match_opt = args.top5
     # if required outputs the experimental and theoretical peaks that matches
     # for the top 5 matches
     top_5(matches_dictionary, match_opt, output_path)
 
+
 if __name__ == "__main__":
     sys.exit(main(sys.argv[1:]))
-
-
-
-    
-
-
-

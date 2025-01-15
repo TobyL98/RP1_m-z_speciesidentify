@@ -1,0 +1,31 @@
+,Sample Name,Previous ID,SIF Top Species,SIF Top Score
+0,Polecat_sample.txtresult.csv,Carnivora,Mustela erminea/Mustela lutreola/Mustela putorius furo/Mustela nigripes/Neogale vison,76
+1,Mustela_erminea_sample.txtresult.csv,Carnivora,Neogale vison/Mustela putorius furo/Mustela lutreola/Mustela erminea/Mustela nigripes,59
+2,Vulpes_vulpes_sample.txtresult.csv,Carnivora,Vulpes vulpes/Vulpes lagopus/Canis lupus dingo,103
+3,Hyaena_hyaena_sample.txtresult.csv,Carnivora,Panthera uncia/Panthera onca/Panthera leo,145
+4,Eumetopias_jubatus_sample.txtresult.csv,Carnivora,Callorhinus ursinus,157
+5,Panthera_leo_sample.txtresult.csv,Carnivora,Panthera leo/Panthera onca/Panthera uncia,76
+6,Halichoerus_gryphus_sample.txtresult.csv,Carnivora,Phoca vitulina,79
+7,Otter_sample.txtresult.csv,Carnivora,Mustela lutreola/Mustela nigripes/Neogale vison/Lutra lutra/Mustela erminea/Mustela putorius furo,74
+8,Canis_familiaris_sample.txtresult.csv,Carnivora,Nyctereutes procyonoides/Canis lupus dingo,139
+9,Felis_catus_sample.txtresult.csv,Carnivora,Felis catus,101
+10,Mirounga_angusstirostris_sample.txtresult.csv,Carnivora,Mirounga angustirostris,173
+11,Mirounga_leonina_sample.txtresult.csv,Carnivora,Mirounga leonina,168
+12,Sus_scrofa_sample.txtresult.csv,Artiodactyla,Sus scrofa/Sus scrofa domesticus,138
+13,Hippopotamus_amphibius_sample.txtresult.csv,Artiodactyla,Hippopotamus amphibius kiboko,94
+14,Bos_taurus_sample.txtresult.csv,Artiodactyla,Bos taurus/Bos indicus/Bison bison bison/Bos indicus x Bos taurus/Bos javanicus,117
+15,Moschus_sample.txtresult.csv,Artiodactyla,Moschus berezovskii,121
+16,Capra_hircus_sample.txtresult.csv,Artiodactyla,Capra hircus,116
+17,Ovis_aries_sample.txtresult.csv,Artiodactyla,Moschus berezovskii/Ovis aries,113
+18,Cervus_elaphus_sample.txtresult.csv,Artiodactyla,Cervus elaphus/Cervus canadensis/Dama dama,155
+19,Bubaus_bubalis_sample.txtresult.csv,Artiodactyla,Bubalus bubalis,131
+20,Microtus_oeconomus_sample.txtresult.csv,Rodentia,Microtus fortis,116
+21,Arvicola_sample.txtresult.csv,Rodentia,Arvicola amphibius,155
+22,Apodemus_sylvaticus_sample.txtresult.csv,Rodentia,Apodemus sylvaticus,84
+23,Microtus_agrestis_sample.txtresult.csv,Rodentia,Mus musculus,75
+24,Beaver_sample.txtresult.csv,Rodentia,Castor canadensis/Dipodomys ordii,50
+25,Apodemus_flavicollis_sample.txtresult.csv,Rodentia,Apodemus sylvaticus,90
+26,Myodes_glareolus_sample.txtresult.csv,Rodentia,Arvicola amphibius,94
+27,Rattus_norvegicus_sample.txtresult.csv,Rodentia,Rattus rattus,85
+28,Mus_musculus_sample.txtresult.csv,Rodentia,Mus musculus,75
+29,Rattus_rattus_sample.txtresult.csv,Rodentia,Rattus rattus,104

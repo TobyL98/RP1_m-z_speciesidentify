@@ -1,0 +1,203 @@
+,GENUS,SPECIES,Match
+0,Bos,Bos javanicus,139
+1,Bos,Bos indicus x Bos taurus,139
+2,Bos,Bos taurus,139
+3,Bos,Bos indicus,139
+4,Bison,Bison bison bison,139
+5,Bubalus,Bubalus bubalis,138
+6,Bos,Bos mutus,138
+7,Bubalus,Bubalus kerabau,137
+8,Oryx,Oryx dammah,132
+9,Odocoileus,Odocoileus virginianus texanus,130
+10,Moschus,Moschus berezovskii,130
+11,Capra,Capra hircus,130
+12,Cervus,Cervus elaphus,129
+13,Cervus,Cervus canadensis,129
+14,Budorcas,Budorcas taxicolor,129
+15,Dama,Dama dama,129
+16,Ovis,Ovis aries,128
+17,Ursus,Ursus arctos,122
+18,Nyctereutes,Nyctereutes procyonoides,122
+19,Ailuropoda,Ailuropoda melanoleuca,122
+20,Ursus,Ursus americanus,122
+21,Ursus,Ursus maritimus,122
+22,Theropithecus,Theropithecus gelada,121
+23,Papio,Papio anubis,121
+24,Canis,Canis lupus dingo,121
+25,Mandrillus,Mandrillus leucophaeus,120
+26,Vulpes,Vulpes vulpes,120
+27,Marmota,Marmota monax,120
+28,Marmota,Marmota marmota marmota,120
+29,Vulpes,Vulpes lagopus,120
+30,Piliocolobus,Piliocolobus tephrosceles,120
+31,Cercocebus,Cercocebus atys,120
+32,Colobus,Colobus angolensis palliatus,120
+33,Marmota,Marmota flaviventris,120
+34,Mustela,Mustela nigripes,119
+35,Macaca,Macaca mulatta,119
+36,Chlorocebus,Chlorocebus sabaeus,119
+37,Rhinopithecus,Rhinopithecus bieti,119
+38,Mustela,Mustela putorius furo,119
+39,Equus,Equus asinus,119
+40,Mustela,Mustela lutreola,119
+41,Rhinopithecus,Rhinopithecus roxellana,119
+42,Mustela,Mustela erminea,119
+43,Neogale,Neogale vison,119
+44,Macaca,Macaca thibetana thibetana,118
+45,Equus,Equus quagga,118
+46,Macaca,Macaca fascicularis,118
+47,Vicugna,Vicugna pacos,118
+48,Lutra,Lutra lutra,118
+49,Equus,Equus caballus,118
+50,Panthera,Panthera uncia,117
+51,Trachypithecus,Trachypithecus francoisi,117
+52,Canis,Canis lupus familiaris,117
+53,Lontra,Lontra canadensis,117
+54,Panthera,Panthera leo,117
+55,Panthera,Panthera onca,117
+56,Meles,Meles meles,117
+57,Nannospalax,Nannospalax galili,117
+58,Gorilla,Gorilla gorilla gorilla,116
+59,Panthera,Panthera tigris,116
+60,Propithecus,Propithecus coquereli,116
+61,Urocitellus,Urocitellus parryii,116
+62,Felis,Felis catus,116
+63,Hylobates,Hylobates moloch,116
+64,Pongo,Pongo pygmaeus,116
+65,Diceros,Diceros bicornis minor,116
+66,Pongo,Pongo abelii,115
+67,Lynx,Lynx rufus,115
+68,Symphalangus,Symphalangus syndactylus,115
+69,Tupaia,Tupaia chinensis,115
+70,Lemur,Lemur catta,115
+71,Prionailurus,Prionailurus viverrinus,115
+72,Sciurus,Sciurus carolinensis,115
+73,Pan,Pan troglodytes,115
+74,Homo,Homo sapiens,115
+75,Prionailurus,Prionailurus bengalensis,115
+76,Saimiri,Saimiri boliviensis boliviensis,115
+77,Lynx,Lynx canadensis,115
+78,Neofelis,Neofelis nebulosa,115
+79,Acinonyx,Acinonyx jubatus,115
+80,Pan,Pan paniscus,115
+81,Hippopotamus,Hippopotamus amphibius kiboko,115
+82,Nomascus,Nomascus leucogenys,115
+83,Leopardus,Leopardus geoffroyi,114
+84,Callorhinus,Callorhinus ursinus,114
+85,Odobenus,Odobenus rosmarus divergens,114
+86,Mirounga,Mirounga angustirostris,113
+87,Microcebus,Microcebus murinus,113
+88,Rhinolophus,Rhinolophus sinicus,113
+89,Eumetopias,Eumetopias jubatus,113
+90,Halichoerus,Halichoerus grypus,113
+91,Phoca,Phoca vitulina,113
+92,Suricata,Suricata suricatta,113
+93,Mirounga,Mirounga leonina,113
+94,Ochotona,Ochotona curzoniae,113
+95,Ochotona,Ochotona princeps,113
+96,Phyllostomus,Phyllostomus discolor,113
+97,Phacochoerus,Phacochoerus africanus,113
+98,Hyaena,Hyaena hyaena,113
+99,Castor,Castor canadensis,112
+100,Cynocephalus,Cynocephalus volans,112
+101,Camelus,Camelus dromedarius,111
+102,Neomonachus,Neomonachus schauinslandi,111
+103,Panthera,Panthera pardus,111
+104,Dipodomys,Dipodomys ordii,111
+105,Chinchilla,Chinchilla lanigera,111
+106,Cebus,Cebus imitator,111
+107,Otolemur,Otolemur garnettii,111
+108,Macaca,Macaca nemestrina,111
+109,Camelus,Camelus bactrianus,111
+110,Galeopterus,Galeopterus variegatus,111
+111,Camelus,Camelus ferus,111
+112,Callithrix,Callithrix jacchus,111
+113,Miniopterus,Miniopterus natalensis,111
+114,Rattus,Rattus norvegicus,110
+115,Erinaceus,Erinaceus europaeus,110
+116,Rousettus,Rousettus aegyptiacus,110
+117,Zalophus,Zalophus californianus,110
+118,Manis,Manis javanica,110
+119,Manis,Manis pentadactyla,110
+120,Ictidomys,Ictidomys tridecemlineatus,110
+121,Rhinolophus,Rhinolophus ferrumequinum,109
+122,Molossus,Molossus molossus,109
+123,Pipistrellus,Pipistrellus kuhlii,109
+124,Sapajus,Sapajus apella,109
+125,Phodopus,Phodopus roborovskii,108
+126,Mesocricetus,Mesocricetus auratus,108
+127,Jaculus,Jaculus jaculus,108
+128,Peromyscus,Peromyscus maniculatus bairdii,108
+129,Talpa,Talpa occidentalis,108
+130,Peromyscus,Peromyscus californicus insignis,107
+131,Phyllostomus,Phyllostomus hastatus,107
+132,Desmodus,Desmodus rotundus,107
+133,Sus,Sus scrofa,107
+134,Peromyscus,Peromyscus leucopus,107
+135,Nycticebus,Nycticebus coucang,107
+136,Sus,Sus scrofa domesticus,107
+137,Octodon,Octodon degus,107
+138,Eptesicus,Eptesicus fuscus,107
+139,Myotis,Myotis myotis,106
+140,Lepus,Lepus europaeus,106
+141,Rattus,Rattus rattus,106
+142,Neophocaena,Neophocaena asiaeorientalis,106
+143,Psammomys,Psammomys obesus,106
+144,Myotis,Myotis daubentonii,105
+145,Phocoena,Phocoena sinus,105
+146,Elephas,Elephas maximus indicus,105
+147,Sorex,Sorex fumeus,105
+148,Sorex,Sorex araneus,105
+149,Oryctolagus,Oryctolagus cuniculus,105
+150,Chionomys,Chionomys nivalis,105
+151,Meriones,Meriones unguiculatus,104
+152,Sturnira,Sturnira hondurensis,104
+153,Suncus,Suncus etruscus,104
+154,Arvicanthis,Arvicanthis niloticus,104
+155,Pteropus,Pteropus giganteus,104
+156,Onychomys,Onychomys torridus,104
+157,Condylura,Condylura cristata,104
+158,Grammomys,Grammomys surdaster,104
+159,Cavia,Cavia porcellus,104
+160,Choloepus,Choloepus didactylus,104
+161,Kogia,Kogia breviceps,104
+162,Myotis,Myotis lucifugus,104
+163,Aotus,Aotus nancymaae,104
+164,Myodes,Myodes glareolus,104
+165,Dipodomys,Dipodomys spectabilis,104
+166,Carlito,Carlito syrichta,104
+167,Loxodonta,Loxodonta africana,104
+168,Cricetulus,Cricetulus griseus,103
+169,Arvicola,Arvicola amphibius,103
+170,Microtus,Microtus fortis,103
+171,Artibeus,Artibeus jamaicensis,103
+172,Balaenoptera,Balaenoptera acutorostrata,102
+173,Hipposideros,Hipposideros armiger,102
+174,Pteronotus,Pteronotus parnellii mesoamericanus,102
+175,Dasypus,Dasypus novemcinctus,102
+176,Globicephala,Globicephala melas,101
+177,Heterocephalus,Heterocephalus glaber,101
+178,Fukomys,Fukomys damarensis,101
+179,Microtus,Microtus oregoni,100
+180,Monodon,Monodon monoceros,100
+181,Physeter,Physeter catodon,100
+182,Mesoplodon,Mesoplodon densirostris,100
+183,Perognathus,Perognathus longimembris pacificus,100
+184,Delphinapterus,Delphinapterus leucas,99
+185,Orcinus,Orcinus orca,99
+186,Microtus,Microtus ochrogaster,99
+187,Delphinus,Delphinus delphis,99
+188,Lagenorhynchus,Lagenorhynchus obliquidens,99
+189,Balaenoptera,Balaenoptera ricei,99
+190,Lagenorhynchus,Lagenorhynchus albirostris,99
+191,Orycteropus,Orycteropus afer afer,98
+192,Tursiops,Tursiops truncatus,97
+193,Apodemus,Apodemus sylvaticus,96
+194,Eubalaena,Eubalaena glacialis,96
+195,Mastomys,Mastomys coucha,96
+196,Balaenoptera,Balaenoptera musculus,95
+197,Trichechus,Trichechus manatus latirostris,95
+198,Acomys,Acomys russatus,94
+199,Mus,Mus musculus,93
+200,Mus,Mus caroli,90
+201,Echinops,Echinops telfairi,81
