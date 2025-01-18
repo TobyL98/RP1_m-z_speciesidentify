@@ -9,7 +9,7 @@ import pandas as pd
 def find_filepath():
     """Finds the correct filepaths for all folders with Pinhole results"""
 
-    folder_path = Path(__file__).parent / r"outputs/selected_output"
+    folder_path = Path(__file__).parent / r"outputs/PinHoleDataset_SIMPER_output_run2"
     filepath_list = []
     for child_folderpath in Path.iterdir(folder_path):
         # find the filepaths in the folder
@@ -58,7 +58,7 @@ def main():
     print(results_df.shape)
     print(results_df.head())
     print(results_df.tail())
-    results_df.to_csv("test_results.csv")
+    results_df.to_csv("test_results2.csv")
 
 
 

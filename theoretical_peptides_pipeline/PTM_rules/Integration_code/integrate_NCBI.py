@@ -78,7 +78,6 @@ def integrate(output_path):
                 "pep_miss",
             ]
         )
-
         # merging two datasets
         predict_lc_df = pd.merge(
             predict_df,
