@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "casi"
+version = "0.1.0"
+description = "Collagen Automated Species Inference (CASI). Automates the taxon identifcation from ZooMS mass spectra."
+authors = ["Toby Lawrence <tobylawrence@btinternet.com>", "Michael Buckley"]
+readme = "README.md"
+
+include = [ "casi/theoretical_peptides/input_data/lcmsms/**" ] # lcmsms data to include
+
+[tool.poetry.dependencies]
+python = ">=3.12"
+pandas = ">=2.1"
+numpy = ">=1.26"
+tabulate = ">=0.9"
+pyteomics = ">=4.7"
+tqdm = ">=4.67"
+
+[tool.poetry.group.dev.dependencies]
+
+[tool.poetry.scripts]
+theoretical_peps = "casi.scripts.theoretical_peps:main"
+compare_score = "casi.scripts.compare_score:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
