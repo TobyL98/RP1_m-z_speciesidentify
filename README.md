@@ -23,6 +23,7 @@ git clone https://github.com/TobyL98/RP1_m-z_speciesidentify.git
 pip install casi
 ```
 **Option 2 - Conda**
+
 Unfortunately the packae is not available in conda. However a conda environment is installed using the yaml file.
 ```
 conda env create -f  species_identify.yml
