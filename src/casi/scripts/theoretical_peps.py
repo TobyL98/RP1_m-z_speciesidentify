@@ -18,7 +18,7 @@ from importlib.resources import files
 
 import pandas as pd
 
-from casi.theoretical_peptides.sort_sequences.fasta_A1_clean import cleanA1
+from casi.theoretical_peptides.sort_sequences.fasta_a1_clean import run_clean_a1
 from casi.theoretical_peptides.sort_sequences.fasta_A2_clean import cleanA2
 from casi.theoretical_peptides.sort_sequences.fasta_seq_amendA1A2 import COLA1A2combine
 from casi.theoretical_peptides.sort_sequences.fasta_to_csv import FastaToCSV
@@ -116,7 +116,7 @@ def main(argv=sys.argv[1:]):
     print("STEP 1:")
     a1_file = Path(args.inputa1)
     output_folder = Path(args.output)
-    cleanA1(a1_file, output_folder)
+    run_clean_a1(a1_file, output_folder)
 
     # cleans the COL1A2 sequences provided
     print("STEP 2:")

@@ -18,19 +18,32 @@ Currently still in development and not published as a package on PyPi. Therefore
 ```
 git clone https://github.com/TobyL98/RP1_m-z_speciesidentify.git
 ```
+If you do not have git installed you can instead in the github repository select 'Code' and 'Download Zip'. Then save and unzip the foldr in the location you choose.
+
 **Option 1 - Pip**
+
+As the package is not currently published you must use pip within the directory you now have called 'RP1_m-z_speciesidentify'.
 ```
 pip install casi
 ```
 **Option 2 - Conda**
 
-Unfortunately the package is not available in conda. However a conda environment is installed using the yaml file.
+Unfortunately the package is not available in conda. However a conda environment with the correct dependencies is installed using the yaml file. You will still need to use pip as recommended above to install the package.
 ```
 conda env create -f  species_identify.yml
 ```
 
+## Further Instructions
+
+For further instructions on how to generate the theoretical peptide m/z values from COL1 peptide sequences and to use these to predict the identity of species from its ZooMS fingerprint look at:
+**docs/generate_peptides.md**  
+and  
+**docs/predict_species.md**
+
 ## Contributions
 Contributions are welcomed for this repository!
+
+Please raise any issues that you encounter
 
 
 
