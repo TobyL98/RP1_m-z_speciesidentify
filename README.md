@@ -12,26 +12,29 @@ To briefly explain the pipelines, the COL1α1 and COL1α2 sequences are download
 ![flow_diagram_3](https://github.com/TobyL98/RP1_m-z_speciesidentify/assets/158182593/fe4de66b-4cf2-497b-b4f6-657ec5526320)
 
 ## Installation
-Currently still in development and not published as a package on PyPi. Therefore, currently the repository has to be cloned before installing the package.
+Currently still in development and not published as a package on PyPi. Therefore, currently the repository has to be installed directly from git.
+
+**Option 1 - Pip**
+
+As the package is not currently published you must use pip to install directly from the github repository. **Note**: the package requires python v3.12 or above.
+```
+pip install git+https://github.com/TobyL98/RP1_m-z_speciesidentify.git
+```
+
+**Option 2 - Conda**
+
+Unfortunately the package is not available in conda. However a conda environment with the correct dependencies is installed using the yaml file.
+```
+conda env create -f species_identify.yml
+```
 
 **Clone this repository**
+
+If you would like to use the data from within the repository you can download it directly or clone the repository.
 ```
 git clone https://github.com/TobyL98/RP1_m-z_speciesidentify.git
 ```
 If you do not have git installed you can instead in the github repository select 'Code' and 'Download Zip'. Then save and unzip the foldr in the location you choose.
-
-**Option 1 - Pip**
-
-As the package is not currently published you must use pip within the directory you now have called 'RP1_m-z_speciesidentify'.
-```
-pip install casi
-```
-**Option 2 - Conda**
-
-Unfortunately the package is not available in conda. However a conda environment with the correct dependencies is installed using the yaml file. You will still need to use pip as recommended above to install the package.
-```
-conda env create -f  species_identify.yml
-```
 
 ## Further Instructions
 
