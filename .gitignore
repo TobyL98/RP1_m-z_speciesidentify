@@ -18,3 +18,4 @@ in_silico_res_NCBI/
 # Files to ignore
 .sequences_taxon_NCBI.csv
 .sequence_masses.csv
+.DS_Store
