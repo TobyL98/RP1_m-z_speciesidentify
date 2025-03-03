@@ -105,6 +105,14 @@ def parse_args(argv):
         to identify mammals (if no input given).""",
         type=directory_test
     )
+    parser.add_argument(
+        "-sc",
+        "--species_class",
+        help="""The class that your species is in. There are currently only two answers
+        to this: 'birds' or 'mammals' as the pipeline currently works for birds and mammals.""",
+        default="mammals",
+        choices=["birds", "mammals"]
+    )
     args = parser.parse_args()  # parse arguments
     return args
 
@@ -120,8 +128,9 @@ def main(argv=sys.argv[1:]):
 
     # cleans the COL1A2 sequences provided
     print("STEP 2:")
+    class_input = str(args.species_class)
     a2_file = Path(args.inputa2)
-    cleanA2(a2_file, output_folder)
+    cleanA2(a2_file, output_folder, class_input)
 
     # Combines COLA1 and COL1A2 and adds taxonomic information
     # Outputs as Sequences/COL1A1A2_combined_seqs.fasta
