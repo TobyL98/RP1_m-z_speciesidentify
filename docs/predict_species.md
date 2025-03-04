@@ -46,11 +46,11 @@ This has two options (1 or 0). If 1 is inputted, it will provide an xlsx (excel)
 The script 'compare_score.py' is used to compare matches between the m/z values generated from the sequences for each species and the PMF peak list to identify the species. There are three required inputs: the input species theoretical peptides csv files folder (-it), the ZooMS PMF peak list (-ip) and the output folder (-o). There are two optional inputs: threshold for a match (-t) and the option to output all of the matching m/z values for the top 5 matches (-m5).
 The first example is without the optional input:
 ```
-compare_score -ip example_peak_list.mzXML -it theoretical_results/filtered_peptides -o results_file.csv
+compare_score -ip example_peak_list.mzXML -it theoretical_results/filtered_peptides -o results_folder
 ```
 The second example is with the optional inputs
 ```
-compare_score -ip example_peak_list.mzXML -it theoretical_results/filtered_peptides -o results_file.csv -t 0.2 -m5 1
+compare_score -ip example_peak_list.mzXML -it theoretical_results/filtered_peptides -o results_folder -t 0.2 -m5 1
 ```
 Any further instructions or detail required please look at:
 ```
