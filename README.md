@@ -23,7 +23,7 @@ pip install git+https://github.com/TobyL98/RP1_m-z_speciesidentify.git
 
 **Option 2 - Conda**
 
-Unfortunately the package is not available in conda. However a conda environment with the correct dependencies is installed using the yaml file.
+Unfortunately the package is not available in conda. However a conda environment with the correct dependencies is installed using the yaml file. You will need to clone the git repository to use the yaml file or download the yaml file seperately.
 ```
 conda env create -f species_identify.yml
 ```

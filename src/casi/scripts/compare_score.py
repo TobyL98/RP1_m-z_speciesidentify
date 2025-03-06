@@ -115,7 +115,8 @@ def read_exp_PMF(input_PMF):
     act_peaks_df = pd.read_table(
         input_PMF, sep="\t", header=None, names=["MZ", "intensity"], dtype=dtype
     )
-    return act_peaks_df
+    total_peaks = len(act_peaks_df["MZ"]) # count total number of peaks
+    return act_peaks_df, total_peaks
 
 def read_theor_csv(input_theor_path):
     """reads in all the csv files theoretical peptide m/z values
@@ -147,11 +148,6 @@ def read_theor_csv(input_theor_path):
         theor_peaks_df_list.append(theor_peaks_df)
     return theor_peaks_df_list
 
-
-# function does the comparison between one set of theoretical peptides
-# and the PMF within a certain allowance
-# theor_peaks are the theoretical peaks
-# act_peaks are the actual peaks from PMF
 def compare(theor_peaks, act_peaks, threshold):
     """Function does the comparison between one set of theoretical peptides
     and the PMF within a certain allowance theor_peaks are the 
@@ -189,7 +185,7 @@ def compare(theor_peaks, act_peaks, threshold):
     final_df = pd.concat([taxon_df, result_df], axis=1)
     return (final_df, matches_df, match_count)
 
-def peaks_comparison(theor_peaks_list, act_peaks_df, thresh, output):
+def peaks_comparison(theor_peaks_list, act_peaks_df, thresh, total_peaks, output):
     """Reads in the theoretical peaks and actual peaks
     and runs compare function organises correct output"""
     results_list = []
@@ -206,6 +202,7 @@ def peaks_comparison(theor_peaks_list, act_peaks_df, thresh, output):
 
     # put all results in one dataframe
     match_results_df = pd.concat(results_list)
+    match_results_df['Maximum Possible'] = total_peaks
     match_results_df = match_results_df.sort_values(by=["Match"], ascending=False)
     match_results_df = match_results_df.reset_index(drop=True)
 
@@ -258,7 +255,7 @@ Program: Compare_NCBI.py
 
     input_PMF = Path(args.inputPMF)
     # reads in experimental PMF csv
-    actual_peaks_df = read_exp_PMF(input_PMF)
+    actual_peaks_df, total_peaks = read_exp_PMF(input_PMF)
 
     input_theor_folder = args.inputTheor
     # reads all csvs for species theoretical PMFs
@@ -269,7 +266,7 @@ Program: Compare_NCBI.py
     print("\nThreshold for match is +- {0}".format(threshold))
     # compares experimental and theoretical PMFs withins a threshold
     matches_dictionary = peaks_comparison(
-        theoretical_peaks_df_list, actual_peaks_df, threshold, output_path
+        theoretical_peaks_df_list, actual_peaks_df, threshold, total_peaks, output_path
     )
 
     match_opt = args.top5
