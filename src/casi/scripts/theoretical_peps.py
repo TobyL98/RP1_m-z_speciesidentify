@@ -18,8 +18,7 @@ from importlib.resources import files
 
 import pandas as pd
 
-from casi.theoretical_peptides.sort_sequences.fasta_a1_clean import run_clean_a1
-from casi.theoretical_peptides.sort_sequences.fasta_A2_clean import cleanA2
+from casi.theoretical_peptides.sort_sequences.fasta_col_clean import run_clean_col
 from casi.theoretical_peptides.sort_sequences.fasta_seq_amendA1A2 import COLA1A2combine
 from casi.theoretical_peptides.sort_sequences.fasta_to_csv import FastaToCSV
 from casi.theoretical_peptides.generate_peptides.cleave_all_sequences import collagen_peptide_mass
@@ -124,13 +123,13 @@ def main(argv=sys.argv[1:]):
     print("STEP 1:")
     a1_file = Path(args.inputa1)
     output_folder = Path(args.output)
-    run_clean_a1(a1_file, output_folder)
+    run_clean_col(a1_file, output_folder, "COL1A1")
 
     # cleans the COL1A2 sequences provided
     print("STEP 2:")
     class_input = str(args.species_class)
     a2_file = Path(args.inputa2)
-    cleanA2(a2_file, output_folder, class_input)
+    run_clean_col(a2_file, output_folder, "COL1A2", class_input)
 
     # Combines COLA1 and COL1A2 and adds taxonomic information
     # Outputs as Sequences/COL1A1A2_combined_seqs.fasta

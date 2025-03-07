@@ -1,11 +1,10 @@
 #!/bin/bash
 
-input_folder=data/inputs/fasta_input
-input_col1a1=$input_folder/COL1A1_seqs_NCBI.fasta
-input_col1a2=$input_folder/COL1A2_seqs_NCBI.fasta
+input_folder=data/inputs
+input_col1a1=$input_folder/AvesCOL1A1_240225.txt
+input_col1a2=$input_folder/AvesCOL1A2.txt
 
-output_folder=data/outputs/theor_pep_outputs
-python_file=source_code/species_inference/theoretical_peps.py
+output_folder=data/bird_outputs
 
-python $python_file -iA1 $input_col1a1 -iA2 $input_col1a2 -o $output_folder
+theoretical_peps -ia1 $input_col1a1 -ia2 $input_col1a2 -o $output_folder -sc birds
 
