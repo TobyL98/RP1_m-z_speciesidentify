@@ -11,11 +11,9 @@
 # outputs as a fasta file
 
 import sys
-import re
 from pathlib import Path
 from collections import namedtuple
 
-import pandas as pd
 import taxopy
 
 RankLineage = namedtuple(
@@ -29,12 +27,21 @@ RankLineage = namedtuple(
     ]
 )
 
-def read_col_fasta(file_name):
-    """Reads the fasta file"""
-    file_obj = open(file_name, "r")
+def read_col_fasta(file_name: str) -> dict:
+    """
+    Reads the fasta file
+
+    Args:
+        file_name (str): The location of the fasta file
+
+    Returns:
+        sequences (dict): Dictionary with header as key and sequence as value
+    """
+    file_obj = open(file_name, "r", encoding="utf-8")
     sequences = {}
     for line in file_obj:
         if line.startswith(">"):
+            # gets out the species name from the header
             name = line[1:].rstrip("\n")
             sequences[name] = ""
         # adds the sequences lines as the dictionary value
@@ -175,26 +182,27 @@ def create_fasta(sequences: dict, output_file: Path) -> None:
     print("######################################")
 
 def col1a2_combine():
-    """Combines COl1a1 and COL1A2"""
+    """Combines COl1A1 and COL1A2 sequences, adds taxonomic information,
+    and outputs them as a combined fasta file."""
     output_dir = Path("data/outputs")
 
-    # formats the COl1A1 sequences
+    # Read and format the COl1A1 sequences
     col1a1_file = output_dir / "COL1A1_seqs_clean_NCBI.fasta"
     col1a1_dict = read_col_fasta(col1a1_file)
     col1a1_dict = get_species(col1a1_dict)
 
-    # formats COL1A2 sequences
+    # Read and format the COL1A2 sequences
     col1a2_file = output_dir / "COL1A2_seqs_clean_NCBI.fasta"
     col1a2_dict = read_col_fasta(col1a2_file)
     col1a2_dict = get_species(col1a2_dict)
 
-    # merge values (sequences) of COl1A1 and COl1A2 dicts
+    # Merge COl1A1 and COL1A2 sequences by species
     col1a2_combined = merge_col(col1a1_dict, col1a2_dict)
 
-    # gets taxonomic information
+    # Retrieve taxonomic information for the combined sequences
     col1a2_combined = get_taxa(col1a2_combined)
     
-    # creates fasta file
+    # Create and save the combined fasta file with taxonomic headers
     output_file = output_dir / "COL1A1A2_combined_seqs_NCBI.fasta"
     create_fasta(col1a2_combined, output_file)
 
