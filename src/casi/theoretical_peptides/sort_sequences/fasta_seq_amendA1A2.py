@@ -44,6 +44,56 @@ def read_col_fasta(file_name):
     file_obj.close()
     return sequences
 
+def get_species(sequences: dict) -> dict:
+    """
+    Reads in the sequences dictionary and creates a new sequences dictionary
+    with the species name and genus in a list as the key. Ectracts the species name 
+    from the current key.
+
+    Args:
+        sequences (dict): Dictionary with header as key and sequence as value
+
+    Returns:
+        new_sequences (dict): Dictionary with species name, genus name list 
+        as a key and sequence as value
+    """
+    new_sequences = {}
+    for key, value in sequences.items():
+        # gets out the species name
+        if key.endswith("]"):
+            species_name = key.split("[")[1]
+            species_name = species_name.strip("]")
+            # assigns standard format for species name
+            #name = "SPECIES=" + species_name
+            #name += "|GENUS=" + genus
+            # create new dictionary with new header
+            new_sequences[species_name] = value
+    del sequences
+    return new_sequences
+
+def merge_col(col1a1_sequences: dict, col1a2_sequences: dict) -> dict:
+    """
+    Merges the COl1A1 and COl1A2 sequences on the dictionary key (species name).
+
+    Args:
+        col1a1_sequences (dict): Dictionary with species names as key and COl1A1
+                                 sequence as value
+        col1a2_sequences (dict): Dictionary with species names as key and COl1A2
+                                 sequence as value
+
+    Returns:
+        a1a2_combined (dict): Dictionary with species names as key and merged
+                              COl1A1 and COl1A2 sequences as value
+    """
+    a1a2_combined = {}
+    for key in col1a1_sequences:
+        if key in col1a2_sequences:
+            a1a2_combined[key] = (
+                col1a1_sequences[key] + "R" + col1a2_sequences[key]
+            )
+
+    return a1a2_combined
+
 def get_taxa(sequences: dict) -> dict:
     """
     Gets the taxonomic information from the key in the sequences dictionary. The key need to
@@ -67,16 +117,17 @@ def get_taxa(sequences: dict) -> dict:
 
     for key, value in sequences.items():
 
-        # extracts species name and gets taxon information
-        key_list = re.split("[=|]", key)
-        species_name = key_list[1]
-        genus_name = key_list[-1]
+        genus = key.split(" ")[0].strip()
 
+        # gets taxonomy taxon id from species or genus name
         try:
-            taxon_id = taxopy.taxid_from_name(genus_name, taxdb)[0]
+            taxon_id = taxopy.taxid_from_name(key, taxdb)[0]
         except IndexError:
-            print(f"Genus {genus_name} not found in NCBI taxon database")
-            continue
+            try:
+                taxon_id = taxopy.taxid_from_name(genus, taxdb)[0]
+            except IndexError:
+                print("No taxon ID found for", key)
+                taxon_id = None
 
         taxon_object = taxopy.Taxon(taxon_id, taxdb)
         lineage = taxon_object.ranked_name_lineage
@@ -88,85 +139,66 @@ def get_taxa(sequences: dict) -> dict:
 
         # create RankLineage object
         lineage = RankLineage(
-            species=species_name,
+            species=key,
             genus=ranks.get("genus"),
             subfamily=ranks.get("subfamily"),
             family=ranks.get("family"),
             order=ranks.get("order"),
         )
-        print(lineage)
 
         new_sequences[lineage] = value
     return new_sequences
+
+def create_fasta(sequences: dict, output_file: Path) -> None:
+    """
+    Creates a fasta file with the sequences as values and the taxonomic information
+    as the header. The header is in the format of:
+    >SPECIES=species_name|GENUS=genus_name|SUBFAMILY=subfamily_name|
+    FAMILY=family_name|ORDER=order_name
+    """
     
-def change_header(sequences):
-    """Rearranges the fasta file header to obtain the species, genus and
-    the family and outptuts into a readable header."""
+    with open(output_file, "w", encoding="utf-8") as f:
+        for key, value in sequences.items():
+            print(f">SPECIES={key.species}|"
+                  f"GENUS={key.genus}|"
+                  f"SUBFAMILY={key.subfamily}|"
+                  f"FAMILY={key.family}|"
+                  f"ORDER={key.order}",
+                  file=f)
+            print(value, file=f)
 
-    new_sequences = {}
-    for key, value in sequences.items():
-    # gets out the species name
-        if key.endswith("]"):
-            species_name = key.split("[")[1]
-            species_name = species_name.strip("]")
-            # assigns standard format for species name
-            genus = species_name.split(" ")[0]
-            name = "SPECIES=" + species_name
-            name += "|GENUS=" + genus
-            # create new dictionary with new header
-            new_sequences[name] = value
-    del sequences
-    return new_sequences
-
-# function combines the COL1A1 and COL1A2 sequences to one sequence
-def COLA1A2combine(output_dir):
-    # formats the A1 sequences
-    file = output_dir / "COL1A1_seqs_clean_NCBI.fasta"
-    col1a1_dict = read_col_fasta(file)
-
-    # formats COL1A2 sequence
-    file2 = output_dir / "COL1A2_seqs_clean_NCBI.fasta"
-    col1a2_dict = read_col_fasta(file2)
-
-    ### Combining COL1A1 and COL1A2 dictionaries
-    # now one sequence with R (Arginine) in between
-    # combine if they have same key (i.e., same species)
-    A1A2_combined_dict = {}
-    for key in output_COL1A1_dict:
-        if key in output_COL1A2_dict:
-            A1A2_combined_dict[key] = (
-                output_COL1A1_dict[key] + "R" + output_COL1A2_dict[key]
-            )
-
-    ## Converting back to fasta format
-    output_file = output_dir / "COL1A1A2_combined_seqs_NCBI.fasta"
-    fh = open(output_file, "w")
-    for key in A1A2_combined_dict:
-        # first line is key
-        print(">{0}".format(key), file=fh)
-        # add lines for sequence
-        print(A1A2_combined_dict[key], file=fh)
-
-    fh.close()
     print(
         "COL1A1 and COL1A2 sequences have been combined and taxonomic information added."
     )
-    print(
-        "Number of complete COL1A1 and COL1A2 Sequences = {0}".format(
-            len(A1A2_combined_dict)
-        )
-    )
+    print(f"Number of complete COL1A1 and COL1A2 Sequences = {len(sequences)}")
     print("Output is COL1A1A2_combined_seqs_NCBI.fasta")
     print("######################################")
 
 def col1a2_combine():
     """Combines COl1a1 and COL1A2"""
     output_dir = Path("data/outputs")
-    # formats the A1 sequences
-    file = output_dir / "COL1A1_seqs_clean_NCBI.fasta"
-    col1a1_dict = read_col_fasta(file)
-    col1a1_dict = change_header(col1a1_dict)
-    col1a1_dict = get_taxa(col1a1_dict)
+
+    # formats the COl1A1 sequences
+    col1a1_file = output_dir / "COL1A1_seqs_clean_NCBI.fasta"
+    col1a1_dict = read_col_fasta(col1a1_file)
+    col1a1_dict = get_species(col1a1_dict)
+
+    # formats COL1A2 sequences
+    col1a2_file = output_dir / "COL1A2_seqs_clean_NCBI.fasta"
+    col1a2_dict = read_col_fasta(col1a2_file)
+    col1a2_dict = get_species(col1a2_dict)
+
+    # merge values (sequences) of COl1A1 and COl1A2 dicts
+    col1a2_combined = merge_col(col1a1_dict, col1a2_dict)
+
+    # gets taxonomic information
+    col1a2_combined = get_taxa(col1a2_combined)
+    
+    # creates fasta file
+    output_file = output_dir / "COL1A1A2_combined_seqs_NCBI.fasta"
+    create_fasta(col1a2_combined, output_file)
+
+     
 
 
 if __name__ == "__main__":
