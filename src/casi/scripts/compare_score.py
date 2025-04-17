@@ -133,8 +133,11 @@ def read_theor_csv(input_theor_path):
     }
     usecols = [
         "mass1",
-        "GENUS",
-        "SPECIES",
+        "genus",
+        "species",
+        "subfamily",
+        "family",
+        "order",
         "pep_seq",
         "pep_start",
         "pep_end",
@@ -181,7 +184,11 @@ def compare(theor_peaks, act_peaks, threshold):
     result_df = pd.DataFrame([match_count], columns=["Match"])
 
     # combines with the taxon information to identify which species it is
-    taxon_df = theor_peaks.loc[[0], ["GENUS", "SPECIES"]]
+    taxon_df = theor_peaks.loc[[0], ["species", 
+                                     "genus", 
+                                     "subfamily", 
+                                     "family", 
+                                     "order"]]
     final_df = pd.concat([taxon_df, result_df], axis=1)
     return (final_df, matches_df, match_count)
 

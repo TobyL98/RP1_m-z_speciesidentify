@@ -117,7 +117,7 @@ def integrate(output_path):
         predict_lc_df.reset_index(inplace=True, drop=True)
 
         # naming csv
-        species_name = predict_lc_df.loc[0, "SPECIES"]
+        species_name = predict_lc_df.loc[0, "species"]
         species_name = species_name.replace(" ", "_")
         # output_path is input into function
         output_folder = output_path / "filtered_peptides"

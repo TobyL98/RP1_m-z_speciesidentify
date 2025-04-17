@@ -147,7 +147,7 @@ def clean_a2_mammals(sequence_dict):
         elif match2:
             start = match2.start()
         # finds the correct end position
-        match3 = re.search(r"YRA", value)
+        match3 = re.search(r"[FY]RA", value)
         if match3:
             end = match3.end()
         # if sequences has both start and end position

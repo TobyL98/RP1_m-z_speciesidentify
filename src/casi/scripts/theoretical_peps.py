@@ -19,7 +19,7 @@ from importlib.resources import files
 import pandas as pd
 
 from casi.theoretical_peptides.sort_sequences.fasta_col_clean import run_clean_col
-from casi.theoretical_peptides.sort_sequences.fasta_seq_amendA1A2 import COLA1A2combine
+from casi.theoretical_peptides.sort_sequences.merge_cola1a2 import col1a1a2_combine
 from casi.theoretical_peptides.sort_sequences.fasta_to_csv import FastaToCSV
 from casi.theoretical_peptides.generate_peptides.cleave_all_sequences import collagen_peptide_mass
 from casi.theoretical_peptides.filter_peptides.lcmsms_masses import mass_lcsmsms
@@ -134,27 +134,22 @@ def main(argv=sys.argv[1:]):
     # Combines COLA1 and COL1A2 and adds taxonomic information
     # Outputs as Sequences/COL1A1A2_combined_seqs.fasta
     print("STEP 3:")
-    COLA1A2combine(output_folder)
-
-    # Converts the fasta file with COL1A1 COL1A2 combined into csv
-    # sorts taxonomi information into a sortable format
-    print("STEP 4:")
-    FastaToCSV(output_folder)
+    col1a1a2_combined = col1a1a2_combine(output_folder)
 
     # Generates all possible theoretical peptides and their masses
-    print("STEP 5:")
-    collagen_peptide_mass(output_folder)
+    print("STEP 4:")
+    collagen_peptide_mass(col1a1a2_combined, output_folder)
 
     # formatting possible LCMSMS masses into one document
     # used to then filter theoretical peptides
-    print("Step 6:")
+    print("Step 5:")
     lcmsms_dir = import_lcsmsms(args.lcmsms)
     mass_lcsmsms(lcmsms_dir, output_folder)
 
-    # integrates the theoretical peptides generated from run_parseseq.R
+    # integrates the theoretical peptides generated
     # with the LCMSMS data
     # to generate final theoretical peptides
-    print("STEP 7:")
+    print("STEP 6:")
     output_folder = args.output
     integrate(output_folder)
 

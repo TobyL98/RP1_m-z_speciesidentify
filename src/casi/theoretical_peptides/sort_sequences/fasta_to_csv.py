@@ -13,7 +13,7 @@ import pandas as pd
 def FastaToCSV(output_folder):
     file_name = output_folder / 'COL1A1A2_combined_seqs_NCBI.fasta'
     
-    file_obj = open(file_name, 'r')
+    file_obj = open(file_name, 'r', encoding="utf-8")
     known_taxons = []       #  ... and a list to contain their names
     sequences = {"sequence": []} # creates sequence dictionary
     sequence_count = 0
@@ -33,7 +33,7 @@ def FastaToCSV(output_folder):
             # assign each taxonomic level to list in dictionary
             taxons = header.split("|")
             for info in taxons:
-                taxon, name = info.split("=")[0:2]
+                taxon_list = info.split("=")
                 
                 if taxon in known_taxons: # if taxon already a key appends new name to list
                     sequences[taxon].append(name)
