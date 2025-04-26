@@ -20,7 +20,6 @@ import pandas as pd
 
 from casi.theoretical_peptides.sort_sequences.fasta_col_clean import run_clean_col
 from casi.theoretical_peptides.sort_sequences.merge_cola1a2 import col1a1a2_combine
-from casi.theoretical_peptides.sort_sequences.fasta_to_csv import FastaToCSV
 from casi.theoretical_peptides.generate_peptides.cleave_all_sequences import collagen_peptide_mass
 from casi.theoretical_peptides.filter_peptides.lcmsms_masses import mass_lcsmsms
 from casi.theoretical_peptides.filter_peptides.filter_peptides import integrate
