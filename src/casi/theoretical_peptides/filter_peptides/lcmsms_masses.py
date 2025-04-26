@@ -1,30 +1,19 @@
-#########################
-# Code - peptide_rules.py
-#########################
+"""
+peptide_rules.py
+Code uses the LC-MSMS data from multiple species collagen A1 and A2 
+It groups the data by peptides that have the same start and end positions.
+It uses these groups to work out common oxidation and deamidations in the peptide.
+These can then be applied to theoretically (in silico) generated peptides
+to predict what likely PTMs are in that peptide
+OUTPUTS: sequence_masses.csv that is used in integrate.py
+"""
 
-# Code uses the LC-MSMS data from multiple species
-# collagen A1 and A2
-# groups the data by peptides that have the same start and end positions
-# presumably the same or very similar pepetides due to lack variation
-# in collagen
-# uses these groups to work out common oxidation and deamidations in the peptide
-# these can then be applied to theoretically (in silico) generated peptides
-# to predict what likely PTMs are at that peptide
-# OUTPUTS: sequence_masses.csv that is used in integrate.py
-
-## Loading modules
-import glob
 import re
 from pathlib import Path
 import sys
 
 import pandas as pd
-
-###################
-###  Functions  ###
-###################
-
-
+ 
 # This function uses the Pep-var_mod column
 # to work out the number of PTMS in targeted residue (P, K, N/Q)
 # that there is in each peptide fragment sequenced by LC-MS/MS
@@ -62,14 +51,20 @@ def mod_count(mods, res):
     return mod_count
 
 
-# Loads in all the LCMSMS mascot csv files from the LCMSMS folder
-# and concatenates into one single dataframe
-def data_load(file_path):
-    csv_files = file_path.glob("*.csv")
+def data_load(dirpath: Path) -> pd.DataFrame:
+    """
+    Loads in all the LCMSMS mascot csv files from the LCMSMS folder and 
+    concatenates them into one single dataframe
 
-    # loops through all CSV files
-    # creates dataframe with columns required
-    # adds df to list
+    args
+        filepath (Path): the path to the directory that contains the LCMSMS csv files
+
+    returns
+        lcmsms_df (pd.Dataframe): contains all the LCMSMS data in one dataframe
+
+    """
+    csv_files = dirpath.glob("*.csv")
+
     df_list = []
     dtypes = {"pep_score": "float32", "pep_exp_mr": "float32"}
     use_cols = [
@@ -95,9 +90,33 @@ def data_load(file_path):
     # combines all dataframes in the list into single df
     df = pd.concat(df_list)
 
-    pos_sorted_df = df.sort_values(by=["pep_start", "pep_end"])
-    return pos_sorted_df
+    lcmsms_df = df.sort_values(by=["pep_start", "pep_end"])
+    return lcmsms_df
 
+def find_positions(df):
+
+    pep_startend_list = []
+
+    pep_seq_df_list = []
+    seq_count = 0
+
+    # This code loops through rows
+    #  finds specific start and end and sequence length
+    #  filters the dataframe by the specific start and end
+    for index, row in df.iterrows():
+        pep_start = row["pep_start"]
+        # creates a start list based on peptide start
+        # allows two behind and two after to account for frameshifts
+        start_list = list(range(pep_start - 4, pep_start + 4, 1))
+        pep_end = row["pep_end"]
+        # creates an end list based on peptide start
+        end_list = list(range(pep_end - 4, pep_end + 4, 1))
+        # gets the sequences length
+        seq_length = pep_end - pep_start
+        # puts into a tuple which accounts for all three factors
+        startend = tuple(pep_start, pep_end, seq_length)
+
+    return startend
 
 # reads in the dataframe with all possible PTMs
 # groups the data by peptides that have the same start and end positions
@@ -111,6 +130,8 @@ def df_filter(df):
 
     pep_seq_df_list = []
     seq_count = 0
+
+    
 
     # This code loops through rows
     #  finds specific start and end and sequence length
