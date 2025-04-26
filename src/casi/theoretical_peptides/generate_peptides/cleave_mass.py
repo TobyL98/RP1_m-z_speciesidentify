@@ -1,9 +1,11 @@
-"""cleave_mass.py
+"""
+cleave_mass.py
 
 Amending code that cleaves peptides
 from pyteomics so that italso returns
 start position, end position and
-number of missed cleavages"""
+number of missed cleavages
+"""
 
 import re
 import time
@@ -12,13 +14,19 @@ import pandas as pd  # type: ignore
 from pyteomics import mass
 
 
-def position_finder(seq, rule):
-    """Creates the position list where the digestion enzyme
+def position_finder(seq: str,
+                    rule: str) -> list:
+    """
+    Creates the position list where the digestion enzyme
     can cut based on the expasy rules
 
-    Input: protein (sequence)
-           expasy rule for enzyme cutting point (e.g, expasy_rules["trypsin"])
-    Output: Ordered list of numbered cutting positions (e.g., [1, 9, 24])"""
+    args 
+        seq (str): the peptide sequences
+        rule (str): the digestion enzyme that the cleavage rules are based on
+            in the expasy dictionary e.g., expasy["trypsin"]
+    returns
+        position_list (list): Ordered list of numbered cleavage positions (e.g., [1, 9, 24])
+    """
     # create position list and assign the start position (0)
     position_list = []
     start_position = 0
@@ -34,20 +42,27 @@ def position_finder(seq, rule):
     return position_list
 
 
-def peptide_getter(seq, position_list, miss_number, final_peptide_df):
-    """Gets all the peptide fragments from a sequnce using the
+def peptide_getter(seq: str,
+                   position_list: list,
+                   miss_number: int,
+                   final_peptide_df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Cleaves all the peptide fragments from a sequence using the
     position list. Accounts for a number of missed cleaves.
     For example, miss_number = 1 would use position 0-2, 1-3
     rather than 0-1, 1-2.
 
     Args:
-        seq(str)
-        position_list - list of positions (list)
-        miss_number (int)
+        seq (str): the peptide sequence
+        position_list (list): positions where a cleavage can occur
+        miss_number (int): number of missed cleavages allowed
 
     Returns:
-        list of peptide frgament sequence, start position, end position
-        and number of missed cleavages"""
+        final_peptide_df (pd.Dataframe): a dataframe containg the
+        sequence of a cleaved peptide, the start and end position
+        in the original peptide sequence and the number of missed
+        clevages
+    """
 
     num_cleave_sites = len(position_list)
     final_start_number = num_cleave_sites - (miss_number + 1)
@@ -71,10 +86,24 @@ def peptide_getter(seq, position_list, miss_number, final_peptide_df):
     return final_peptide_df
 
 
-def peptide_cleaver(seq, position_list, missed_cleavages):
-    """Iterates through the potential missed cleavages (0,1,2)
-    Uses peptide_getter to obtain the peptides for a specific number
-    of missed cleavages."""
+def peptide_cleaver(seq: str,
+                    position_list: list,
+                    missed_cleavages: int) -> pd.DataFrame:
+    """
+    Iterates through the potential missed cleavages (0,1,2)
+    Uses peptide_getter to obtain the peptides for the positions
+    of a specific peptide clevage
+
+    args
+        seq (str): the COl1 peptide sequence
+        positions_list (str): an ordered list of positions in the peptide
+            sequence where cleavage can occur
+        missed_cleavages (int): the number of missed cleavages allowed
+
+    returns
+        final_peptide_df (pd.Dataframe): a dataframe of cleaved peptides
+            and their start, end positions and number of missed cleavages.
+    """
 
     final_peptide_df = pd.DataFrame(
         [], columns=["seq", "seq_start", "seq_end", "missed_cleaves"]
@@ -88,15 +117,19 @@ def peptide_cleaver(seq, position_list, missed_cleavages):
     return final_peptide_df
 
 
-def mass_calculator(pep_df):
-    """Calculates the intial monoisotopics mass of
-    each peptide in the dataframe. Uses pyteomics
-    calculate_mass calculator. Using pyteomics
+def mass_calculator(pep_df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Calculates the intial monoisotopics mass of
+    each peptide in the dataframe. Using pyteomics
     fast mass function to calculate the mass.
     https://pyteomics.readthedocs.io/en/latest/index.html
 
-    Input: dataframe of peptides
-    Output: dataframe with mass column"""
+    args
+      pep_df (pd.DataFrame): dataframe of peptides
+
+    returns 
+      pep_df (pd.DataFrame): dataframe with additonal mass column
+    """
 
     pep_df["mass1"] = pep_df["seq"].apply(
         lambda seq: mass.fast_mass(sequence=seq, ion_type="M", charge=1)
@@ -107,13 +140,23 @@ def mass_calculator(pep_df):
     return pep_df
 
 
-def possible_ptms(pep_df, ptm_pattern, column_name):
-    """Calculates the possible hydroxylations and deamidations
+def possible_ptms(pep_df: pd.DataFrame,
+                  ptm_pattern: str,
+                  column_name : str) -> pd.DataFrame:
+    """
+    Calculates the possible hydroxylations and deamidations
     and creates a row for each possible combination
 
-    Input: peptide sequence,
-    Output: news rows in the peptide dataframe for each possible PTM
-    and the mass added"""
+    args
+      pep_df (pd.DataFrame): dataframe of peptides
+      ptm_pattern (str): pattern for hydroxylations or deamidations
+      column_name (str): eithr nhyd (hydroxylations) or ndeam (deamidations)
+
+    returns
+      alt_hyd_pep_df (pd.DataFrame): same as pep_df but with news rows 
+      in the peptide dataframe for each possible PTM combination and the 
+      new mass for that combination.
+    """
 
     # count total possible ptm modification (e.g., hydroxylations or deamidations)
     pep_df[column_name] = pep_df["seq"].str.count(ptm_pattern)
@@ -130,10 +173,20 @@ def possible_ptms(pep_df, ptm_pattern, column_name):
     return alt_hyd_pep_df
 
 
-def ptm_mass(pep_df):
-    """Adds on the mass of the PTM (hydoryxlation or deamidation)
+def ptm_mass(pep_df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Adds on the mass of the PTM (hydoryxlation or deamidation)
     to the predicted m/z value. PTM masses are the monisotopic
-    mass from UNIMOD: https://www.unimod.org/modifications_list.php?"""
+    mass from UNIMOD: https://www.unimod.org/modifications_list.php?
+    
+    args
+        pep_df (pd.DataFrame): dataframe with peptide sequence, mass, 
+        number of hydroxylations and number of deamidations
+    returns 
+        pep_df (pd.DataFrame): dataframe with peptide sequence, 
+        mass (with PTM mass added), number of hydroxylations and 
+        number of deamidations
+    """
 
     pep_df["mass1"] = pep_df.apply(
         lambda pep_row: pep_row["mass1"]
@@ -144,16 +197,24 @@ def ptm_mass(pep_df):
     return pep_df
 
 
-def cleave_and_mass(seq, rule="trypsin", missed_cleavages=0):
-    """Overall function that takes a polypeptide sequences as an input
-    and calculates digestion using an enzyme such as trypsin.
-    Then calculates the mass accountign for possible hydroxylations and deamdiations
+def cleave_and_mass(seq: str,
+                    rule: str="trypsin",
+                    missed_cleavages: int=0) -> pd.DataFrame:
+    """
+    Function takes a polypeptide sequences as an input
+    and in silico digests it using an enzyme such as trypsin.
+    Then calculates the mass accounting for possible hydroxylations and deamdiations
     as post-translational modifications.
 
-    Input: seq = peptide sequence (string)
-           rule = enzyme to use for cutting e.g., trypsin (default)
-           missed_cleavages = number of missed cleavages allowed (int))
-    Output:"""
+    args   
+        seq (string): collagen peptide sequence 
+        rule (string): enzyme to use for cutting e.g., trypsin 
+        missed_cleavages (int): number of missed cleavages allowed
+    
+    returns 
+        peptide_df (pd.DataFrame): dataframe with peptide sequence, mass, 
+        number of hydroxylations and number of deamidations
+    """
 
     # defining the cleavage rules correctly
     expasy_rules = rules()
@@ -163,7 +224,6 @@ def cleave_and_mass(seq, rule="trypsin", missed_cleavages=0):
     peptide_df = peptide_cleaver(seq, position_list, missed_cleavages)
     # calculates the initial mass of the peptides
     peptide_df = mass_calculator(peptide_df)
-    # creates new rows for the possible PTMS
     # hydroxylations
     peptide_df = possible_ptms(peptide_df, "[PKM]", "nhyd")
     # deamidations
