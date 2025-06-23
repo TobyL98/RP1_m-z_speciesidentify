@@ -11,8 +11,20 @@ OUTPUTS: sequence_masses.csv that is used in integrate.py
 import re
 from pathlib import Path
 import sys
+from collections import namedtuple
 
 import pandas as pd
+
+Positions = namedtuple(
+    "Positions",
+    [
+        "start",
+        "end",
+        "length",
+        "start_list",
+        "end_list",
+    ]
+)
  
 # This function uses the Pep-var_mod column
 # to work out the number of PTMS in targeted residue (P, K, N/Q)
@@ -93,30 +105,40 @@ def data_load(dirpath: Path) -> pd.DataFrame:
     lcmsms_df = df.sort_values(by=["pep_start", "pep_end"])
     return lcmsms_df
 
-def find_positions(df):
+def find_positions(row: pd.DataFrame) -> namedtuple:
+    """
+    Finds the start, end position and length for each peptide
+    fragment generated in the LC-MS/MS experiment. The start and end position
+    are the start and end positions in the full protein sequence.
+    Each row is a different peptide fragment. Creates start and end lists
+    that allow for frameshifts in different peptides.
 
-    pep_startend_list = []
+    args
+        lcmsms_df (pd.DataFrame) -> dataframe of LC-MS/MS peptide fragments
 
-    pep_seq_df_list = []
-    seq_count = 0
+    returns
+        positions (namedtuple) -> Contains the start position, end positions,
+        fragment sequence length, start list and end list.
+    """
 
-    # This code loops through rows
-    #  finds specific start and end and sequence length
-    #  filters the dataframe by the specific start and end
-    for index, row in df.iterrows():
-        pep_start = row["pep_start"]
-        # creates a start list based on peptide start
-        # allows two behind and two after to account for frameshifts
-        start_list = list(range(pep_start - 4, pep_start + 4, 1))
-        pep_end = row["pep_end"]
-        # creates an end list based on peptide start
-        end_list = list(range(pep_end - 4, pep_end + 4, 1))
-        # gets the sequences length
-        seq_length = pep_end - pep_start
-        # puts into a tuple which accounts for all three factors
-        startend = tuple(pep_start, pep_end, seq_length)
+    
+    pep_start = row["pep_start"]
+    # allows four behind and four after to account for frameshifts
+    start_list = list(range(pep_start - 4, pep_start + 4, 1))
+    # creates an end list
+    pep_end = row["pep_end"]
+    end_list = list(range(pep_end - 4, pep_end + 4, 1))
+    seq_length = pep_end - pep_start
+    
+    positions = Positions(
+        pep_start,
+        pep_end,
+        seq_length,
+        start_list,
+        end_list
+    )
 
-    return startend
+    return positions
 
 # reads in the dataframe with all possible PTMs
 # groups the data by peptides that have the same start and end positions
@@ -149,6 +171,8 @@ def df_filter(df):
         # puts into a tuple which accounts for all three factors
         startend = (pep_start, pep_end, seq_length)
 
+        # NEW FUNCTION
+
         # if tuple value is not already in list
         if startend not in pep_startend_list:
             seq_count += 1
@@ -160,7 +184,7 @@ def df_filter(df):
                 & (df["pep_end"] - df["pep_start"] == seq_length)
             ]
 
-            # dropping duplicates so only keep the top pep_score
+            # dropping duplicates so only keep the top pep_score for each modification
             pep_seq_df = pep_seq_df.sort_values(by=["pep_score"], ascending=False)
             pep_seq_df = pep_seq_df.drop_duplicates(
                 subset=[
@@ -176,6 +200,8 @@ def df_filter(df):
             pep_seq_df = pep_seq_df.reset_index(drop=True)
             pep_seq_df["pep_id"] = seq_count  # add a unique identifier
 
+        # NEW FUNCTION
+
             # use apply on function to count number of hydroxylations (M, P and K)
             # and demidations (N and Q)
             # from LC-MS/MS data
@@ -185,6 +211,8 @@ def df_filter(df):
             pep_seq_df["deam_count"] = pep_seq_df["pep_var_mod"].apply(
                 mod_count, res=r"NQ"
             )
+
+        # NEW FUNCTION
 
             # group by used to ensure there are no duplicate PTMs are included
             # hyd_count and deam_count are important for this
@@ -204,6 +232,8 @@ def df_filter(df):
                 }
             )
 
+        # NEW FUNCTION
+
             # add 1 to calculate PMF value
             pep_seq_df["PMF_predict"] = pep_seq_df["pep_exp_mr"] + 1
             # adds the df to a dictionary
@@ -212,15 +242,55 @@ def df_filter(df):
             # generates the pep_startend_list
             # adds all peptide start, end and sequence length combinations that have been done
             # means they are not done more than once
-            num_count = 0
+            num_count = 0 #TODO code needs to be moved if we are refactoring
             for num in start_list:
                 startend_poss = (start_list[num_count], end_list[num_count], seq_length)
                 pep_startend_list.append(startend_poss)
-                num_count += 1
+                num_count += 1         
 
     # add all the different peptide dfs into one df
     all_peps_df = pd.concat(pep_seq_df_list)
     return all_peps_df
+
+def remove_duplicates(lcmsms_df, positions):
+    """
+    """
+
+    pep_fragment = lcmsms_df.loc[
+        lcmsms_df["pep_start"].isin(positions.start_list)
+        & lcmsms_df["pep_end"].isin(positions.end_list)
+        & (lcmsms_df["pep_end"] - lcmsms_df["pep_start"] == positions.length)
+    ]
+    # dropping duplicates so only keep the top pep_score
+    pep_fragment = pep_fragment.sort_values(by=["pep_score"], ascending=False)
+    pep_fragment = pep_fragment.drop_duplicates(
+        subset=[
+            "pep_seq",
+            "pep_start",
+            "pep_end",
+            "pep_miss",
+            "pep_var_mod",
+            "prot_acc",
+        ]
+    )
+    pep_fragment = pep_fragment.sort_values(by=["prot_acc"])
+    pep_fragment = pep_fragment.reset_index(drop=True)
+
+    return pep_fragment
+
+def filter_lcmsms(lcmsms_df: pd.DataFrame):
+    """
+    """
+
+    for index, row in lcmsms_df.iterrows():
+
+        positions = find_positions(row)
+
+        remove_duplicates = filter_lcmsms(lcmsms_df, positions)
+
+
+
+    return None
 
 
 def mass_lcsmsms(lcmsms_dir, output_folder):
