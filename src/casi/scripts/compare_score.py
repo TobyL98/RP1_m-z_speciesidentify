@@ -21,6 +21,7 @@ import pandas as pd
 # FUNCTIONS
 ################
 
+
 def file_test(arg):
     """Tests if the input file exists"""
     p = Path(arg)
@@ -29,6 +30,7 @@ def file_test(arg):
     else:
         raise FileNotFoundError(arg)
 
+
 def directory_test(arg):
     """Test if the input directory exists"""
     p = Path(arg)
@@ -36,6 +38,7 @@ def directory_test(arg):
         return p
     else:
         raise Exception("The input directory does not exist {0}".format(p))
+
 
 def output_test(arg):
     """Test if directory of new output file exists"""
@@ -46,6 +49,24 @@ def output_test(arg):
     else:
         raise Exception(
             "The directory of the new output file does not exist {0}".format(p)
+        )
+
+
+def range_test(arg):
+    """
+    Tests if the input is a valid range for the mass range of a ZooMS sample.
+    """
+    if (
+        not isinstance(arg, tuple)
+        or len(arg) != 2
+        or not all(isinstance(x, float) for x in arg)
+    ):
+        raise ValueError("The input range should in the form (min, max)")
+
+    if arg[0] < arg[1]:
+        raise ValueError(
+            """The input range is invalid. 
+            The min value should be smaller than the max value (min, max)"""
         )
 
 
@@ -98,6 +119,15 @@ def parse_args(argv):
         type=float,
     )
     parser.add_argument(
+        "-mr",
+        "--mass_range",
+        help="""The mass (m/z) range within which a match can occur. The format must be (min,max) with
+        the first value the minimum value a match can be and the second value the maximum value a match can be.
+        Default is (800,3500) which is 800-3,500 m/z""",
+        default=(800, 3500),
+        type=range_test
+    )
+    parser.add_argument(
         "-m5",
         "--top5",
         help="""If 1 is inputted will provide an excel file of m/z peak matches for the top 5 match counts as an xlsx (excel) file.
@@ -108,17 +138,22 @@ def parse_args(argv):
     args = parser.parse_args()
     return args
 
-def read_exp_PMF(input_PMF):
+
+def read_exp_PMF(input_PMF, mass_range):
     """reads in the experimental PMF text file with m/z values"""
     # read in txt file of PMF values from data
     dtype = {"MZ": "float32", "intensity": "float32"}
     act_peaks_df = pd.read_table(
         input_PMF, sep="\t", header=None, names=["MZ", "intensity"], dtype=dtype
     )
-    total_peaks = len(act_peaks_df["MZ"]) # count total number of peaks
+    act_peaks_df = act_peaks_df[
+        act_peaks_df["MZ"].between(*mass_range)
+        ].reset_index(drop=True)
+    total_peaks = len(act_peaks_df["MZ"])  # count total number of peaks
     return act_peaks_df, total_peaks
 
-def read_theor_csv(input_theor_path):
+
+def read_theor_csv(input_theor_path, mass_range):
     """reads in all the csv files theoretical peptide m/z values
     and assigns all as dataframes to a list"""
     # get all csv files
@@ -148,12 +183,16 @@ def read_theor_csv(input_theor_path):
     theor_peaks_df_list = []
     for csv in csv_files:
         theor_peaks_df = pd.read_csv(csv, sep=",", dtype=dtype, usecols=usecols)
+        theor_peaks_df = theor_peaks_df[
+            theor_peaks_df["mass1"].between(*mass_range)
+        ].reset_index(drop=True)
         theor_peaks_df_list.append(theor_peaks_df)
     return theor_peaks_df_list
 
+
 def compare(theor_peaks, act_peaks, threshold):
     """Function does the comparison between one set of theoretical peptides
-    and the PMF within a certain allowance theor_peaks are the 
+    and the PMF within a certain allowance theor_peaks are the
     theoretical peaks act_peaks are the actual peaks from PMF"""
     # creates columns that are the same in each
     # can then be merged
@@ -184,13 +223,12 @@ def compare(theor_peaks, act_peaks, threshold):
     result_df = pd.DataFrame([match_count], columns=["Match"])
 
     # combines with the taxon information to identify which species it is
-    taxon_df = theor_peaks.loc[[0], ["species", 
-                                     "genus", 
-                                     "subfamily", 
-                                     "family", 
-                                     "order"]]
+    taxon_df = theor_peaks.loc[
+        [0], ["species", "genus", "subfamily", "family", "order"]
+    ]
     final_df = pd.concat([taxon_df, result_df], axis=1)
     return (final_df, matches_df, match_count)
+
 
 def peaks_comparison(theor_peaks_list, act_peaks_df, thresh, total_peaks, output):
     """Reads in the theoretical peaks and actual peaks
@@ -209,7 +247,7 @@ def peaks_comparison(theor_peaks_list, act_peaks_df, thresh, total_peaks, output
 
     # put all results in one dataframe
     match_results_df = pd.concat(results_list)
-    match_results_df['Maximum Possible'] = total_peaks
+    match_results_df["Maximum Possible"] = total_peaks
     match_results_df = match_results_df.sort_values(by=["Match"], ascending=False)
     match_results_df = match_results_df.reset_index(drop=True)
 
@@ -221,8 +259,9 @@ def peaks_comparison(theor_peaks_list, act_peaks_df, thresh, total_peaks, output
     match_results_df.to_csv(output)
     return matches_dict
 
+
 def top_5(match_dict, option_match, output):
-    """Saves top 5 matches_df as xlxs to same output 
+    """Saves top 5 matches_df as xlxs to same output
     location as matches if option inputted in command"""
     if option_match == 1:
         top_5_match = sorted(match_dict.keys(), reverse=True)[:5]
@@ -252,6 +291,7 @@ def top_5(match_dict, option_match, output):
         )
         print("'top5_matches.xlsx'")
 
+
 def main(argv=sys.argv[1:]):
     """Main method and logic"""
     print("""####################
@@ -262,11 +302,11 @@ Program: Compare_NCBI.py
 
     input_PMF = Path(args.inputPMF)
     # reads in experimental PMF csv
-    actual_peaks_df, total_peaks = read_exp_PMF(input_PMF)
+    actual_peaks_df, total_peaks = read_exp_PMF(input_PMF, args.mass_range)
 
     input_theor_folder = args.inputTheor
     # reads all csvs for species theoretical PMFs
-    theoretical_peaks_df_list = read_theor_csv(input_theor_folder)
+    theoretical_peaks_df_list = read_theor_csv(input_theor_folder, args.mass_range)
 
     output_path = Path(args.output)
     threshold = args.threshold

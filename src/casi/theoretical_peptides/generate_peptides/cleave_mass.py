@@ -134,8 +134,6 @@ def mass_calculator(pep_df: pd.DataFrame) -> pd.DataFrame:
     pep_df["mass1"] = pep_df["seq"].apply(
         lambda seq: mass.fast_mass(sequence=seq, ion_type="M", charge=1)
     )
-    # filter for m/z values seen in spectrums
-    pep_df = pep_df.loc[(pep_df["mass1"] <= 3500.0) & (pep_df["mass1"] >= 800.0)]
 
     return pep_df
 
