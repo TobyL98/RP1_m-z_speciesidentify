@@ -114,7 +114,10 @@ def integrate(output_path):
             ]
         )
 
-        predict_lc_df.reset_index(inplace=True, drop=True)
+        predict_lc_df = (predict_lc_df
+                         .iloc[::-1]
+                         .reset_index(drop=True)
+                         )
 
         # naming csv
         species_name = predict_lc_df.loc[0, "species"]
